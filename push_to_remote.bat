@@ -13,5 +13,7 @@ REM 执行Git命令向远程仓库推送代码
 git add .
 git commit -m "Automatically commit code"
 git push origin master
+
+pause
     
 
