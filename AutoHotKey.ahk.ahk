@@ -12,6 +12,15 @@
  
     ; Ctrl+B 浅蓝色
     ^!b::addFontColor("cornflowerblue")
+
+    ; Ctrl+Shift+G 绿色
+    ^+g::addFontColor("green")
+
+    ; Ctrl+Shift+Y 黄色
+    ^+y::addFontColor("yellow")
+
+    ; Ctrl+空格 居中
+    ^SPACE::addCenterStyle()
 }
  
 ; 快捷增加字体颜色
@@ -25,4 +34,14 @@ addFontColor(color){
     }else{
         SendInput {TEXT}</ ; Typora中自动补全标签
     }
+}
+
+; 快捷添加居中样式
+addCenterStyle(){
+    clipboard := "" ; 清空剪切板
+    Send {ctrl down}c{ctrl up} ; 复制
+    SendInput {TEXT}<div align='center'>
+    SendInput {ctrl down}v{ctrl up} ; 粘贴
+    SendInput {TEXT}</ ; Typora中自动补全标签
+    
 }
