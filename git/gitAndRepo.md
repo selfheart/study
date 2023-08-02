@@ -56,9 +56,66 @@ git stash pop
 
 记得在执行任何操作前，先备份重要的代码，以免意外数据丢失。
 
-祝您使用愉快！如果还有其他问题，请随时提问。
+### 1.3 git branch
 
+在 Git 中，分支 (branch) 是用于在版本控制中管理代码不同版本的重要概念。下面是一些常见的 Git 分支相关操作介绍：
 
+1. 创建分支：使用 `git branch` 命令可以创建一个新的分支。例如，要创建名为 `feature` 的新分支，可以运行以下命令：
+   ```
+   git branch feature
+   ```
+
+2. 切换分支：使用 `git checkout` 命令可以切换到已存在的分支。例如，要切换到 `feature` 分支，可以运行以下命令：
+   ```
+   git checkout feature
+   ```
+
+   <font color='red'>注意：当前分支内容没有commit的话，切换分支会删除当前分支未保存内容</font>
+   
+   或者，您可以使用 `git switch` 命令进行切换（Git 2.23+ 版本）。例如：
+   
+```
+   git switch feature
+   ```
+   
+3. 创建并切换分支：使用 `git checkout -b` 命令可以同时创建并切换到一个新分支。例如，要创建并切换到名为 `feature` 的新分支，可以运行以下命令：
+   ```
+   git checkout -b feature
+   ```
+
+   或者，使用 `git switch -c` 命令来实现相同的效果（Git 2.23+ 版本）。例如：
+   ```
+   git switch -c feature
+   ```
+
+4. 查看分支：使用 `git branch` 命令可以查看仓库中所有的本地分支。运行 `git branch -r` 可以查看远程分支。添加 `-a` 参数可以同时查看本地和远程分支。
+
+5. 删除分支：使用 `git branch -d` 命令可以删除已合并的本地分支。例如，要删除名为 `feature` 的分支，可以运行以下命令：
+   ```
+   git branch -d feature
+   ```
+
+   如果要强制删除一个尚未合并的分支，可以使用 `git branch -D` 命令：
+   ```
+   git branch -D feature
+   ```
+
+6. 追踪远程分支：使用 `git branch --set-upstream-to` 或 `git branch --track` 命令可以将本地分支与远程分支关联起来，并跟踪远程分支的更改。例如，要将本地分支 `feature` 关联到远程分支 `origin/feature`，可以运行以下命令：
+   ```
+   git branch --set-upstream-to=origin/feature feature
+   ```
+
+7. 合并分支：使用 `git merge` 命令可以将一个分支合并到当前所在的分支中。例如，如果希望将 `feature` 分支合并到当前分支，可以先切换到目标分支（例如 `main` 或 `master`），然后运行以下命令：
+   ```
+   git merge feature
+   ```
+
+8. 重命名分支：使用 `git branch -m` 命令可以对分支进行重命名。例如，要将当前分支重命名为 `new-feature`，可以运行以下命令：
+   ```
+   git branch -m new-feature
+   ```
+
+上述只是 Git 中的一些常见分支相关操作介绍，Git 还有更多用于管理和操作分支的命令和技巧。使用这些分支操作可以帮助您在开发过程中更好地组织和管理不同版本的代码。
 
 
 
