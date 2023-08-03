@@ -1,14 +1,106 @@
 <div align='center'>  http通信</div>
 
-## 1.http简介
+## 1.http基础知识
 
+### 1.1 简介
 
+HTTP（Hypertext Transfer Protocol）是一种用于传输超文本的应用层协议。它是构建万维网（World Wide Web）的基础，并在客户端和服务器之间进行通信。
 
+1. 客户端-服务器模型：
+   HTTP 是一种经典的客户端-服务器模型的协议。客户端发送 HTTP 请求，而服务器接收并响应该请求。客户端可以是浏览器、移动应用或其他发送 HTTP 请求的应用程序；而服务器则是存储和提供资源的计算机。
 
+2. 无状态协议：
+   HTTP 是一种无状态协议，即服务器不会保存之前请求的相关信息。每个请求都是相互独立的，服务器仅根据当前请求来处理，并返回相应的响应。但为了实现状态管理，可以使用 Cookie、Session 等机制。
 
+3. 请求-响应模式：
+   每个 HTTP 交互由一个请求和一个响应组成。客户端发送一个请求给服务器，服务器处理该请求并返回一个响应。请求包括请求方法、URI、协议版本、请求头部和请求体；响应则包括状态码、响应头部和响应体。
 
+4. URI（Uniform Resource Identifier）：
+   URI 是一个唯一标识符，用于标识互联网上的资源。在 HTTP 请求中，URI 指定了要访问的资源的位置和名称。它由三部分组成：协议（如 HTTP、HTTPS）、主机名（如 www.example.com）和资源路径（如 /index.html）。
 
+5. 请求方法：
+   请求方法指示客户端要对资源执行的操作。常见的请求方法有 GET、POST、PUT、DELETE。例如，GET 用于获取资源，POST 用于提交数据，PUT 用于上传文件，DELETE 用于删除资源。
 
+6. 状态码：
+   响应中的状态码表示服务器对请求的处理结果。常见的状态码有 200 OK（请求成功）、404 Not Found（未找到资源）、500 Internal Server Error（服务器错误）等。
+
+7. 请求头部和响应头部：
+   请求头部包含了与请求相关的信息，如 User-Agent（客户端身份标识）、Content-Type（请求体的数据类型）。响应头部则包含了与响应相关的信息，如 Content-Type（响应体的数据类型）、Content-Length（响应体的长度）。
+
+8. 持久连接和管道化：
+   HTTP/1.1 引入了持久连接的概念，允许多个 HTTP 请求和响应通过同一个 TCP 连接传输，以减少连接建立和关闭的开销。HTTP/1.1 还支持管道化，即在没有等待前一个响应的情况下发送多个请求。
+
+9. 加密通信：
+   HTTP 可以使用安全套接层（SSL）或传输层安全（TLS）来加密通信，形成 HTTPS。HTTPS 使用公钥加密和私钥解密的方式，确保通信的机密性和数据的完整性。
+
+HTTP 协议提供了简单、灵活和可扩展的方式来传输超文本。它广泛用于万维网中，支持浏览器访问网页、传输数据和与服务器进行交互。在开发 Web 应用程序时，了解 HTTP 协议是非常重要的，因为它涉及到网络通信和数据传输的基本原理。
+
+### 1.2 http请求
+
+#### 1.2.1 报文组成
+
+ ![image-20230802144831280](C:\Users\jiangzhuangzhuang\study\study\24MM\TLS\http通信.assets\image-20230802144831280.png)
+
+HTTP 请求报文是客户端向服务器发送的请求的格式。它由请求行、请求头部和请求体组成。下面是对 HTTP 请求报文的详细介绍：
+
+1. 请求行：
+   请求行包含了请求方法、请求目标和 HTTP 版本。通常由三个部分组成，使用空格进行分隔：
+   ```
+   <Method> <Request-Target> <HTTP-Version>
+   ```
+   - <font color='red'>Method：表示请求的 HTTP 方法，如 GET、POST、PUT、DELETE 等</font>。
+
+   ```
+   GET：用于获取资源，在服务器端不会对资源进行修改。
+   
+   POST：用于向服务器提交数据，并在服务器端创建一个新的资源。
+   
+   PUT：用于向服务器上传数据，并替换服务器端指定的资源。该请求需要客户端提供完整的资源表示，并将其替换服务器上对应的资源。
+   
+   DELETE：用于删除服务器上的资源。
+   ```
+
+   - Request-Target：表示请求的目标资源的路径，可以是绝对路径或相对路径。
+   - HTTP-Version：表示使用的 HTTP 协议的版本号，如 HTTP/1.1。
+
+2. 请求头部：
+   请求头部包含了关于请求的附加信息，以键值对的形式表示。每个键值对占据一行，以冒号进行分隔，如：
+   
+   ```
+   <Header-Name>: <Header-Value>
+   ```
+   常见的请求头部包括：
+   - Host：表示服务器的主机名和端口号。
+   - User-Agent：表示客户端的身份标识。
+   - Content-Type：表示请求体的数据类型。
+- Content-Length：表示请求体的长度。
+   
+3. 空行：
+   空行用于分隔请求头部和请求体，在请求头部结束后加上一个空行。
+
+4. 请求体：
+   请求体包含了需发送给服务器的数据。它位于空行之后，并根据请求头部中的 Content-Type 来解析数据格式。常见的格式有：
+   - application/x-www-form-urlencoded：用于发送表单数据。
+   - multipart/form-data：用于上传文件和二进制数据。
+   - application/json：用于发送 JSON 格式的数据。
+
+HTTP 请求的使用方法可以通过使用各种编程语言或框架来实现。一般来说，可以使用 HTTP 客户端库（如 Java 中的 HttpClient、JavaScript 中的 axios）来创建请求对象，设置请求方法、URL、请求头部和请求体等参数，然后发送请求并获取服务器的响应。
+
+以下是一个示例的 HTTP 请求报文：
+
+```
+POST /api/users HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+Content-Type: application/json
+Content-Length: 56
+
+{"username":"john_doe","email":"john.doe@example.com"}
+```
+
+这个示例使用 POST 方法向 `/api/users` 路径发送请求，请求头部包含了 Host、User-Agent、Content-Type 和 Content-Length 等信息，请求体中包含了一个 JSON 格式的数据。
+
+需要根据具体的编程语言和框架来构建和发送 HTTP 请求，以满足自己的需求。
 
 ## 2.安卓http通信实现
 
