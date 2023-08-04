@@ -140,9 +140,27 @@ OkHttp、Retrofit 和 RxJava 是在 Android 开发中经常同时使用的三个
 
 总之，OkHttp + Retrofit + RxJava 是一套前后端交互的完整解决方案，能够简化和优化 Android 开发中的网络请求和数据处理的代码。它们提供了强大的功能和灵活的机制，帮助开发者提升开发效率，并保证了网络请求的可靠性和稳定性。
 
+### 2.2 OkHttp + Retrofit + RxJava 
+
+#### 2.2.1 OkHttp 
 
 
-### 2.2 代码实操
+
+
+
+#### 2.2.2 Retrofit 
+
+
+
+
+
+#### 2.2.3  RxJava 的消息订阅和线程切换原理          
+
+https://mp.weixin.qq.com/s/GBGlttLgQA2XrMcRTUUTOw
+
+
+
+### 2.3 代码实操
 
 这是一个使用 Retrofit + RxJava 的示例代码，其中包含一个名为 `campaignStatusNotification` 的方法。该方法接受一些参数，并返回一个 Observable<Boolean> 对象。
 
