@@ -74,7 +74,7 @@ HTTP 请求报文是客户端向服务器发送的请求的格式。它由请求
    - User-Agent：表示客户端的身份标识。
    - Content-Type：表示请求体的数据类型。
 - Content-Length：表示请求体的长度。
-   
+  
 3. 空行：
    空行用于分隔请求头部和请求体，在请求头部结束后加上一个空行。
 
@@ -150,8 +150,23 @@ OkHttp、Retrofit 和 RxJava 是在 Android 开发中经常同时使用的三个
 
 #### 2.2.2 Retrofit 
 
+Retrofit主要负责应用层面的封装，就是说主要面向开发者，方便使用，比如请求参数，响应数据的处理，错误处理
+等等。
+Retrofit封装了具体的请求，线程切换以及数据转换。
+一般都推荐RxJava+Retrofit+OkHttp框架，Retrofit负责请求的数据和请求的结果，使用接口的方式呈现，
+OkHttp负责请求的过程，RxJava负责异步，各种线程之间的切换，用起来非常便利
 
+![img](C:\Users\jiangzhuangzhuang\study\study\24MM\TLS\http通信.assets\20210407144559955.png)
 
+大体的网络流程是一致的，毕竟都是通过okhttp进行网络请求。主要的步骤都是：创建网络请求实体client->构建真
+正的网络请求-> 将网络请求方案与真正的网络请求实体结合构成一个请求Call->执行网络请求->处理返回数据->处理
+Android 平台的线程问题。
+在上图中，我们看到的对比最大的区别是什么？
+0）okhttp创建的是OkhttpClient，然而retrofit创建的是 Retrofit实例
+1）构建蓝色的Requet的方案，retrofit是通过注解来进行的适配
+2）配置Call的过程中，retrofit是利用Adapter适配的Okhttp 的Call
+3）相对okhttp，retrofit会对responseBody进行 自动的Gson解析
+4）相对okhttp，retrofit会自动的完成线程的切换。
 
 
 #### 2.2.3  RxJava 的消息订阅和线程切换原理          
