@@ -1,0 +1,224 @@
+openapi: 3.0.3
+info:
+  title: POST Function Information API
+  description: 機能情報アップロードのAPI / Function information UL's API
+  version: 1.70.0
+#######################################################
+# history
+# 
+# 0.0.1
+#  HUCOM仕様書v1.00をもとに機能情報アップロードのリクエストを新規作成
+# 
+# 0.0.2
+#  HUCOM仕様書v1.10をもとに機能情報アップロードのリクエストを修正
+#
+# 1.50.0
+#  HUCOM仕様書v1.50をもとに機能情報アップロードのリクエストを修正
+#  Modified function information upload request based on HUCOM spec v1.50
+#
+# 1.70.0
+#  HUCOM仕様書v1.70をもとに機能情報アップロードのリクエストを修正
+#  Modified function information upload request based on HUCOM spec v1.70
+#######################################################
+
+servers: #Add, 2022/9/16, 1RF7G Yoshida
+  - url: https://https://post-function-24mm.qa.connectedtech.io
+    description: NA Trial URL
+
+  - url: https://post-function-24mm.qa.euconnectedtech.io
+    description: EU Trial URL
+
+  - url: https://post-function-24mm.qa.auconnectedtech.io
+    description: AU Trial URL
+  
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.preprod.connectedtech.io
+    description: NA PreProd URL
+  
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.preprod.euconnectedtech.io
+    description: EU PreProd URL
+
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.preprod.auconnectedtech.io
+    description: AU PreProd URL
+  
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.connectedtech.io
+    description: NA Prod URL
+  
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.euconnectedtech.io
+    description: EU Prod URL
+
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://post-function-24mm.auconnectedtech.io
+    description: AU Prod URL
+ 
+#Modify paths, 2023/3/14, 1RF7G Yoshida
+paths:
+  /:
+
+    post:
+      description:
+        サーバに機能情報をアップロードするためのAPI / <br>
+        POST function information
+      summary: サーバに機能情報をアップロードするためのAPI / POST function information
+      operationId: upload
+      parameters:
+        - in: header
+          name: User-Agent
+          description:
+            User-Agentの文字列には情報管理キーを設定する / <br>
+            Set the information management key in the User-Agent character string.
+          schema:
+            type: string
+            # 2022/8/30 6桁に修正, 1RF7G Yoshida
+            # 2022/8/30 Corrected to 6 digits, 1RF7G Yoshida
+            minLength: 6
+            maxLength: 6
+            example: "TA1TJP"
+          required: true
+        - in: header
+          name: x-vin
+          description:
+            x-vinにはVIN情報を設定する / <br>
+            Set VIN information in x-vin.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 17
+            example: "12345678901234567"
+          required: true
+        - in: header
+          name: DATE
+          description: RFC2616 3.3.1章の「rfc1123-date」の形式に従う / <br>
+            Follow the format rfc1123-date in chapter 3.3.1 of the RFC2616.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 30
+            example: "Sun, 06 Nov 1994 08:49:37 GMT"
+          required: true
+        - in: header
+          name: Accept-Encoding
+          description: Accept-Encodingの値はgzipに対応する / <br>
+            Set gzip in Accept-Encoding.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 10
+            example: "gzip"
+          required: true
+        - in: header
+          name: Content-Encoding
+          description: リクエストボディが含まれる場合は付与する <br>
+            基本はgzipだが独自の圧縮方式がある場合はそちらに従うこと / <br>
+            Use this header, if HTTP request body is set. <br>
+            gzip is default settings, but if the function have its own compression method, follow them.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 10
+            example: "gzip"
+          # Add "required: true", 2023/1/23, 1RF5G Yoshida
+          required: true
+        # Content-Typeを追記, 2023/1/23, 1RF5G Yoshida
+        # Add "Content-Type", 2023/1/23, 1RF5G Yoshida
+        - in: header
+          name: Content-Type
+          description: POSTするデータのメディア種別を表す <br>
+            詳細はHUCOM仕様書のProvision_020_050を参照 / <br>
+            Represents the media type of data to be POSTed. <br>
+            Please refer to "Provision_020_050" of the HUCOM specification for details.
+          schema:
+            type: string
+            example: "application/x-protobuf"
+          required: true
+
+      requestBody:
+        description: # Add description, 2022/8/30, 1RF7G Yoshida
+          アップロードする機能情報をリクエストボディとして設定する <br>
+          詳細はHUCOM仕様書「srvflg.proto」の「Functions」参照 / <br>
+          Set function information to be uploaded as request body. <br>
+          Refer "Functions" in srvflg.proto of the HUCOM specification for more information.
+        content:
+          application/x-protobuf:
+            schema:
+              description: 詳細はHUCOM仕様書「srvflg.proto」のFunctionsを参照 /
+                Refer "Functions" in srvflg.proto of the HUCOM specification for more information.
+              type: string
+              example: map<string, string>
+        required: true
+
+      responses:
+        'default':
+          description: レスポンスステータスコードとコードごとの対処はHUCOM仕様書に従う <br>
+            正常応答とヘッダを返すエラーコードのみ定義する <br>
+            HUCOM仕様書に従わない場合は、機能仕様を定義すること <br>
+            Follow the HUCOM spec for response status code and how to handle each status code. <br>
+            Define normal response and error code that return header. <br>
+            Define function specification if do not follow HUCOM specification.
+        '200':
+          description: # Modify description, 2022/9/16, TC Hotta
+            成功レスポンス <br>
+            Reason-Phrase = OK <br>
+            サーバ側が機能情報をリカバリするための情報 <br>
+            リカバリの仕組みについてはProvision_020_070を参照 <br>
+            vinと日時よりハッシュ値を生成し設定する。 <br>
+            機能情報が破損している場合は、「Z1」を設定する。 / <br>
+            Success response <br>
+            Reason-Phrase = OK <br>
+            Information for server side to recover function information. <br>
+            Refer Provision_020_070 for the recovery mechanism. <br>
+            Generate and set a hash value from vin and date. <br>
+            If function information is broken, set the string "Z1".
+          content:
+            application/x-www-form-urlencoded:
+              schema: #Delete discription, 2022/9/16, 1RF7G Yoshida
+                #description: サーバ側が機能情報をリカバリするための情報
+                #  リカバリの仕組みについてはProvision_020_070を参照
+                #  vinと日時よりハッシュ値を生成し設定する。
+                #  機能情報が破損している場合は、「Z1」を設定する。 /
+                #  Information for server side to recover function information.
+                #  Refer Provision_020_070 for the recovery mechanism.
+                #  Generate and set a hash value from vin and date.
+                #  If function information is broken, set the string "Z1".
+                type: string
+                example: Cbtag=3053308c306f30b530f330d730eb306e65875b57521730673059
+        '4XX': # Add status code, 2022/9/16, TC Hotta
+          description:
+            クライアントエラー全般。 リトライは不要。 
+            703仕様書「HUCOM Communication Spec」のHUCOM_070_010と表3参照。 /
+            General client error. No retry required.
+            Refer to HUCOM_070_ 010 and Table 3 in the "HUCOM Communication Spec" of the 703 spec.
+          content: { }
+        '401': # Modify description, 2022/8/30, 1RF7G Yoshida
+          description: 
+            VIN-Certマッピングエラー。 <br>
+            HUはHUCOM仕様書に従い、これを受けてもリトライしない。/ <br>
+            VIN-Cert mapping error. <br>
+            HU follows the HUCOM specifications and does not retry even if this is received.
+          content: { }
+        "5XX": # Add status code, 2022/9/16, TC Hotta
+          description:
+            サーバーエラー全般。一時的なエラーも含むため車両はリトライを実施する。
+            703仕様書「HUCOM Communication Spec」のHUCOM_070_010と表3参照。  /
+            General Server Error. The vehicle will retry because it may be temporary.
+            Refer to HUCOM_070_ 010 and Table 3 in the "HUCOM Communication Spec" of the 703 spec.
+          content: { }
+        '503':
+          description: サーバエラーによるレスポンス Service Unavailable <br>
+            Retry-Afterにリトライ間隔(秒)を指定する <br>
+            HUCOM仕様書でRetry-Afterは503で指定するように記載している <br>
+            Server error response. <br>
+            Specify the retry interval (seconds) for Retry-After. <br>
+            The HUCOM specification states that Retry-Agter should be specified by 503. <br>
+          headers:
+            Retry-After:
+              description: delay second
+              schema:
+              # Change schema from integer to string, 2023/1/23, 1RF5G Yoshida
+                type: string
+                example: 600
+          content: { }

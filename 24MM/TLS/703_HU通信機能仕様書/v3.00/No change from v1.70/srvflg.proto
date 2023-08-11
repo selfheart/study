@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package provisioning;
+
+message ServiceFlag {
+  //the content of Key, Value should be defined by each communication specs.
+  map<string, string> flags = 1;
+}
+message Functions {
+  //the content of Key, Value should be defined by each communication specs.
+  map<string, string> functions = 1;
+}
+message URIs {
+  map<string, string> uris = 1;
+}

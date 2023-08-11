@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-07-24T07:16:50.147Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="dw5Q7cDRFP9ipIOVf4BL" version="21.6.1" type="device">
+<mxfile host="Electron" modified="2023-08-11T11:51:43.220Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="URWFVyfp5p6J5LaTc38Y" version="21.6.8" type="device">
   <diagram name="第 1 页" id="It7RSSTwtdIkvhYj3J3D">
-    <mxGraphModel dx="2778" dy="974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2177" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -208,11 +208,12 @@
           <mxGeometry x="71" y="890" width="10" height="290" as="geometry" />
         </mxCell>
         <mxCell id="koV2bbJecWCZ750WFXw8-15" value="StartNextActionOrFinish" style="align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="MX7ghEqe7nf6Zmz7h623-54" target="koV2bbJecWCZ750WFXw8-14" edge="1">
-          <mxGeometry relative="1" as="geometry">
+          <mxGeometry x="0.1752" y="14" relative="1" as="geometry">
             <mxPoint x="76" y="870" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="106" y="900" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="koV2bbJecWCZ750WFXw8-37" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="MX7ghEqe7nf6Zmz7h623-54" vertex="1">
@@ -1332,7 +1333,7 @@
             <mxPoint x="400" y="7150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EJMAldMxzFXC787rdTjV-1" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1" source="koV2bbJecWCZ750WFXw8-184">
+        <mxCell id="EJMAldMxzFXC787rdTjV-1" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" source="koV2bbJecWCZ750WFXw8-184" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="2490" y="4570" as="sourcePoint" />
             <mxPoint x="2690" y="4530" as="targetPoint" />

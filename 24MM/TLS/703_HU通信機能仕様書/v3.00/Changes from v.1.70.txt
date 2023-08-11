@@ -1,0 +1,10 @@
+■Modified spec
+　・GET URL_NA.yaml
+　・HUCOM Communication Spec.pdf
+　・Provisioning Spec.pdf
+　・Provisioning_Sequence.pdf
+　・Server Push Spec.pdf
+　・Service Flag List.xlsx
+
+■Deleted spec
+　・GET URL_JP.yaml

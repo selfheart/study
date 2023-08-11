@@ -1,0 +1,218 @@
+openapi: 3.0.3
+info:
+  title: GET URIs API
+  description: URI取得のAPI / GET URIs API
+  version: 3.00.0
+#######################################################
+# history
+# 
+# 0.0.1
+#  HUCOM仕様書v1.00をもとにGETリクエストを作成
+#  
+# 0.0.2
+#  HUCOM仕様書v1.10をもとにGETリクエストを修正
+#
+# 1.50.0
+#  HUCOM仕様書v1.50をもとにGETリクエストを修正
+#  Modified GET URIs request based on HUCOM spec v1.50
+#
+# 1.70.0
+#  HUCOM仕様書v1.70をもとにGETリクエストを修正
+#  Modified GET URIs request based on HUCOM spec v1.70
+#
+# 3.00.0
+#  HUCOM仕様書v3.00をもとにGETリクエストを修正
+#  Modified GET URIs request based on HUCOM spec v3.00
+#######################################################
+
+servers: #Add, 2022/9/16, 1RF7G Yoshida
+  - url: https://sms-24mm.qa.connectedtech.io
+    description: NA Trial URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+#  - url: https://sms-24mm.qa.euconnectedtech.io
+#    description: EU Trial URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+#  - url: https://sms-24mm.qa.auconnectedtech.io
+#    description: AU Trial URL
+
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://sms-24mm.preprod.connectedtech.io
+    description: NA PreProd URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+#  - url: https://sms-24mm.preprod.euconnectedtech.io
+#    description: EU PreProd URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+  #Add PreProd URL, 2023/3/14, 1RF7G Yoshida
+#  - url: https://sms-24mm.preprod.auconnectedtech.io
+#    description: AU PreProd URL
+
+  #Add Prod URL, 2023/3/14, 1RF7G Yoshida
+  - url: https://sms-24mm.connectedtech.io
+    description: NA Prod URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+  #Add Prod URL, 2023/3/14, 1RF7G Yoshida
+#  - url: https://sms-24mm.euconnectedtech.io
+#    description: EU Prod URL
+
+# Delete Root URL for EU/AU, 2023/5/22 13F4G Yoshida
+  #Add Prod URL, 2023/3/14, 1RF7G Yoshida
+#  - url: https://sms-24mm.auconnectedtech.io
+#    description: AU Prod URL
+  
+#Modify paths, 2023/3/14, 1RF7G Yoshida
+paths:
+  /uris:
+
+    get:
+      description:
+        サーバからURLリストを取得するためのAPI / <br>
+        GET URIs
+      summary: サーバからURLリストを取得するためのAPI / GET URIs
+      operationId: download
+      parameters:
+        - in: header
+          name: User-Agent
+          description:
+            User-Agentの文字列には情報管理キーを設定する / <br>
+            Set the information management key in the User-Agent character string.
+          schema:
+            type: string
+            # 2022/8/30 6桁に修正, 1RF7G Yoshida
+            # 2022/8/30 Corrected to 6 digits, 1RF7G Yoshida
+            minLength: 6
+            maxLength: 6
+            example: "TA1TJP"
+          required: true
+        - in: header
+          name: x-vin
+          description:
+            x-vinにはVIN情報を設定する / <br>
+            Set VIN information in x-vin.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 17
+            example: "12345678901234567"
+          required: true
+        - in: header
+          name: DATE
+          description: RFC2616 3.3.1章の「rfc1123-date」の形式に従う / <br>
+            Follow the format rfc1123-date in chapter 3.3.1 of the RFC2616.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 30
+            example: "Sun, 06 Nov 1994 08:49:37 GMT"
+          required: true
+        - in: header
+          name: Accept-Encoding
+          description: Accept-Encodingの値はgzipに対応する / <br>
+            Set gzip in Accept-Encoding.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 10
+            example: "gzip"
+          required: true
+        - in: header
+          name: If-None-Match
+          description:
+            # Delete the description below, 2023/5/22, 13F4G Yoshida 
+               # ・ETag値を保持している場合は必須 / <br>
+               # ・Required if HU has Etag value.
+            ETag値のアップロード <br>
+            ETag値は009_端末設定仕様書のバージョンとすること。 / <br>
+            Upload Entity tag. <br>
+            The value of ETag shall be the version of the 009_specification.
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 256
+            # 2022/8/30 Provision_030_070に従って最大Lengthを256byteで設定, 1RF7G Yoshida
+            # 2022/8/30 Set the maximum length to 256 bytes according to Provision_030_070, 1RF7G Yoshida
+            # ETagのexampleを009_仕様書のバージョンに変更
+            # Changed ETag example to 009_spec version, 2023/5/22, 13F4G Yoshida.
+            example: "3.00"
+            # example: fd2cfc96fd51b0b48bb952d2fe25147016e62940
+
+      responses:
+        'default':
+          description: レスポンスステータスコードとコードごとの対処はHUCOM仕様書に従う <br>
+            正常応答とヘッダを返すエラーコードのみ定義する <br>
+            HUCOM仕様書に従わない場合は、機能仕様を定義すること / <br>
+            Follow the HUCOM spec for response status code and how to handle each status code. <br>
+            Define normal response and error code that return header. <br>
+            Define function specification if do not follow HUCOM specification.
+        '200':
+          description: # Add description, 2022/8/30, 1RF7G Yoshida
+            ETagが一致しない場合の成功レスポンス <br>
+            protoファイルについてはHUCOM仕様書の「srvflg.proto」参照 <br>
+            Reason-Phrase = OK/ <br>
+            Success response when ETags do not match. <br>
+            Refer to "srvflg.proto" in the HUCOM specification for the proto file. <br>
+            Reason-Phrase = OK
+          headers:
+          # ETagのexampleを009_仕様書のバージョンに変更
+          # Changed ETag example to 009_spec version, 2023/5/22, 13F4G Yoshida.
+            ETag:
+              description: Entity tag
+              schema:
+                type: string
+                example: "3.10"
+                # example: fd2cfc96fd51b0b48bb952d2fe25147016e62940
+          content:
+            application/x-protobuf:
+              schema:
+                description: 詳細はHUCOM仕様書 「srvflg.proto」のURIsを参照 / <br>
+                  Refer "URIs" in "srvflg.proto" of the HUCOM specification for more information.
+                type: string
+                example: map<string, string>
+        '304':
+          description:
+            ETagが一致した場合の成功レスポンス <br>
+            Reason-Phrase = Not Modified / <br>
+            Success response when ETags match Not Modified. <br>
+            Reason-Phrase = Not Modified.
+          content: { }
+        '4XX': # Add status code, 2022/9/16, TC Hotta
+          description:
+            クライアントエラー全般。 リトライは不要。 <br>
+            703仕様書「HUCOM Communication Spec」のHUCOM_070_010と表3参照。 / <br>
+            General client error. No retry required. <br>
+            Refer to HUCOM_070_ 010 and Table 3 in the "HUCOM Communication Spec" of the 703 spec.
+          content: { }
+        '401': # Add status code, 2022/9/1, 1RF7G Yoshida
+          description:
+            VIN-Certマッピングエラー。 <br>
+            HUはHUCOM仕様書に従い、これを受けてもリトライしない。/ <br>
+            VIN-Cert mapping error. <br>
+            HU follows the HUCOM specifications and does not retry even if this is received.
+          content: { }
+        "5XX": # Add status code, 2022/9/16, TC Hotta
+          description:
+            サーバーエラー全般。一時的なエラーも含むため車両はリトライを実施する。 <br>
+            703仕様書「HUCOM Communication Spec」のHUCOM_070_010と表3参照。  / <br>
+            General Server Error. The vehicle will retry because it may be temporary. <br>
+            Refer to HUCOM_070_ 010 and Table 3 in the "HUCOM Communication Spec" of the 703 spec. 
+          content: { }
+        '503':
+          description: サーバエラーによるレスポンス Service Unavailable <br>
+            Retry-Afterにリトライ間隔(秒)を指定する <br>
+            HUCOM仕様書でRetry-Agterは503で指定するように記載している <br>
+            Server error response. <br>
+            Specify the retry interval (seconds) for Retry-After. <br>
+            The HUCOM specification states that Retry-Agter should be specified by 503.
+          headers:
+            Retry-After:
+              description: delay second
+              schema:
+              # Change schema from integer to string, 2023/1/23, 1RF5G Yoshida
+                type: string
+                example: 600
+          content: { }

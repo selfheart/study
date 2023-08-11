@@ -1,0 +1,45 @@
+syntax = "proto3";
+package service.push;
+
+service PushService {
+    rpc GetPushNotifications(stream Result) returns (stream Response);
+}
+
+message Result {
+
+     // message for HU's ACK status
+     enum ack {
+            STACK = 0;
+            SUCCESS = 1;
+            FAILURE = 2;
+            NOFUNCTION = 3;
+    }
+    string sequence_id = 1;
+    ack hu_ack_code = 2;
+}
+
+message Response {
+
+    // message for server status response
+    message PushServerStatus {
+        enum statuscodes {
+            OK = 0;
+            RETRYAFTER = 1;
+            BUSY = 2;
+        }
+        statuscodes srv_response_code = 1;
+        fixed32 retry_after_sec = 2;
+    }
+
+    // message for push notification
+    message PushNotification {
+        fixed32 app_id = 1;
+        fixed32 sub_id = 2;
+        string  expires = 3;
+        bytes app_data = 4;
+        string sequence_id = 5;
+    }
+
+    PushServerStatus msg_status = 1;
+    PushNotification msg_notification = 2;
+}
