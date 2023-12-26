@@ -1,0 +1,1014 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4.2. TUP Subcommand &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.3. PDP Subcommand" href="pdp.html" />
+    <link rel="prev" title="4.1. TUS" href="tus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli_reference.html">4. TUS CLI Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tus.html">4.1. TUS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. TUP Subcommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tup-generator">4.2.1. TUP generator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#updaters">4.2.1.1. Updaters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delta-update">4.2.1.2. Delta Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-configuration">4.2.1.3. Device Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm-configuration">4.2.1.4. Algorithm Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-flow-related-metadata">4.2.1.5. Update Flow related metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provider-metadata">4.2.1.6. Provider metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tup-viewer">4.2.2. TUP Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdp.html">4.3. PDP Subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dtool.html">4.4. Deployment Tool subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delta.html">4.5. Delta Subcommand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../cli_reference.html"><span class="section-number">4. </span>TUS CLI Reference</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2. </span>TUP Subcommand</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="tup-subcommand">
+<h1><span class="section-number">4.2. </span>TUP Subcommand<a class="headerlink" href="#tup-subcommand" title="Permalink to this headline">¶</a></h1>
+<p>TUP subcommand handles TUP related operations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus tup -h
+Usage: tus tup [COMMAND] [OPTIONS]
+
+Description:
+  TUS-SDK TUP related operation command
+
+Options:
+  -h    print help message
+
+Commands:
+    gen         generate TUP package
+    dump        dump TUP to specified format such as HTML 
+</pre></div>
+</div>
+<div class="section" id="tup-generator">
+<h2><span class="section-number">4.2.1. </span>TUP generator<a class="headerlink" href="#tup-generator" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">tup</span> <span class="pre">gen</span></code> command generates TUP package and html file contains TUP package structure.
+This command needs json format metadata to configure TUP format.</p>
+<p>Detail usage is following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus tup gen -h
+tus-tup-gen 
+TUP Generator
+
+USAGE:
+    tus tup gen [OPTIONS] --src-type &lt;SRC_TYPE&gt;
+
+OPTIONS:
+    -h, --help                   Print help information
+        --no-validate            
+    -o, --out &lt;OUT&gt;              
+        --out-html &lt;OUT_HTML&gt;    
+    -s, --src &lt;SRC&gt;              
+        --src-type &lt;SRC_TYPE&gt;    [possible values: tup, json]
+</pre></div>
+</div>
+<p>Currently only json is supported as –src-type, so</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src &lt;PATH JSON&gt; --out &lt;TUP PATH&gt; --out-html &lt;TUP HTML PATH&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Filepaths specified by <code class="docutils literal notranslate"><span class="pre">--src</span></code>, <code class="docutils literal notranslate"><span class="pre">--out</span></code> and <code class="docutils literal notranslate"><span class="pre">--out-html</span></code> are only valid under current directory because TUP generator itself is executed in the container and automatically current directory is mounted to a container.</p>
+</div>
+<p>Json format metadata is written below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type:&quot;&quot;, // tup type for generation &quot;</span><span class="n">inner</span><span class="s2">&quot; or &quot;</span><span class="n">outer</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">//</span> <span class="n">metadata</span> <span class="k">for</span> <span class="n">inner</span> <span class="n">package</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">//</span> <span class="n">file</span> <span class="n">path</span> <span class="k">for</span> <span class="n">inner</span> <span class="n">pacakge</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="o">//</span> <span class="n">metadata</span> <span class="k">for</span> <span class="n">TUP</span> <span class="n">pacakge</span> <span class="n">itself</span><span class="o">.</span>
+        <span class="p">{}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;variableHeader&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="o">//</span> <span class="n">VariableHeader</span> <span class="n">configuration</span>
+    <span class="s2">&quot;variableFooter&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="o">//</span> <span class="n">VariableFooter</span> <span class="n">configuration</span>
+    <span class="s2">&quot;rootICV&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="o">//</span> <span class="n">enable</span> <span class="n">ICV</span> 
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>When creating TUP package which inner package is <em>not</em> needed to compress, it is able to use the format below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE PATH TO NON COMPRESSION DATA&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;rootICV&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When creating TUP for Domain Controller, it is required to specify updater type to generate Update Flow.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;updater&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;txt&quot;</span>
+                <span class="p">},</span> 
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE PATH&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;rootICV&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>About Update Target, please refer to <a class="reference external" href="#updaters">here</a>.</p>
+<p>When creating TUP package including two TUPs, it is able to use the format below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;domainname&quot;</span><span class="p">:</span> <span class="s2">&quot;DOMAIN NAME for debian package&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;originalMetadataPath&quot;</span><span class="p">:</span> <span class="s2">&quot;METADATA FILE PATH used for creating this innerPackage TUP&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;TUP FILEPATH including non-compression debian pacakge&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;domainname&quot;</span><span class="p">:</span> <span class="s2">&quot;DOMAIN NAME for compression text data&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;originalMetadataPath&quot;</span><span class="p">:</span> <span class="s2">&quot;METADATA FILE PATH used for creating this innerPackage TUP&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;TUP FILEPATH including compression txt data&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;rootICV&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">domainname</span></code> is an optional, if it is not specified, 1st inner package domain name is <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code> and 2nd one is <code class="docutils literal notranslate"><span class="pre">Raspi</span></code>.
+Domain name should be the same as configuration by using <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span></code>.</p>
+<p>Please make sure that <code class="docutils literal notranslate"><span class="pre">metadata</span></code> json elements on root is needed for creating deliverable TUP described in the release note.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">originalMetadataPath</span></code> under <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is required to collect information about innerPackage TUP when creating deliverable TUP.</p>
+</div>
+<p>TUP Generator validates Update Flow by default if Update Flow is Lua format or not.
+If additional check is needed, please update <code class="docutils literal notranslate"><span class="pre">.luacheckrc</span></code>.</p>
+<div class="section" id="updaters">
+<h3><span class="section-number">4.2.1.1. </span>Updaters<a class="headerlink" href="#updaters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="supported-updaters">
+<h4><span class="section-number">4.2.1.1.1. </span>Supported Updaters<a class="headerlink" href="#supported-updaters" title="Permalink to this headline">¶</a></h4>
+<p>Currently supported updaters are <code class="docutils literal notranslate"><span class="pre">txt</span></code>, <code class="docutils literal notranslate"><span class="pre">deb</span></code> and <code class="docutils literal notranslate"><span class="pre">image</span></code>.
+To specify updater, <code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">type</span></code> can be used.
+<code class="docutils literal notranslate"><span class="pre">type</span></code> is an alias of <code class="docutils literal notranslate"><span class="pre">id</span></code> for backward compatibility.</p>
+<div class="section" id="txt-updater">
+<h5><span class="section-number">4.2.1.1.1.1. </span><code class="docutils literal notranslate"><span class="pre">txt</span></code> updater<a class="headerlink" href="#txt-updater" title="Permalink to this headline">¶</a></h5>
+<p>TUP Generator accepts metadata as following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+        <span class="s2">&quot;updater&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;txt&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;FILE PATH TO TEXT DATA&gt;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">txt</span></code> is specified, text file is installed or updated to <code class="docutils literal notranslate"><span class="pre">/tmp/written_txt_data</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently just one <code class="docutils literal notranslate"><span class="pre">txt</span></code> updater can be used for Inner Packages because update target is fixed to <code class="docutils literal notranslate"><span class="pre">/tmp/written_txt_data</span></code>.</p>
+</div>
+</div>
+<div class="section" id="deb-updater">
+<h5><span class="section-number">4.2.1.1.1.2. </span><code class="docutils literal notranslate"><span class="pre">deb</span></code> updater<a class="headerlink" href="#deb-updater" title="Permalink to this headline">¶</a></h5>
+<p>TUP Generator accepts metadata as following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+        <span class="s2">&quot;updater&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;deb&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;FILE PATH TO DEBIAN PACKAGE&gt;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">deb</span></code> updater can work on only Ubuntu based image because this handles debian package installation.</p>
+</div>
+<div class="section" id="image-updater">
+<h5><span class="section-number">4.2.1.1.1.3. </span><code class="docutils literal notranslate"><span class="pre">image</span></code> updater<a class="headerlink" href="#image-updater" title="Permalink to this headline">¶</a></h5>
+<p>TUP Generator accepts metadata as following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+        <span class="s2">&quot;updater&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;image&quot;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;FILE PATH TO IMAGE DATA&gt;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">image</span></code> is specified, image file is installed or updated to <code class="docutils literal notranslate"><span class="pre">/tmp/written_device_image</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently <code class="docutils literal notranslate"><span class="pre">image</span></code> updater does not support some operations like <code class="docutils literal notranslate"><span class="pre">mount</span></code>,<code class="docutils literal notranslate"><span class="pre">umount</span></code> and <code class="docutils literal notranslate"><span class="pre">switch</span> <span class="pre">bank</span> </code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently just one <code class="docutils literal notranslate"><span class="pre">image</span></code> updater can be used for Inner Packages because update target is fixed to <code class="docutils literal notranslate"><span class="pre">/tmp/written_device_image</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="customized-updaters">
+<h4><span class="section-number">4.2.1.1.2. </span>Customized Updaters<a class="headerlink" href="#customized-updaters" title="Permalink to this headline">¶</a></h4>
+<p>TUP Generator accepts metadata as following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;customizedUpdater&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;targetId&quot;</span><span class="p">:</span> <span class="s2">&quot;dummy_target&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;apis&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;init&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.init&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;write&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.write&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;readOriginal&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.read&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;readUpdated&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.read&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;finish&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.finish&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Customized Updater can be used by specifying <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">targetId</span></code>.
+When initializing updater, Update Flow calls <code class="docutils literal notranslate"><span class="pre">dc:get_updater('SPECIFIED_ID',</span> <span class="pre">'SPECIFIED_TARGET_ID')</span></code>.</p>
+<p>Currently 5 types apis can be specified when generating Update Flow with <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">parameters</span></code>.  Some apis which have mandatory parameters are called with mandatory and additional parameters. For example, the following metadata is passed, Update Flow includes <code class="docutils literal notranslate"><span class="pre">updater.specific.write(&lt;MANDATORY_PARAMETERS&gt;,</span> <span class="pre">'hello_customized_updater')</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="s2">&quot;apis&quot;</span><span class="p">:{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;write&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.write&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hello_customized_updater&quot;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each APIs details are as following.</p>
+<ul>
+<li><p>init</p>
+<p>This is not mandatory API and has no mandatory parameters.
+This is called with <code class="docutils literal notranslate"><span class="pre">dc:get_updater</span></code>. If initialization with any parameters before updating is needed, please use this.</p>
+</li>
+<li><p>write</p>
+<p>This has 2 mandatory parameters <code class="docutils literal notranslate"><span class="pre">blob</span></code> and <code class="docutils literal notranslate"><span class="pre">offset</span></code>. It is automatically set by Update Flow and <code class="docutils literal notranslate"><span class="pre">blob</span></code> is data for updated and <code class="docutils literal notranslate"><span class="pre">offset</span></code> is position to write. If Delta Update is specified, this API is called many times.
+If error occurred, please return error object.</p>
+<p>For example, the following metadata is used, Update Flow calls <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">error</span> <span class="pre">=</span> <span class="pre">updater.specific.write(blob,</span> <span class="pre">offset)</span> <span class="pre">if</span> <span class="pre">error</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">error</span> <span class="pre">end</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;write&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.write&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>readOriginal</p>
+<p>This has 2 mandatory parameters <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">offset</span></code>.  It is automatically set by Update Flow and <code class="docutils literal notranslate"><span class="pre">size</span></code> is read size byte for <code class="docutils literal notranslate"><span class="pre">offset</span></code> is position to read.
+And this returns 2 parameters <code class="docutils literal notranslate"><span class="pre">read_data</span></code> and any <code class="docutils literal notranslate"><span class="pre">error_object</span></code>. If operation is successful, it returns <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">data,</span> <span class="pre">nil</span></code>. Otherwise it returns <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">nil,</span> <span class="pre">error</span></code>
+This api is called when Delta Update to read original data for applying delta.</p>
+<p>For example, the following metadata is used, Update Flow calls <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">data,</span> <span class="pre">error</span> <span class="pre">=</span> <span class="pre">updater.specific.read(size,</span> <span class="pre">offset)</span> <span class="pre">if</span> <span class="pre">error</span> <span class="pre">then</span> <span class="pre">return</span> <span class="pre">error</span> <span class="pre">end</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;readOriginal&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;specific.read&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>readUpdated</p>
+<p>This has 2 mandatory parameters <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">offset</span></code>.  It is automatically set by Update Flow and <code class="docutils literal notranslate"><span class="pre">size</span></code> is read size byte for <code class="docutils literal notranslate"><span class="pre">offset</span></code> is position to read.
+And this returns 2 parameters <code class="docutils literal notranslate"><span class="pre">read_data</span></code> and any <code class="docutils literal notranslate"><span class="pre">error_object</span></code>. If operation is successful, it returns <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">data,</span> <span class="pre">nil</span></code>. Otherwise it returns <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">nil,</span> <span class="pre">error</span></code>
+This api is called when Delta Update to read updated data for verifying updated data.</p>
+</li>
+<li><p>finish</p>
+<p>This has no mandatory parameters. This is called when update finishes which mean that any APIs are never called after calling <code class="docutils literal notranslate"><span class="pre">finish</span></code>. It can be used switch updated data and original ones after updating.</p>
+</li>
+</ul>
+<p>About how to implement Customized Updater, please check <code class="docutils literal notranslate"><span class="pre">example.c</span></code>.</p>
+</div>
+</div>
+<div class="section" id="delta-update">
+<h3><span class="section-number">4.2.1.2. </span>Delta Update<a class="headerlink" href="#delta-update" title="Permalink to this headline">¶</a></h3>
+<p>TUP Generator supports generation of Update Flow including Delta Update.</p>
+<p>This accepts the following metadata.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;updater&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;image&quot;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;bsdiff&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;deltaMetadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;generate or import&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;oldFile&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE PATH TO OLD FILE&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;newFile&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE PATH TO NEW FILE&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;patchFile&quot;</span><span class="p">:</span> <span class="s2">&quot;FILE PATH TO PATCH FILE&quot;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;icvAfter&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;HmacSha256_128&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;keyinfo&quot;</span><span class="p">:</span> <span class="s2">&quot;IpkgIcv&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;block&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">1024</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>As <code class="docutils literal notranslate"><span class="pre">type</span></code> in <code class="docutils literal notranslate"><span class="pre">deltaMetadata</span></code>, <code class="docutils literal notranslate"><span class="pre">generate</span></code> or <code class="docutils literal notranslate"><span class="pre">import</span></code> is supported.
+If <code class="docutils literal notranslate"><span class="pre">generate</span></code> is specified, TUP Generator generates patch file by using <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">delta</span></code> command.
+If <code class="docutils literal notranslate"><span class="pre">import</span></code> is specified, TUP Generator uses patch file without generating delta.</p></li>
+<li><p>Currently only supported <code class="docutils literal notranslate"><span class="pre">bsdiff</span></code> as <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> and <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code> as <code class="docutils literal notranslate"><span class="pre">version</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icvAfter</span></code> is used to verify updated data with ICV verification.
+<code class="docutils literal notranslate"><span class="pre">algorithm</span></code> and <code class="docutils literal notranslate"><span class="pre">keyinfo</span></code> can be selected and they are expandable.
+If <code class="docutils literal notranslate"><span class="pre">block</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code> are specified, ICV TREE is set into ICV AFTER DATA. If <code class="docutils literal notranslate"><span class="pre">size</span></code> is omitted, ICV BLOCK is set into ICV AFTER DATA.</p></li>
+</ul>
+<p>When execution Update Flow including Delta Update on Target Device, please make sure that <code class="docutils literal notranslate"><span class="pre">oldFile</span></code> is placed to Target Device as updated data.</p>
+</div>
+<div class="section" id="device-configuration">
+<h3><span class="section-number">4.2.1.3. </span>Device Configuration<a class="headerlink" href="#device-configuration" title="Permalink to this headline">¶</a></h3>
+<p>TUP Generator requires Device Configurations when generating inner TUP as following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">),</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;deviceConfigurations&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;targetId&quot;</span><span class="p">:</span> <span class="s2">&quot;ECU Target ID&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;softwares&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;softwareId&quot;</span><span class="p">:</span> <span class="s2">&quot;UPDATE SOFTWARE ID like version&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;productNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;UPDATE SOFTWARE PRODUCT NUMBER&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Update Flow of Domain Controller calls <code class="docutils literal notranslate"><span class="pre">dc:update_versions</span></code> with specified values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dc:update_versions</span></code> calls <code class="docutils literal notranslate"><span class="pre">update_version</span></code> defined in <code class="docutils literal notranslate"><span class="pre">example.c</span></code> which is PAL example implementation. In this example, <code class="docutils literal notranslate"><span class="pre">update_version</span></code> write device configurations to file <code class="docutils literal notranslate"><span class="pre">vehicle_config</span></code> under the folder where <code class="docutils literal notranslate"><span class="pre">dc</span></code> executable is located. Currently there are no way to <code class="docutils literal notranslate"><span class="pre">vehicle_config</span></code> file for initialization.</p></li>
+</ul>
+</li>
+<li><p>When specifying EMOOTA SDP v3.0 provider for OuterTUP Generation, TUP Generator validates <code class="docutils literal notranslate"><span class="pre">targetId</span></code> and <code class="docutils literal notranslate"><span class="pre">softwares</span></code> are registered on EMOOTA SDP v3.0 server.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">targetId</span></code> is the same name as <code class="docutils literal notranslate"><span class="pre">targetId</span></code> on EMOOTA SDP v3.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">softwareId</span></code> is called as <code class="docutils literal notranslate"><span class="pre">subTargetId</span></code> on EMOOTA SDP v3.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">productNumber</span></code> is the same name as <code class="docutils literal notranslate"><span class="pre">productNumber</span></code> on EMOOTA SDP v3.0.</p></li>
+</ul>
+<p>Please make sure that this information is registered on EMOOTA SDP v3.0.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="algorithm-configuration">
+<h3><span class="section-number">4.2.1.4. </span>Algorithm Configuration<a class="headerlink" href="#algorithm-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="compression">
+<h4><span class="section-number">4.2.1.4.1. </span>Compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h4>
+<p>For Inner Package compression, following metadata is acceptable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+            <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;compress&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span> <span class="s2">&quot;LZ4&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;tableType&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;ratioThreshold&quot;</span><span class="p">:</span><span class="mf">90.0</span>
+                    <span class="s2">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">65536</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> 
+            <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithm</span></code>: Currently “LZ4” and “ZLIB” can be specified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tableType</span></code>: only “fixed” is supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ratioThreshold</span></code>: Compression Ratio. Default value is 90.0%.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blockSize</span></code>: Compression block size. Default value is 65536.</p></li>
+</ul>
+<p>If own compression algorithm is required, please read <code class="docutils literal notranslate"><span class="pre">compress.rs</span></code> and <code class="docutils literal notranslate"><span class="pre">CompressAlgorithm</span></code> trait to extend.
+Please make sure that extending TUP parser is needed to parse TUP compressed by your own compression algorithm.</p>
+</div>
+<div class="section" id="icv">
+<h4><span class="section-number">4.2.1.4.2. </span>ICV<a class="headerlink" href="#icv" title="Permalink to this headline">¶</a></h4>
+<p>For configuring ICV metadata, following metadata is acceptable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+            <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;ICV&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span><span class="s2">&quot;HmacSha256_128&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;keyinfo&quot;</span><span class="p">:</span><span class="s2">&quot;IpkgIcv&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">512</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;src&quot;</span><span class="p">:</span> 
+            <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+
+    <span class="s2">&quot;variableHeader&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;ICV&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span><span class="s2">&quot;HmacSha256_128&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;keyinfo&quot;</span><span class="p">:</span><span class="s2">&quot;TUPMeta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">512</span> 
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;variableFooter&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;ICV&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;algorithm&quot;</span><span class="p">:</span><span class="s2">&quot;HmacSha256_128&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;keyinfo&quot;</span><span class="p">:</span><span class="s2">&quot;TUPMeta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;blockSize&quot;</span><span class="p">:</span> <span class="mi">512</span> 
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Currently only Inner Package, Variable Header and Variable Footer is configurable.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithm</span></code>: Currently “HmacSha256_128” is supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keyinfo</span></code>: key id to generate ICV. Default value for Inner Package is <code class="docutils literal notranslate"><span class="pre">IpkgIcv</span></code> and one for Variable Header and Variable Footer is <code class="docutils literal notranslate"><span class="pre">TUPMeta</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blockSize</span></code>: Compression block size. Default value is 65536.</p></li>
+</ul>
+<p>If own compression algorithm is required, please read <code class="docutils literal notranslate"><span class="pre">icv.rs</span></code> and <code class="docutils literal notranslate"><span class="pre">key.rs</span></code> to extend.
+Please make sure that extending TUP parser is needed to parse TUP when your own ICV and key is used.</p>
+</div>
+</div>
+<div class="section" id="update-flow-related-metadata">
+<h3><span class="section-number">4.2.1.5. </span>Update Flow related metadata<a class="headerlink" href="#update-flow-related-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Update Flows on how to update are generated automatically when generating an outer type TUP.
+Some configurations for Update Flow are available.</p>
+<div class="section" id="monitor-externals">
+<h4><span class="section-number">4.2.1.5.1. </span>Monitor Externals<a class="headerlink" href="#monitor-externals" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">monitorExternals</span></code> are used to monitor some endpoint regularly.
+For example this can be used for DC to monitor user input.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+   <span class="s2">&quot;metadata&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;monitorExternals&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;type_name&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">mandatory</span>
+                        <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;type_key&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span> <span class="n">key</span> <span class="n">name</span> 
+                        <span class="s2">&quot;interval&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span> <span class="n">interval</span> <span class="n">value</span> <span class="n">to</span> <span class="n">re</span><span class="o">-</span><span class="n">check</span>
+                        <span class="s2">&quot;timeout&quot;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span> <span class="n">timeout</span> <span class="n">value</span>
+                        <span class="s2">&quot;onTimeout&quot;</span><span class="p">:</span><span class="s2">&quot;function(fsm, key) end&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span> <span class="n">function</span> <span class="n">to</span> <span class="n">be</span> <span class="n">called</span> <span class="n">when</span> <span class="n">timeout</span> <span class="n">occurs</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If optional parameters (<code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">interval</span></code>, <code class="docutils literal notranslate"><span class="pre">timeout</span></code>, and <code class="docutils literal notranslate"><span class="pre">onTimeout</span></code>) are omitted, default value defined by each <code class="docutils literal notranslate"><span class="pre">type</span></code> is used.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">monitorExternals</span></code> are defined, Update Flow on Domain Controller calls <code class="docutils literal notranslate"><span class="pre">fsm:monitor_externals</span></code> which depends on the platform implementation.</p></li>
+<li><p>In the sample implementation, <code class="docutils literal notranslate"><span class="pre">key</span></code> name file under <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code> is monitored at specified intervals by <code class="docutils literal notranslate"><span class="pre">interval</span></code>.</p></li>
+<li><p>And monitoring time reaches <code class="docutils literal notranslate"><span class="pre">timeout</span></code> value, <code class="docutils literal notranslate"><span class="pre">onTimeout</span></code> function is called.</p></li>
+</ul>
+<p>Currently supported types are</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#user-approval">user approval</a></p></li>
+</ul>
+</div>
+<div class="section" id="monitor-environments">
+<h4><span class="section-number">4.2.1.5.2. </span>Monitor Environments<a class="headerlink" href="#monitor-environments" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">monitorEnvironments</span></code> are used to notify some information to external systems.
+For example this can be used for Domain Controller to disclose the rate of progress to external systems.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+   <span class="s2">&quot;metadata&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;monitorEnvironments&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;type name&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">mandatory</span>
+                        <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;key name&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span>
+                        <span class="s2">&quot;callback&quot;</span><span class="p">:</span> <span class="s2">&quot;function(self,k,v,old_v) dc.fsm:propagate_environment(k, v) end&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">optional</span> <span class="n">callback</span>
+                        <span class="s2">&quot;configs&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">//</span> <span class="n">optional</span> <span class="nb">any</span> <span class="n">key</span><span class="o">-</span><span class="n">value</span> <span class="n">configurations</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If optional parameters (<code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">callback</span></code>, and <code class="docutils literal notranslate"><span class="pre">configs</span></code>) are omitted, default value defined by each <code class="docutils literal notranslate"><span class="pre">type</span></code> is used.</p>
+<p>About <code class="docutils literal notranslate"><span class="pre">callback</span></code>,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is omitted, default callback function including <code class="docutils literal notranslate"><span class="pre">dc.fsm:propagate_environment(k,</span> <span class="pre">v)</span></code> is configured.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is specified, only specified callback function is called. If it is needed to notify some information to external systems, please make sure that callback function includes <code class="docutils literal notranslate"><span class="pre">dc.fsm:propagate_environment(k,</span> <span class="pre">v)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dc.fsm:propagate_environment(k,</span> <span class="pre">v)</span></code> behavior depends on platform implementation. In the sample implementation, notification values are written to <code class="docutils literal notranslate"><span class="pre">/tmp/&quot;key_name&quot;</span></code>.</p></li>
+</ul>
+<p>Currently supported types are</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#global-state">global state</a></p></li>
+<li><p><a class="reference external" href="#progress">progress</a></p></li>
+</ul>
+</div>
+<div class="section" id="user-approval">
+<h4><span class="section-number">4.2.1.5.3. </span>User Approval<a class="headerlink" href="#user-approval" title="Permalink to this headline">¶</a></h4>
+<p>Updating Target Device may require user approval.
+Domain Controller which wants to handle user approval like Cockpit, metadata declaration is needed for inner TUP generation as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;monitorExternals&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;userApproval&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>About <code class="docutils literal notranslate"><span class="pre">monitorExternals</span></code>, please check <a class="reference external" href="#monitor-externals">here</a>.</p>
+<p>Default values except <code class="docutils literal notranslate"><span class="pre">type</span></code> are as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;userApproval&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;interval&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> 
+    <span class="s2">&quot;timeout&quot;</span><span class="p">:</span><span class="mf">10.0</span><span class="p">,</span> 
+    <span class="s2">&quot;onTimeout&quot;</span><span class="p">:</span><span class="s2">&quot;function(fsm, key) fsm:set_environment(key,&#39;n&#39;) end&quot;</span><span class="p">,</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">onTimeout</span></code> can be configured, but if <code class="docutils literal notranslate"><span class="pre">fsm:set_environment(key,</span> <span class="pre">'y')</span></code> or <code class="docutils literal notranslate"><span class="pre">fsm:set_environment(key,</span> <span class="pre">'n')</span></code> is not called, Update Orchestrator cannot handle user approval.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">fsm:set_environment(key,</span> <span class="pre">'y')</span></code> is called, Update Orchestrator recognizes that user approves this update.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">fsm:set_environment(key,</span> <span class="pre">'n')</span></code> is called, Update Orchestrator recognizes that user refuses this update.</p></li>
+</ul>
+<p>If user approval is required, declaration <code class="docutils literal notranslate"><span class="pre">userApproval</span></code> is needed for outer TUP generation.
+And just one Domain Controller which declares user approval metadata is needed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;outer&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;userApproval&quot;</span><span class="p">:</span> <span class="n">true</span> 
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the sample implementation, on Domain Controller which declares user approval metadata <code class="docutils literal notranslate"><span class="pre">/tmp/approved</span></code> is monitored.
+After the Domain Controller’s FSM state is changed to <code class="docutils literal notranslate"><span class="pre">waitForUserApproval</span></code>, inputting “y” or “n” to <code class="docutils literal notranslate"><span class="pre">/tmp/approved</span></code> is required as user approval result before reaching timeout.
+Then, if Update Orchestrator recognizes that user approves this update (in this case, input “y”), Update Orchestrator notifies to all Domain Controllers and they start update.
+If Update Orchestrator recognizes that user refuses this update (in this case, input “n”), Update Orchestrator notifies to all Domain Controllers and all Domain Controllers cancel update.</p>
+</div>
+<div class="section" id="global-state">
+<h4><span class="section-number">4.2.1.5.4. </span>Global State<a class="headerlink" href="#global-state" title="Permalink to this headline">¶</a></h4>
+<p>Global State is used to to notify overall update status to each DCs.
+Declaration is needed to receive notifications as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+   <span class="s2">&quot;metadata&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;monitorEnvironments&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;global_state&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Currently,</p>
+<ul class="simple">
+<li><p>“start” is notified when update starts.</p></li>
+<li><p>“end” is notified when update ends successfully.</p></li>
+<li><p>“refused” is notified when user refuses updates. In this case, “end” is not notified.</p></li>
+</ul>
+<p>By default these values are written to <code class="docutils literal notranslate"><span class="pre">/tmp/global_state</span></code> in the sample implementation.</p>
+<p>Default values except <code class="docutils literal notranslate"><span class="pre">type</span></code> are as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;global_state&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;global_state&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;callback&quot;</span><span class="p">:</span><span class="s2">&quot;function(self, k, v, old_v) if k == &#39;global_state&#39; then dc.log(&#39;!! got progress:&#39;, v) dc.fsm:propagate_environment(k, v, &#39;from&#39;, old_v) end end&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="progress">
+<h4><span class="section-number">4.2.1.5.5. </span>Progress<a class="headerlink" href="#progress" title="Permalink to this headline">¶</a></h4>
+<p>Progress is used to to notify progress report to each DCs.
+Declaration is needed to receive notifications as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+   <span class="s2">&quot;metadata&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;workflow&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;monitorEnvironments&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;progress&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="o">..</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Currently,</p>
+<ul class="simple">
+<li><p>“0” is notified when update starts.</p></li>
+<li><p>“100” is notified when update ends.</p></li>
+<li><p>Finished Domain Controllers percentage ( a number of finished Domain Controllers / a number of Domain Controllers ) is notified periodically.</p></li>
+</ul>
+<p>By default these values are written to <code class="docutils literal notranslate"><span class="pre">/tmp/progress</span></code> in the sample implementation.</p>
+<p>Default values except <code class="docutils literal notranslate"><span class="pre">type</span></code> are as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;progress&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;progress&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;callback&quot;</span><span class="p">:</span> <span class="s2">&quot;function(self, k, v, old_v)</span>
+      <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;progress&#39;</span> <span class="n">then</span>
+        <span class="n">local</span> <span class="n">last_reported</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current</span>
+        <span class="k">if</span> <span class="n">last_reported</span> <span class="n">then</span>
+          <span class="o">--</span> <span class="n">note</span><span class="p">:</span> <span class="n">zero</span> <span class="k">as</span> <span class="n">a</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">truthy</span> <span class="k">for</span> <span class="n">Lua</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">tonumber</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="n">tonumber</span><span class="p">(</span><span class="n">last_reported</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">dc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;!! hide minor progress:&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="n">last_reported</span><span class="p">)</span>
+            <span class="k">return</span>
+          <span class="n">end</span>
+        <span class="n">end</span>
+        <span class="n">dc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;!! got progress:&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="n">old_v</span><span class="p">)</span>
+        <span class="n">dc</span><span class="o">.</span><span class="n">fsm</span><span class="p">:</span><span class="n">propagate_environment</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current</span> <span class="o">=</span> <span class="n">v</span>
+      <span class="n">end</span>
+    <span class="n">end</span><span class="s2">&quot;,</span>
+    <span class="s2">&quot;config:&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;current&quot;</span><span class="p">:</span><span class="s2">&quot;nil&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">callback</span></code> is formatted for visibility, please make sure that this example is not acceptable as input.</p>
+</div>
+</div>
+<div class="section" id="provider-metadata">
+<h3><span class="section-number">4.2.1.6. </span>Provider metadata<a class="headerlink" href="#provider-metadata" title="Permalink to this headline">¶</a></h3>
+<p>When using EMOOTA SDP as PDP, additional metadata is needed for generating deliverable TUP below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;innerPackages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="o">...</span><span class="n">snip</span><span class="o">..</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;sdpv3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;vehicleDesignId&quot;</span><span class="p">:</span> <span class="mi">1416</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;rootICV&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>“type”: “sdpv3” is supported.</p></li>
+<li><p>“vehicleDesignId”: vehicle design id for updating is required. About this, please refer to <a class="reference internal" href="pdp.html"><span class="doc std std-doc">here</span></a>. It is required for above both provider types.</p></li>
+</ul>
+<p>Only one provider can be specified, so it is not able to generate TUP for multiple versions of EMOOTA SDP at the same time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using this metadata, defining SDP_USERNAME and SDP_PASSWD environment variables are needed.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tup-viewer">
+<h2><span class="section-number">4.2.2. </span>TUP Viewer<a class="headerlink" href="#tup-viewer" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">tup</span> <span class="pre">dump</span></code> command generates an HTML file to display TUP structure from TUP file.</p>
+<p>Detail usage is following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup dump -h
+tus-tup-dump 
+Dump tool to view TUP
+
+USAGE:
+    tus tup dump &lt;SRC&gt; &lt;OUT&gt;
+
+ARGS:
+    &lt;SRC&gt;    File path of tup to dump
+    &lt;OUT&gt;    Output File path of HTML
+
+OPTIONS:
+    -h, --help    Print <span class="nb">help</span> information
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pdp.html" class="btn btn-neutral float-right" title="4.3. PDP Subcommand" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tus.html" class="btn btn-neutral float-left" title="4.1. TUS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

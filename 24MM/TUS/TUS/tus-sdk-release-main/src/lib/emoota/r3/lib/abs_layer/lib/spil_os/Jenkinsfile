@@ -1,0 +1,113 @@
+pipeline {
+    agent any
+
+    environment {
+        REPORTING_SERVER = "localhost:8008"
+        COMPONENT_NAME = "spil_os"
+    }
+    stages {
+        stage('Native-Build') {
+            steps {
+                script {
+                    try {
+                        sh "mkdir -p ${WORKSPACE}/reports/api_tests/"
+                        sh 'mkdir -p native_build'
+                        dir('native_build') {
+                            deleteDir()
+                            sh  """
+                                    cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON -DWITH_COVERAGE=ON ..
+                                    make spil_os_test_coverage
+                                    """
+                        }
+                    } catch (Exception err) {
+                        currentBuild.result = 'UNSTABLE'
+                    }
+                }
+            }
+            post {
+                always {
+                    script {
+                        if (currentBuild.result != 'FAILURE') {
+                            publishHTML(target: [
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: true,
+                                reportDir: 'native_build/coverage/spil_os_test/',
+                                reportFiles: 'index.html',
+                                reportName: "Coverage Report"
+                            ])
+                        }
+                    }
+                }
+            }
+        }
+        stage('Static Analysis') {
+            steps {
+                sh 'mkdir -p parasoft_analysis'
+                dir('parasoft_analysis') {
+                    deleteDir()
+                    sh '''
+                    cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ..
+                    /usr/local/parasoft/cpptest/cpptestcli -compiler gcc_4_8-64 -config "builtin://MISRA C 2012" -trace make spil_os
+                    '''
+                }
+            }
+            post {
+                always {
+                    script {
+                        if (currentBuild.result != 'FAILURE') {
+                            publishHTML(target: [
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: true,
+                                reportDir: 'parasoft_analysis/reports',
+                                reportFiles: 'report.html',
+                                reportName: "Parasoft Report"
+                            ])
+                            publishReport("${COMPONENT_NAME}", pwd() + '/parasoft_analysis/reports/report.xml',
+                                          'text/xml', 'static_analysis', 'parasoft', "${REPORTING_SERVER}")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        failure {
+            script {
+                if (env.BRANCH_NAME == 'master') {
+                    mail to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+                                                 [$class: 'RequesterRecipientProvider']]),
+                        subject: "Failed Build: ${currentBuild.fullDisplayName}",
+                        body: """
+                                Something is wrong with ${currentBuild.fullDisplayName} build.
+                                Please go to ${BUILD_URL} and verify the build.
+
+                                Additional info:
+                                    Job name: ${env.JOB_BASE_NAME}
+                                    Url: ${env.BUILD_URL}
+                                    Branch: ${env.BRANCH_NAME}
+                              """
+                } else {
+                    echo "No email notification for branch ${env.BRANCH_NAME}"
+                }
+            }
+        }
+        fixed {
+	    script {
+		if (env.BRANCH_NAME == 'master') {
+		    mail to: "Device_Team@airbiquity.com",
+                        subject: "Build is back to normal: ${currentBuild.fullDisplayName}",
+                        body: """
+                                Build ${currentBuild.fullDisplayName} is back to normal!
+
+                                Additional info:
+                                    Job name: ${env.JOB_BASE_NAME}
+                                    Url: ${env.BUILD_URL}
+                                    Branch: ${env.BRANCH_NAME}
+                               """
+		}
+	    }
+        }
+    }
+}

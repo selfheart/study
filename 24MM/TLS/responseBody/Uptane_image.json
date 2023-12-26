@@ -1,0 +1,157 @@
+﻿{
+    "Version": "00.00.00",
+    "FileInfo": {
+        "Destination": "CN",
+        "Language": 0
+    },
+    "UpdateTargetInfo": {
+        "SUMethod": 0,
+        "VehicleCurrentSwTitle": "Vehicle current software title",
+        "VehicleCurrentSwVer": "Vehicle current software version",
+        "VehicleNextSwTitle": "Vehicle next software Title",
+        "VehicleNextSwVer": "Vehicle next software version"
+    },
+    "CustomerConsentReq": 0,
+    "CustomerOperation": {
+        "DLCancel": 0,
+        "PendingActivateOpe": 0,
+        "UpdateNotifyConsentOpe": 0,
+        "InstallNotifyConsentOpe": 0,
+        "ActivateNotifyPreConsentOpe": 0,
+        "ActivateNotifyConsentOpe": 0,
+        "UpdateCompNotifyConsentOpe": 0
+    },
+    "DisplayInterruptEdge": {
+        "InterruptDispEventList": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+    "DisplayInfo": {
+        "WorkingTime": {
+            "DownloadTime": 1,
+            "InstallTime": 1,
+            "ActivatePrepareTime": 1,
+            "WaitActivateTime": 1,
+            "ActivateTime": 1
+        },
+        "ExecParameter": {
+            "ActivateNotification": {
+                "PendingActivationTitle": "アクティベート開始前カウントダウンの時間表示領域の文言",
+                "PendingActivationTimer": 60,
+                "PendingActivationCaution": "アクティベート開始前カウントダウン経過後の動作注意喚起文言",
+                "PendingActivationText": "アクティベート開始前中断操作の説明表示文言"
+            }
+        },
+        "TextContents": {
+            "UpdateNotification": {
+                "NotificationTitle": "NotificationTitle",
+                "NotificationSummary": "NotificationSummary",
+                "UpdateSummary": "UpdateSummary",
+                "UpdateContents": "箇条書き",
+                "Precautions": "Precautions",
+                "Operation": "Operation",
+                "ServiceInOperation": "入庫案内画面用の操作要求文",
+                "TermsOfService": "TermsOfService"
+            },
+            "DownloadNotification": {
+                "DownloadingNotification": "DownloadingNotification"
+            },
+            "InstallNotification": {
+                "InstallPopUpTitle": "InstallPopUpTitle",
+                "InstallPopUpSummary": "InstallPopUpSummary",
+                "InstallPrecautions": "InstallPrecautions",
+                "InstallingNotification": "InstallingNotification"
+            },
+            "ActivateNotification": {
+                "ActivatePrePopUpTitle": "ActivatePrePopUpTitle",
+                "ActivatePrePopUpSummary": "ActivatePrePopUpSummary",
+                "ActivatePrecautionsTitle": "箇条書き",
+                "ActivatePrecautionsCaution": "ActivatePrecautionsCaution",
+                "ActivatePrecautions": "ActivatePrecautions",
+                "ActivatePreDoubleCheckTitle": "ActivatePreDoubleCheckTitle",
+                "ActivatePreDoubleCheckText": "ActivatePreDoubleCheckText",
+                "ActivatePreparationText": "ActivatePreparationText",
+                "WaitActivatePopUpTitle": "WaitActivatePopUpTitle",
+                "WaitActivatePopUpSummary": "WaitActivatePopUpSummary",
+                "WaitActivateTextTitle": "箇条書き",
+                "WaitActivateTextCaution": "WaitActivateTextCaution",
+                "WaitActivateText": "WaitActivateText",
+                "WaitPreparingActivateCaution": "WaitPreparingActivateCaution",
+                "WaitPreparingActivateText": "WaitPreparingActivateText",
+                "ActivateCaution": "ActivateCaution",
+                "ActivateText": "ActivateText",
+                "PowerOperableText": "PowerOperableText"
+            },
+            "CheckUpdatedSwVer": {
+                "CheckUpdatedNotification": "CheckUpdatedNotification"
+            },
+            "UpdateComplete": {
+                "UpdateCompletePopUpTitle": "UpdateCompletePopUpTitle",
+                "UpdateCompletePopUpSummary": "UpdateCompletePopUpSummary",
+                "UpdateCompleteNotification": "UpdateCompleteNotification"
+            },
+            "Cancel": {
+                "Notification": {
+                    "CancelNotification1": "CancelNotification1",
+                    "CancelNotification2": "CancelNotification2"
+                },
+                "Factor": {
+                    "CancellationFactor1": "CancellationFactor1",
+                    "CancellationFactor2": "CancellationFactor2"
+                },
+                "PopUp": {
+                    "CanceledPopUpTitle": "CanceledPopUpTitle",
+                    "CanceledPopUpSummary": "CanceledPopUpSummary"
+                }
+            },
+            "Error": {
+                "ErrorNotification": "ErrorNotification",
+                "ErrorRetryNotification": "ErrorRetryNotification",
+                "ErrorCode": "ErrorCode"
+            },
+            "Pending": {
+                "PendingNotification": "PendingNotification",
+                "PendingWi-FiReq": "PendingWi-FiReq",
+                "PendingPwrOff": "PendingPwrOff",
+                "PendingPopUpTitle": "PendingPopUpTitle",
+                "PendingPopUpSummary": "PendingPopUpSummary"
+            }
+        },
+        "URL": {
+            "OMUrl": {
+                "Title": "URLリンク表示の表示文。表示方法はHMI ECUデザインに依存。",
+                "Url01": "Url01",
+                "Url02": "Url02",
+                "Url03": "Url03",
+                "Url04": "Url04",
+                "Url05": "Url05",
+                "Url06": "Url06",
+                "Url07": "Url07",
+                "Url08": "Url08",
+                "Url09": "Url09",
+                "Url10": "Url10"
+            },
+            "OwnerLetterUrl": {
+                "Title": "URLリンク表示の表示文。表示方法はHMI ECUデザインに依存。",
+                "Url01": "Url01",
+                "Url02": "Url02",
+                "Url03": "Url03",
+                "Url04": "Url04",
+                "Url05": "Url05",
+                "Url06": "Url06",
+                "Url07": "Url07",
+                "Url08": "Url08",
+                "Url09": "Url09",
+                "Url10": "Url10",
+                "Url11": "Url11",
+                "Url12": "Url12",
+                "Url13": "Url13"
+            }
+        }
+    }
+}

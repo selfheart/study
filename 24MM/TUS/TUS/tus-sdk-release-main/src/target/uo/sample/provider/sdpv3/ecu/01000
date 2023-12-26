@@ -1,0 +1,8 @@
+serial_num = e2fc677f-5b1b-4988
+ecu_hardware_part_a_id = 1d3c5adb-c15d-4d
+ecu_hardware_part_b_id = 1d3c5adb-c15d-4d
+ecu_software_part_a_id/3d500 = 1.0
+ecu_software_part_b_id/3d500 = 1.0
+active_bank = A
+rewrite_a_count = 0
+rewrite_b_count = 0

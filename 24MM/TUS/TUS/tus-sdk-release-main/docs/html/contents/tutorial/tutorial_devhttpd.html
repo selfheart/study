@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3.5.4.1. Tutorial 2 (using DevHTTPd provider) &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0)" href="tutorial_using_emoota_sdpv3.html" />
+    <link rel="prev" title="3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)" href="tutorial_local.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">3. Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#uninstall-old-sdk">3.1. Uninstall old SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#prerequisites">3.2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#how-to-install-host-tools">3.3. How to install Host Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#how-to-build-target-device-components">3.4. How to build Target Device components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tutorial.html#tutorials">3.5. Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tup-for-the-tutorials-1-and-2">3.5.1. TUP for the tutorials #1 and #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tup-for-the-tutorial-3">3.5.2. TUP for the tutorial #3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tutorial-1-deploy-a-tup-directly-to-target-device">3.5.3. Tutorial 1 (deploy a TUP directly to Target Device)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../tutorial.html#tutorial-2-using-devhttpd-provider">3.5.4. Tutorial 2 (using DevHTTPd provider)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.4.1. Tutorial 2 (using DevHTTPd provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tutorial-3-using-emoota-sdp-v3-0">3.5.5. Tutorial 3 (using EMOOTA SDP v3.0)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#for-further-information">3.6. For further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorial.html"><span class="section-number">3. </span>Tutorial</a> &raquo;</li>
+        
+      <li><span class="section-number">3.5.4.1. </span>Tutorial 2 (using DevHTTPd provider)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="tutorial-2-using-devhttpd-provider">
+<h1><span class="section-number">3.5.4.1. </span>Tutorial 2 (using DevHTTPd provider)<a class="headerlink" href="#tutorial-2-using-devhttpd-provider" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial, you can learn how to use DevHTTPd provider for development.
+When using DevHTTPd provider, Update Orchestrator checks if there are updates to a httpd server defined in a configuration file on Target Device.
+Please follow the instructions to configure the httpd server on your host PC and to place TUP on the directory which httpd will publish.</p>
+<div class="section" id="tup-generation">
+<h2><span class="section-number">3.5.4.1.1. </span>TUP Generation<a class="headerlink" href="#tup-generation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TUP generation step is the same as <a class="reference internal" href="tutorial_local.html"><span class="doc std std-doc">Tutorial1</span></a>. Before proceeding this tutorial’s instructions, please uninstall the debian package and remove the text file on Target Device if they remain.</p>
+</div>
+<div class="section" id="generate-inner-package-containing-sample-debian-package">
+<h3><span class="section-number">3.5.4.1.1.1. </span>Generate Inner Package containing sample debian package<a class="headerlink" href="#generate-inner-package-containing-sample-debian-package" title="Permalink to this headline">¶</a></h3>
+<p>First, generate Inner Package which contains sample <code class="docutils literal notranslate"><span class="pre">.deb</span></code> file for Target Device #1 which has Update Orchestrator and Domain Controller.</p>
+<p>Before generating Inner Package, you need to prepare JSON configuration file <code class="docutils literal notranslate"><span class="pre">tutorial-debianpkg.json</span></code> as written below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Values in deviceConfigurations would be used to validate that it matches with the value on SDP server. Since this tutorial does not use SDP as provider, it’s value can be anything.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;deb&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .deb file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;dummy target id&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: <span class="s2">&quot;dummy software id&quot;</span>,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;dummy product number&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-debianpkg.json --out innerpkg1.tup --out-html innerpkg1.html
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please place necessary files such as JSON configuration and sample <code class="docutils literal notranslate"><span class="pre">.deb</span></code> files under the current directory.</p>
+</div>
+<p>After running the command, you can see <code class="docutils literal notranslate"><span class="pre">innerpkg1.tup</span></code> is generated if succeeded.</p>
+</div>
+<div class="section" id="generate-inner-package-containing-sample-text">
+<h3><span class="section-number">3.5.4.1.1.2. </span>Generate Inner Package containing sample text<a class="headerlink" href="#generate-inner-package-containing-sample-text" title="Permalink to this headline">¶</a></h3>
+<p>Secondly, generate Inner Package which contains sample text file for Target Device #2 which has Domain Controller.</p>
+<p>Please prepare a JSON configuration file <code class="docutils literal notranslate"><span class="pre">tutorial-compressedtxt.json</span></code> below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Values in deviceConfigurations would be used to validate that it matches with the value on SDP server. Since this tutorial does not use SDP as provider, it’s value can be anything.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;LZ4-compressed&quot;</span>,
+                <span class="s2">&quot;compress&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span>: <span class="s2">&quot;LZ4&quot;</span>,
+                    <span class="s2">&quot;tableType&quot;</span>: <span class="s2">&quot;fixed&quot;</span>
+                <span class="o">}</span>,
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;txt&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .txt file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;dummy target id&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: <span class="s2">&quot;dummy software id&quot;</span>,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;dummy product number&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-compressedtxt.json --out innerpkg2.tup --out-html innerpkg2.html
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please place necessary files such as JSON configuration and sample text files under the current directory.</p>
+</div>
+<p>After running the command, you can see <code class="docutils literal notranslate"><span class="pre">innerpkg2.tup</span></code> is generated if succeeded.</p>
+<!-- TODO : TUPの内容をDumpできるようになったら、ここで確認プロセスとして追加しても良さそう (SDK020~) -->
+</div>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<!-- TODO : optionで渡す内容はPackaging構成によって決定 -->
+<div class="section" id="generate-outer-tup-file">
+<h3><span class="section-number">3.5.4.1.1.3. </span>Generate outer TUP file<a class="headerlink" href="#generate-outer-tup-file" title="Permalink to this headline">¶</a></h3>
+<p>After confirming that <code class="docutils literal notranslate"><span class="pre">innerpkg1.tup</span></code> and <code class="docutils literal notranslate"><span class="pre">innerpkg2.tup</span></code> is generated, you can generate outer TUP file which is handled by Update Orchestrator of Target Device.</p>
+<p>As same as the Inner Packages, please prepare JSON configuration file <code class="docutils literal notranslate"><span class="pre">tutorial-outer.json</span></code> as written below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;outer&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg1&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi1&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-debianpkg.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to innerpkg1.tup&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg2&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi2&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-compressedtxt.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to innerpkg2.tup&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">domainname</span></code> defined here will be used when deploying <code class="docutils literal notranslate"><span class="pre">domainconf</span></code> to Update Orchestrator.</p>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-outer.json --out tutorial_outer.tup --out-html outer.html
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please place necessary files such as JSON configuration and Inner Package files under the current directory.</p>
+</div>
+<p>After running the command, you can see <code class="docutils literal notranslate"><span class="pre">tutorial_outer.tup</span></code> is generated if succeeded.</p>
+<!-- TODO: after supporting TUP viewer, confirmation process can be added here.(SDK030~) -->
+<p>For details of commands used above, please refer to <a class="reference internal" href="../cli_references/tup.html"><span class="doc std std-doc">CLI Reference</span></a>.</p>
+</div>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+</div>
+<div class="section" id="configure-httpd-on-your-host-pc-and-place-tup">
+<h2><span class="section-number">3.5.4.1.2. </span>Configure httpd on your host PC and place TUP<a class="headerlink" href="#configure-httpd-on-your-host-pc-and-place-tup" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, as a httpd server Nginx is used.
+Any httpd server is fine if range request is supported.</p>
+<p>In this case, install Nginx and publish TUS SDK as root directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">nginx</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;s@/var/www/html@$TUS_SDK@g&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="n">default</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">nginx</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>And then placing TUP is needed for Update Orchestrator to fetch it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $TUS_SDK
+export TUS_PKG_DIR=tus/package
+export VERSION=1
+mkdir -p $TUS_PKG_DIR/$VERSION/
+cp tutorial_outer.tup $TUS_PKG_DIR/$VERSION/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to set appropriate permission to directory accessed by Nginx.</p>
+</div>
+</div>
+<div class="section" id="deploy-configurations-to-target-device">
+<h2><span class="section-number">3.5.4.1.3. </span>Deploy Configurations to Target Device<a class="headerlink" href="#deploy-configurations-to-target-device" title="Permalink to this headline">¶</a></h2>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<p>First, please set environment variable <code class="docutils literal notranslate"><span class="pre">TARGET_HOSTNAME</span></code> of Target Device which has Update Orchestrator.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">TARGET_HOSTNAME</span><span class="o">=</span>&lt;username@hostname&gt;
+</pre></div>
+</div>
+<p>In addition, please set the path to the <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory on Target Device of Update Orchestrator where you deployed in the instruction <a class="reference external" href="../tutorial.html#build-with-the-yocto-sdk-on-docker">5.4.1.3. Build with the Yocto SDK on Docker</a> as an environment variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">TARGET_DEPLOY_DIR</span><span class="o">=</span>&lt;Path to deploy directory&gt;
+</pre></div>
+</div>
+<p>Then, send configuration files to Target Device by the following commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># create directories for config files to deploy
+$ tus dtool initconf $TARGET_DEPLOY_DIR/target --provider devhttpd
+
+# send provider configurations
+export HOST_IP=&lt;Host PC IP address&gt;
+tus dtool rootconf --dest $TARGET_DEPLOY_DIR/target/uo --httpd-host 192.168.0.2 ./provider/devhttpd ./domain
+tus dtool provconf devhttpd --dest $TARGET_DEPLOY_DIR/target/uo/provider/devhttpd --server $HOST_IP --pkg-name tutorial_outer.tup --pkg-version 1
+
+# send domain configurations
+tus dtool domainconf root --dest $TARGET_DEPLOY_DIR/target/uo/domain Rpi1 ./rpi1 Rpi2 ./rpi2
+tus dtool domainconf domain --dest $TARGET_DEPLOY_DIR/target/uo/domain --filename rpi1
+tus dtool domainconf domain --dest $TARGET_DEPLOY_DIR/target/uo/domain --hostname 192.168.0.3:50051 --filename rpi2
+
+# send dc configurations
+# please set TARGET_HOSTNAME_DC with your DC&#39;s hostname &lt;user&gt;@&lt;IP adress&gt; below
+$ TARGET_HOSTNAME_DC=&lt;hostname of DC1&gt; tus dtool dc rootconf Rpi1 --dest $TARGET_DEPLOY_DIR/target/dc --grpc-listen 0.0.0.0:50051 --versions ./versions
+$ TARGET_HOSTNAME_DC=&lt;hostname of DC2&gt; tus dtool dc rootconf Rpi2 --dest $TARGET_DEPLOY_DIR/target/dc --grpc-listen 0.0.0.0:50051 --versions ./versions
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-domain-controller-and-update-orchestrator">
+<h2><span class="section-number">3.5.4.1.4. </span>Run Domain Controller and Update Orchestrator<a class="headerlink" href="#run-domain-controller-and-update-orchestrator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launch-domain-controller">
+<h3><span class="section-number">3.5.4.1.4.1. </span>Launch Domain Controller<a class="headerlink" href="#launch-domain-controller" title="Permalink to this headline">¶</a></h3>
+<p>Please move to each device’s <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory where you deployed in the instruction <a class="reference external" href="../tutorial.html#build-with-the-yocto-sdk-on-docker">5.4.1.3. Build with the Yocto SDK on Docker</a> and run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./target/dc/dc
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to add <code class="docutils literal notranslate"><span class="pre">sudo</span></code> during the above process depending on your account permissions.</p>
+</div>
+</div>
+<div class="section" id="launch-update-orchestrator">
+<h3><span class="section-number">3.5.4.1.4.2. </span>Launch Update Orchestrator<a class="headerlink" href="#launch-update-orchestrator" title="Permalink to this headline">¶</a></h3>
+<p>After launching each device’s Domain Controller, run the following command on <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory where you deployed in the instruction <a class="reference external" href="../tutorial.html#build-with-the-yocto-sdk-on-docker">5.4.1.3. Build with the Yocto SDK on Docker</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./target/uo/uo
+</pre></div>
+</div>
+<p>Update Orchestrator will automatically detect <code class="docutils literal notranslate"><span class="pre">tutorial_outer.tup</span></code> by following configurations and installs each Update Data inside it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to add <code class="docutils literal notranslate"><span class="pre">sudo</span></code> during the above process depending on your account permissions.</p>
+</div>
+</div>
+<div class="section" id="check-the-update-result">
+<h3><span class="section-number">3.5.4.1.4.3. </span>Check the update result<a class="headerlink" href="#check-the-update-result" title="Permalink to this headline">¶</a></h3>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<p>For the debian package file, you can check whether it was installed successfully or not on RaspberryPi4 #1 by the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>e.g.<span class="o">)</span>
+
+$ dpkg-query -s hello
+Package: hello
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: <span class="m">9</span>
+Maintainer: Toyota Motor Corporation
+Architecture: all
+Version: <span class="m">0</span>.1.0
+Description: hello
+ TMC CONFIDENTIAL
+ <span class="nv">$TUSLibId</span>$
+ Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2022</span> TOYOTA MOTOR CORPORATION
+ All Rights Reserved.
+</pre></div>
+</div>
+<p>And, you can also find the text file <code class="docutils literal notranslate"><span class="pre">/tmp/written_txt_data</span></code> on RaspberryPi4 #2 if succeeded.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>e.g.<span class="o">)</span>
+
+$ less /tmp/written_txt_data
+
+The Project Gutenberg eBook of Alice’s Adventures <span class="k">in</span> Wonderland, by Lewis Carroll
+
+This eBook is <span class="k">for</span> the use of anyone anywhere <span class="k">in</span> the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online at
+www.gutenberg.org. If you are not located <span class="k">in</span> the United States, you
+will have to check the laws of the country where you are located before
+using this eBook.
+
+Title: Alice’s Adventures <span class="k">in</span> Wonderland
+
+Author: Lewis Carroll
+
+Release Date: January, <span class="m">1991</span> <span class="o">[</span>eBook <span class="c1">#11]</span>
+<span class="o">[</span>Most recently updated: October <span class="m">12</span>, <span class="m">2020</span><span class="o">]</span>
+
+...
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The detail results described as example above will differ depending on the contents of the debian package file and the text file.</p>
+</div>
+</div>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial_using_emoota_sdpv3.html" class="btn btn-neutral float-right" title="3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorial_local.html" class="btn btn-neutral float-left" title="3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

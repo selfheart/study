@@ -1,0 +1,75 @@
+/* TMC CONFIDENTIAL
+ * $TUSLibId$
+ * Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+ * All Rights Reserved.
+ */
+
+// for gRPC server on a DC
+syntax = "proto3";
+
+package TUS;
+
+service DomainController {
+  rpc GetVersions(Names) returns (Versions) {}
+  rpc Execute(Script) returns (Response) {}
+
+  rpc PollEnv(Session) returns (Updates) {}
+  rpc ExecuteAsync(ExecuteAsyncParams) returns (Response) {}
+  rpc SetEnvironment(SetEnvironmentParams) returns (Response) {}
+}
+
+message Names {
+  repeated string name = 1;
+}
+
+message Versions {
+  int32 result_code = 1;
+  repeated PairedStr pairs = 2;
+}
+
+message Response {
+  int32 result_code = 1;
+  string result_text = 2;
+}
+
+message Script {
+  string parameters = 1;
+  bytes body = 2;
+  string session_id = 3;
+}
+
+message PairedStr {
+  string key = 1;
+  string value = 2;
+}
+
+message AsyncResult {
+  uint32 tag = 1; // async op tag
+  int32 result_code = 2;
+  string result_text = 3;
+}
+
+message Session {
+  string id = 1;
+}
+
+
+// pass FSM env updates & async op results using the same channel
+message Updates {
+  int32 result_code = 1;
+  repeated PairedStr pairs = 2;
+  repeated AsyncResult arets = 3;
+}
+
+
+message ExecuteAsyncParams {
+  string url = 1;
+  uint32 tag = 2;
+  string session_id = 3;
+}
+
+message SetEnvironmentParams {
+  Session session = 1;
+  string key = 2;
+  string value = 3;
+}

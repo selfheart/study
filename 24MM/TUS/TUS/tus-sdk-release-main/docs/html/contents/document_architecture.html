@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Document Architecture &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Release Note" href="releasenote.html" />
+    <link rel="prev" title="Welcome to the TUS’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Document Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#trusted-update-system-documents">1.1. Trusted Update System Documents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-documents">1.1.1. SDK Documents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#trusted-update-package-documents">1.2. Trusted Update Package Documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Document Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="document-architecture">
+<h1><span class="section-number">1. </span>Document Architecture<a class="headerlink" href="#document-architecture" title="Permalink to this headline">¶</a></h1>
+<p>The following documents are provided for Trusted Update System and Trusted Update Package.</p>
+<div class="section" id="trusted-update-system-documents">
+<h2><span class="section-number">1.1. </span>Trusted Update System Documents<a class="headerlink" href="#trusted-update-system-documents" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Document</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="tus_overview.html">Trusted Update System Overview</a></td>
+<td align="left">Explains the overall TUS(=Trusted Update System). You can learn key concepts of TUS (e.g. Update Orchestrator, Domain Controller, etc.) with the document. There are also feature list and quality criteria of the TUS written in the document.</td>
+</tr>
+<tr>
+<td align="left"><a href="tus_sdk_roadmap.html">TUS SDK Roadmap</a></td>
+<td align="left">Shows the strategic plan of the TUS SDK development. You can refer to the latest information and change history of the roadmap.</td>
+</tr>
+<tr>
+<td align="left"><a href="appendix.html">TUS SDK Structure Overview</a> (In an Appendix)</td>
+<td align="left">There are multiple materials used for the TUS demonstrations to explain the TUS SDK structure. Please refer to these as an aid to better understand the TUS and the TUS SDK.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="sdk-documents">
+<h3><span class="section-number">1.1.1. </span>SDK Documents<a class="headerlink" href="#sdk-documents" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Document</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="tutorial.html">Tutorials</a></td>
+<td align="left">Explains step-by-step instruction on how to get started with the TUS SDK. For example, you can learn how to install Update Orchestrator on Target Device using the Host Tools.</td>
+</tr>
+<tr>
+<td align="left"><a href="cli_reference.html">TUS CLI Reference</a></td>
+<td align="left">Provides the TUS Command Line Interface reference.</td>
+</tr>
+<tr>
+<td align="left"><a href="api_reference.html">API Reference</a></td>
+<td align="left">Provides the TUS SDK's Lua API reference for operations via Lua script.</td>
+</tr>
+<tr>
+<td align="left"><a href="releasenote.html">Release Note</a></td>
+<td align="left">Shows detail changes included in the current version of SDK.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="trusted-update-package-documents">
+<h2><span class="section-number">1.2. </span>Trusted Update Package Documents<a class="headerlink" href="#trusted-update-package-documents" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Document</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="tup_docs/tup_introduction.html">Trusted Update Package Introduction</a></td>
+<td align="left">Explains briefly the abstract of TUP(=Trusted Update Package). After checking this document, refer to <a href="tup_docs/tup_design.html">Trusted Update Package Design</a> for further details.</td>
+</tr>
+<tr>
+<td align="left"><a href="tup_docs/tup_design.html">Trusted Update Package Format Design</a></td>
+<td align="left">Explains the design of TUP file format and its rationale. After checking this document, refer to <a href="tup_docs/tup_specification.html">Trusted Update Package Format Specification</a> for detail file format specification.</td>
+</tr>
+<tr>
+<td align="left"><a href="tup_docs/tup_specification.html">Trusted Update Package Format Specification</a></td>
+<td align="left">Explains the structure inside the TUP. Please refer to this document to learn the detail file format of TUP.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="releasenote.html" class="btn btn-neutral float-right" title="2. Release Note" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to the TUS’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

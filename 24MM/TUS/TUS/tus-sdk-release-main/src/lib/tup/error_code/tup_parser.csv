@@ -1,0 +1,6 @@
+# TMC CONFIDENTIAL
+# $TUSLibId$
+# Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+# All Rights Reserved.
+#name, error code, description
+INVALID_ARGUMENT, 0x0001, Invalid argument

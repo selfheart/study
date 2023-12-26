@@ -1,0 +1,2 @@
+# gRPC endpoint to connect from UO, shall be a public address (not localhost)
+grpc=localhost:50051

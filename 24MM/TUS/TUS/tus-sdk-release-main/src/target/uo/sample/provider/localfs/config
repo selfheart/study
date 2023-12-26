@@ -1,0 +1,15 @@
+# configuration file for uo.providers
+
+# texts after '#' are assumed to be comments, spaces / empty lines are ignored
+
+# type of this update provider, may be 'devhttpd', 'localfs' or 'sdpv3'
+type=localfs
+
+# type-dependent configuration parameters
+
+# for 'localfs'
+
+## 'tests/src/target/common/reqscript.tup' can be built by
+## cmake --build [BUILDDIR] ---target reqscript_tup
+## the TUP shall be copied under /tmp/provider/
+package_path=/tmp/provider/reqscript.tup

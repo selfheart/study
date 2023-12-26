@@ -1,0 +1,11 @@
+{
+  "signed": {
+      "keyid": "",
+      "body": {
+          "vin": "vinUpdate20231008",
+          "command": "StartCampaign",
+          "campaignId": 69,
+          "commandId": 4
+      }
+  }
+}

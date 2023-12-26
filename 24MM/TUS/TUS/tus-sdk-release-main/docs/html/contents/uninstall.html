@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3.1.1. Uninstall SDK 03X &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)" href="tutorial/tutorial_local.html" />
+    <link rel="prev" title="3. Tutorial" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">3. Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html#uninstall-old-sdk">3.1. Uninstall old SDK</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.1.1. Uninstall SDK 03X</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uninstall-files-on-target-device">3.1.1.1. Uninstall files on Target Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uninstall-cross-compile-environments">3.1.1.2. Uninstall cross compile environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uninstall-host-tools">3.1.1.3. Uninstall Host Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall-sdk-02x">3.1.2. Uninstall SDK 02X</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">3.1.2.1. Uninstall files on Target Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.1.2.2. Uninstall cross compile environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.1.2.3. Uninstall Host Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uninstall-sdk-010">3.1.3. Uninstall SDK 010</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.1.3.1. Uninstall files on Target Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.1.3.2. Uninstall cross compile environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.1.3.3. Uninstall Host Tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#prerequisites">3.2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#how-to-install-host-tools">3.3. How to install Host Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#how-to-build-target-device-components">3.4. How to build Target Device components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#tutorials">3.5. Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#for-further-information">3.6. For further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="tutorial.html"><span class="section-number">3. </span>Tutorial</a> &raquo;</li>
+        
+      <li><span class="section-number">3.1.1. </span>Uninstall SDK 03X</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="uninstall-sdk-03x">
+<h1><span class="section-number">3.1.1. </span>Uninstall SDK 03X<a class="headerlink" href="#uninstall-sdk-03x" title="Permalink to this headline">¶</a></h1>
+<p>This procedure explains how to uninstall SDK030.</p>
+<div class="section" id="uninstall-files-on-target-device">
+<h2><span class="section-number">3.1.1.1. </span>Uninstall files on Target Device<a class="headerlink" href="#uninstall-files-on-target-device" title="Permalink to this headline">¶</a></h2>
+<p>On the Target Device, it is needed to remove some deployed files and configuration files.
+If you follow tutorials, please</p>
+<ul class="simple">
+<li><p>remove folder defined by <code class="docutils literal notranslate"><span class="pre">${TARGET_DEPLOY_DIR}</span></code> on the tutorial page.</p></li>
+<li><p>for only EMOOTA SDP licensed user, additionally removing <code class="docutils literal notranslate"><span class="pre">/data</span></code> folder is needed.</p></li>
+</ul>
+</div>
+<div class="section" id="uninstall-cross-compile-environments">
+<h2><span class="section-number">3.1.1.2. </span>Uninstall cross compile environments<a class="headerlink" href="#uninstall-cross-compile-environments" title="Permalink to this headline">¶</a></h2>
+<p>Please execute below commands after stopping containers if they are still running.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">rmi</span> <span class="n">tus</span><span class="o">-</span><span class="n">cross</span><span class="o">-</span><span class="n">yocto40</span><span class="p">:</span><span class="n">latest</span>
+<span class="n">docker</span> <span class="n">rmi</span> <span class="n">tus</span><span class="o">-</span><span class="n">cross</span><span class="o">-</span><span class="n">build</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uninstall-host-tools">
+<h2><span class="section-number">3.1.1.3. </span>Uninstall Host Tools<a class="headerlink" href="#uninstall-host-tools" title="Permalink to this headline">¶</a></h2>
+<p>Please execute below commands on the SDK root directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker rmi tus-docker-registry/sdk:$(cat TUS_SDK_VERSION)
+</pre></div>
+</div>
+<p>In addition to that, if you build Host Tools</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker rmi tus-tool-build:$(cat TUS_SDK_VERSION)
+</pre></div>
+</div>
+<p>And if <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/bin/</span></code> is added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, please update <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> to remove it.
+Additionally please unset <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code> environment variable.</p>
+<p>After completing above uninstall steps, it is able to remove deliverable archives <code class="docutils literal notranslate"><span class="pre">tus-XXX.txz</span></code> ( <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is equal to the version number like <code class="docutils literal notranslate"><span class="pre">020</span></code> ) and extracted folders.</p>
+</div>
+</div>
+<div class="section" id="uninstall-sdk-02x">
+<h1><span class="section-number">3.1.2. </span>Uninstall SDK 02X<a class="headerlink" href="#uninstall-sdk-02x" title="Permalink to this headline">¶</a></h1>
+<p>This procedure explains how to uninstall SDK020, SDK021 and SDK022.</p>
+<div class="section" id="id1">
+<h2><span class="section-number">3.1.2.1. </span>Uninstall files on Target Device<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>On the Target Device, it is needed to remove some deployed files and configuration files.
+If you follow tutorials, please</p>
+<ul class="simple">
+<li><p>remove folder defined by <code class="docutils literal notranslate"><span class="pre">${TARGET_BUILD_DIR}</span></code> on the tutorial page.</p></li>
+<li><p>for only EMOOTA SDP licensed user, additionally removing <code class="docutils literal notranslate"><span class="pre">/data</span></code> folder is needed.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">3.1.2.2. </span>Uninstall cross compile environments<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Please execute below commands after stopping containers if they are still running.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">rmi</span> <span class="n">tus</span><span class="o">-</span><span class="n">cross</span><span class="o">-</span><span class="n">yocto40</span><span class="p">:</span><span class="n">latest</span>
+<span class="n">docker</span> <span class="n">rmi</span> <span class="n">tus</span><span class="o">-</span><span class="n">cross</span><span class="o">-</span><span class="n">build</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">3.1.2.3. </span>Uninstall Host Tools<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Please execute below commands on the SDK root directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker rmi tus/sdk:$(cat TUS_SDK_VERSION)
+</pre></div>
+</div>
+<p>And if <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/bin/</span></code> is added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, please update <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> to remove it.
+Additionally please unset <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code> environment variable.</p>
+<p>After completing above uninstall steps, it is able to remove deliverable archives <code class="docutils literal notranslate"><span class="pre">tus-XXX.txz</span></code> ( <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is equal to the version number like <code class="docutils literal notranslate"><span class="pre">020</span></code> ) and extracted folders.</p>
+</div>
+</div>
+<div class="section" id="uninstall-sdk-010">
+<h1><span class="section-number">3.1.3. </span>Uninstall SDK 010<a class="headerlink" href="#uninstall-sdk-010" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2><span class="section-number">3.1.3.1. </span>Uninstall files on Target Device<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>On the Target Device, it is needed to remove some deployed files and configuration files.</p>
+<p>If you follow tutorials, please</p>
+<ul class="simple">
+<li><p>remove folder defined by <code class="docutils literal notranslate"><span class="pre">${TARGET_DEPLOY_DIR}</span></code> on the tutorial page.</p></li>
+<li><p>remove <code class="docutils literal notranslate"><span class="pre">/var/www/html/tus</span></code> on Target Device where Update Orchestrator runs.</p></li>
+<li><p>for only EMOOTA SDP licensed user, additionally removing <code class="docutils literal notranslate"><span class="pre">/data</span></code> folder is needed.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">3.1.3.2. </span>Uninstall cross compile environments<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>First, please remove cross compiled libraries.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo rm -rf /usr/aarch64-linux-gnu/include/openssl
+sudo rm -rf /usr/aarch64-linux-gnu/include/curl
+
+pushd ${TUS_SDK}/src/lib/
+
+pushd ./grpc/cmake/build_aarch64
+cat install_manifest.txt | sudo xargs rm -rf
+popd 
+
+pushd ./grpc/cmake/build
+cat install_manifest.txt | sudo xargs rm -rf
+popd 
+
+pushd ./protobuf
+sudo make uninstall
+popd
+
+pushd ./lua-5.4.3
+sudo make INSTALL_TOP=&quot; /usr/aarch64-linux-gnu&quot; uninstall
+popd 
+
+popd
+</pre></div>
+</div>
+<p>And then please remove libraries installed by package managers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo pip uninstall -y protobuf==3.12.2
+sudo pip uninstall -y ecdsa==0.17 lz4==4.0.0 cryptography==36.0.1 mypy==0.931 flake8==4.0.1 Flask==2.1.1 requests==2.26.0
+sudo apt-get remove -y ca-certificates \
+    autoconf \
+    automake \
+    cmake \
+    curl \
+    g++-aarch64-linux-gnu \
+    g++ \
+    gcc-aarch64-linux-gnu \
+    gcc \
+    git \
+    libcurl4-openssl-dev:arm64 \
+    liblz4-dev:arm64 \
+    libssl-dev \
+    libssl-dev:arm64 \
+    libtool \
+    make \
+    ninja-build \
+    openssl \
+    python3 \
+    python3-distutils \
+    python3-pip \
+    unzip 
+sudo apt-get remove -y `dpkg --get-selections | grep arm64 | awk &#39;{print $1}&#39;`
+sudo apt autoremove -y
+</pre></div>
+</div>
+<p>Finally please revert <code class="docutils literal notranslate"><span class="pre">sources.list</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">architecture</span> <span class="n">arm64</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal main restricted/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-updates main restricted/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal universe/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-updates universe/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal multiverse/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-updates multiverse/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-backports main restricted universe multiverse/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-security main restricted/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-security universe/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;/deb \[arch=arm64\] http:\/\/ports.ubuntu.com\/ubuntu-ports focal-security multiverse/d&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+
+<span class="n">sudo</span> <span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;s/deb \[arch=amd64\] /deb /g&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">3.1.3.3. </span>Uninstall Host Tools<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Please execute below commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">rmi</span> <span class="n">tus</span><span class="o">/</span><span class="n">sdk</span><span class="p">:</span><span class="mf">0.1</span>
+</pre></div>
+</div>
+<p>And if <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/deliverables/bin/</span></code> is added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, please update <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> to remove it.
+Additionally please unset <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code> environment variable.</p>
+<p>After completing above uninstall steps, it is able to remove deliverable archives <code class="docutils literal notranslate"><span class="pre">tus-010.txz</span></code> and extracted folders.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial/tutorial_local.html" class="btn btn-neutral float-right" title="3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="3. Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

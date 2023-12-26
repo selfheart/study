@@ -1,0 +1,4 @@
+{ecu_target_id = "01000", new_ecu_software_part_id = {{
+subtarget_id="3d500",
+product_number="1.0",
+}}},

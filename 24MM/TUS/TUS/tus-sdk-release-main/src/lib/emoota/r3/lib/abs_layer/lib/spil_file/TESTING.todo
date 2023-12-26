@@ -1,0 +1,11 @@
+- Tests which rely on `system(3posix)` should be conditionally
+  included, and source for those tests should be seperated away from
+  platform agnostic tests.
+
+- Tests should NOT depend on previous tests succeeded, or even have
+  run.  E.g. Test2 should not use data created by Test1.
+
+- Tests should utilize group & function setup/teardown hooks to
+  establish pre-conditions for tests.  Specificially we should not
+  rely on the build system to construct directories and files used in
+  tests.

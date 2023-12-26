@@ -1,0 +1,204 @@
+#!/bin/bash
+
+#TMC CONFIDENTIAL
+#$TUSLibId$
+#Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+#All Rights Reserved.
+
+# container names passed to Docker
+readonly SDKCONTAINER_IMAGE_NAME="tus-docker-registry/sdk:0.3.0"
+
+DOCKER_COMMON_OPTION=`echo\
+                      --rm -v "$TUS_SDK":/tus_sdk -v "$(pwd)":"$(pwd)"\
+                      -u "$(id -u $USER)":"$(id -g $USER)" -e SDP_USERNAME -e SDP_PASSWD`
+RUST_LOG=${RUST_LOG:-info}
+DOCKER_RUST_LOG_ENV=" -e RUST_LOG=$RUST_LOG"
+
+###############################
+# tup subcommand
+###############################
+function tup {
+    subcommand="$1"
+    shift
+    case $subcommand in
+    help)
+        usage_tup
+        ;;
+    gen)
+        tup_generator "$@"
+        ;;
+    dump)
+        tup_dump "$@"
+        ;;
+    *)
+        usage_tup
+        ;;
+    esac
+}
+
+function usage_tup {
+    cat <<EOF
+Usage: tus tup [COMMAND] [OPTIONS]
+
+Description:
+  TUS-SDK TUP related operation command
+
+Options:
+  -h    print help message
+
+Commands:
+    gen         generate TUP package
+    dump        dump TUP to specified format such as HTML 
+EOF
+}
+
+function tup_generator {
+    docker run $DOCKER_COMMON_OPTION \
+        $DOCKER_RUST_LOG_ENV \
+        $SDKCONTAINER_IMAGE_NAME \
+        /bin/bash -c "cd $(pwd) && tup_gen $*"
+}
+
+function tup_dump {
+    docker run $DOCKER_COMMON_OPTION \
+        $DOCKER_RUST_LOG_ENV \
+        $SDKCONTAINER_IMAGE_NAME \
+        /bin/bash -c "cd $(pwd) && tup_dump $*"
+}
+
+###############################
+# pdp subcommand
+###############################
+function pdp {
+    subcommand="$1"
+    shift
+    case $subcommand in
+    help)
+        usage_pdp
+        ;;
+    sdpv3)
+        sdp "sdpv3" "$@"
+        ;;
+    # TODO: will support
+    # dump)
+    *)
+        usage_pdp
+        ;;
+    esac
+}
+
+function usage_pdp {
+    cat <<EOF
+Usage: tus pdp [COMMAND] [OPTIONS]
+
+Description:
+  TUS-SDK PDP related operation command
+
+Options:
+  -h    print help message
+
+Commands:
+    sdpv3       operate EMOOTA SDP v3  
+EOF
+}
+
+function sdp {
+    local version="$1"
+    shift
+    docker run $DOCKER_COMMON_OPTION \
+        -i $SDKCONTAINER_IMAGE_NAME \
+        /bin/bash -c "cd $(pwd) && python3 -m $version.main $*"
+}
+
+function dtool {
+    docker run $DOCKER_COMMON_OPTION \
+        -i -e "TARGET_HOSTNAME=$TARGET_HOSTNAME" -e "TARGET_HOSTNAME_DC=$TARGET_HOSTNAME_DC" \
+        -v $HOME/.ssh:$HOME/.ssh:ro -e "HOME=$HOME" -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro $SDKCONTAINER_IMAGE_NAME \
+        /bin/bash -c "cd $(pwd) && python3 -m dtool.main $*"
+}
+
+function delta {
+    docker run $DOCKER_COMMON_OPTION \
+        -i $SDKCONTAINER_IMAGE_NAME \
+        /bin/bash -c "cd $(pwd) && \${TUS_SDK}/bin/delta_update/delta.sh $*"
+}
+
+###############################
+# main usage
+###############################
+function usage {
+    cat <<EOF
+Usage: tus [COMMAND] [OPTIONS]
+
+Description:
+  TUS-SDK command
+
+Options:
+  -h    print help message
+  -v    print TUS SDK version
+
+Commands:
+  tup           execute tup operations with subcommand.
+  pdp           execute pdp operations with subcommand.
+  dtool         execute deploymentool operations with subcommand.
+  delta         execute delta update operations with subcommand.
+EOF
+}
+
+####################################
+# main functions
+####################################
+function main {
+    subcommand="$1"
+    shift
+
+    case $subcommand in
+    tup)
+        tup "$@"
+        ;;
+    pdp)
+        pdp "$@"
+        ;;
+    # TODO: will support
+    # emu)
+    #     emulator "$@"
+    #     ;;
+    dtool)
+        dtool "$@"
+        ;;
+    delta)
+        delta "$@"
+        ;;
+    -v)
+        # replaced by cmake build
+        echo "TUS_SDK_VERSION: 0.3.0"
+        ;;
+    -h | help | *)
+        usage
+        ;;
+    esac
+
+}
+
+###################################
+# echo to stderr
+###################################
+function err {
+    echo "$*" >&2
+}
+
+
+###############################
+# main
+###############################
+if [[ -z "$TUS_SDK" ]]; then
+    err "Please define TUS_SDK environment variable to decide SDK location."
+    exit 1
+fi
+
+if [[ -z $(docker images -q $SDKCONTAINER_IMAGE_NAME) ]]; then
+    err "Please load docker images."
+    exit 1
+fi
+
+main "$@"

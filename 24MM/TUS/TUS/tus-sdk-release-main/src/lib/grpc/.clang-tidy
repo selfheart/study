@@ -1,0 +1,2 @@
+# minimal check only for foreign libs
+Checks: '-*,clang-analyzer-core.*'

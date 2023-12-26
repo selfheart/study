@@ -1,0 +1,157 @@
+﻿{
+    "version": "00.00.00",
+    "fileInfo": {
+        "destination": "CN",
+        "language": 0
+    },
+    "updateTargetInfo": {
+        "suMethod": 1,
+        "vehicleCurrentSwTitle": "雷克萨斯 FOTA 演示基础版",
+        "vehicleCurrentSwVer": "8023101902",
+        "vehicleNextSwTitle": "雷克萨斯 FOTA 演示目标版",
+        "vehicleNextSwVer": "802310130X"
+    },
+    "customerConsentReq": 0,
+    "customerOperation": {
+        "dlCancel": 0,
+        "pendingActivateOpe": 0,
+        "updateNotifyConsentOpe": 0,
+        "installNotifyConsentOpe": 0,
+        "activateNotifyPreConsentOpe": 0,
+        "activateNotifyConsentOpe": 0,
+        "updateCompNotifyConsentOpe": 0
+    },
+    "displayInterruptEdge": {
+        "interruptDispEventList": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+    "displayInfo": {
+        "workingTime": {
+            "downloadTime": 10,
+            "installTime": 10,
+            "activatePrepareTime": 1,
+            "waitActivateTime": 1,
+            "activateTime": 1
+        },
+        "execParameter": {
+            "activateNotification": {
+                "pendingActivationTitle": "更新开始前倒计时",
+                "pendingActivationTimer": 60,
+                "pendingActivationCaution": "更新开始后，约20分钟不能关闭车的电源/引擎，不能使用车。在当前画面下车的话会马上开始更新。",
+                "pendingActivationText": "如果中断，则在下次电源接通后，确认电源关闭后重新开始"
+            }
+        },
+        "textContents": {
+            "updateNotification": {
+                "notificationTitle": "软件更新通知",
+                "notificationSummary": "雷克萨斯 FOTA 更新演示",
+                "updateSummary": "雷克萨斯 FOTA 更新演示",
+                "updateContents": "系统版本更新，修复已知漏洞",
+                "precautions": "更新期间不能使用远程服务。",
+                "operation": "更新途中需要关闭车的电源。请按照显示的向导在安全的地方进行电源操作",
+                "serviceInOperation": "为了更新以下功能，请委托附近的销售店办理更新手续。",
+                "termsOfService": "遵守GBT法规"
+            },
+            "downloadNotification": {
+                "downloadingNotification": "正在下载。也可以关闭车的电源，下次电源接通时重新开始。"
+            },
+            "installNotification": {
+                "installPopUpTitle": "软件更新进度通知",
+                "installPopUpSummary": "下载完成。\n为了继续更新，请确认详细情况。",
+                "installPrecautions": "下载完成。\n接下来进行安装。\n开始安装后，在更新完成之前有些功能不可用。\n对象功能请看下面的详细内容。",
+                "installingNotification": "正在安装中。也可以关闭车的电源，下次电源接通时重新开始。"
+            },
+            "activateNotification": {
+                "activatePrePopUpTitle": "软件更新进度通知",
+                "activatePrePopUpSummary": "继续更新。\n请确认详细情况。",
+                "activatePrecautionsTitle": "为了继续更新请在安全的地方实施",
+                "activatePrecautionsCaution": "在下一步中，约2分钟内无法打开汽车电源/发动机。",
+                "activatePrecautions": "・为了使用新软件，需要对车进行电源操作。请务必在安全的地方实施。\n・到下次电源操作为止，一部分功能将关闭，请确认更新内容。",
+                "activatePreDoubleCheckTitle": "实施确认",
+                "activatePreDoubleCheckText": "在能安全使用车之前，暂时不能使用车。\n可以进行更新吗？",
+                "activatePreparationText": "正在为关闭电源做准备。\n请在电源接通状态下等待。",
+                "waitActivatePopUpTitle": "软件更新进度通知",
+                "waitActivatePopUpSummary": "关闭车辆电源前请务必确认内容。\n就这样切断电源的话，暂时不能接通电源。",
+                "waitActivateTextTitle": "为了继续更新，请在确认安全后关闭电源",
+                "waitActivateTextCaution": "电源关闭后，约2分钟内无法接通车的电源/发动机，无法行驶。",
+                "waitActivateText": "・请务必确认周围的安全后再关闭电源。\n・也可以就这样行驶。这种情况下，下次停车时从电源操作的确认画面重新开始。",
+                "waitPreparingActivateCaution": "车不能打开电源",
+                "waitPreparingActivateText": "因为是自动结束的，所以可以下车。",
+                "activateCaution": "车不能打开电源",
+                "activateText": "因为是自动结束的，所以可以下车。",
+                "powerOperableText": "现在可以操作车的电源了。\n下次车的电源接通时继续更新。"
+            },
+            "checkUpdatedSwVer": {
+                "checkUpdatedNotification": "正在更新,\n正在检查系统状态。\n在更新完成之前，某些功能可能会受到限制。"
+            },
+            "updateComplete": {
+                "updateCompletePopUpTitle": "软件更新结束通知",
+                "updateCompletePopUpSummary": "软件已经更新结束",
+                "updateCompleteNotification": "更新已全部完成。\n新系统可用。"
+            },
+            "cancel": {
+                "notification": {
+                    "cancelNotification1": "更新已中止。\n下次乘车时从确认有无更新开始。",
+                    "cancelNotification2": "更新已被远程中止。\n下次乘车时从确认有无更新开始。"
+                },
+                "factor": {
+                    "cancellationFactor1": "中止原因\n根据配信方的情况",
+                    "cancellationFactor2": "中止原因\n根据配信方的情况"
+                },
+                "popUp": {
+                    "canceledPopUpTitle": "更新已中止",
+                    "CanceledPopUpSummary": "请确认详细情况。"
+                }
+            },
+            "error": {
+                "errorNotification": "更新失败",
+                "errorRetryNotification": "为了恢复请确认详细情况",
+                "errorCode": "1"
+            },
+            "pending": {
+                "pendingNotification": "根据车辆的状态不能继续更新。\n详细情况请从下面确认“为了更新”。",
+                "pendingWiFiReq": "您需要连接到Wi-Fi才能继续更新。\n连接Wi-Fi后，自动恢复更新。",
+                "pendingPwrOff": "已暂停更新。\n车的电源接通后重新开始更新。",
+                "pendingPopUpTitle": "更新中断",
+                "pendingPopUpSummary": "请确认详细情况。\n如果车恢复到可以更新的状态的话，从中途开始重新开始。"
+            }
+        },
+        "url": {
+            "omUrl": {
+                "title": "URLリンク表示の表示文。表示方法はHMI ECUデザインに依存。",
+                "url01": "url01",
+                "url02": "url02",
+                "url03": "url03",
+                "url04": "url04",
+                "url05": "url05",
+                "url06": "url06",
+                "url07": "url07",
+                "url08": "url08",
+                "url09": "url09",
+                "url10": "Url10"
+            },
+            "ownerLetterUrl": {
+                "title": "URLリンク表示の表示文。表示方法はHMI ECUデザインに依存。",
+                "url01": "url01",
+                "url02": "url02",
+                "url03": "url03",
+                "url04": "url04",
+                "url05": "url05",
+                "url06": "url06",
+                "url07": "url07",
+                "url08": "url08",
+                "url09": "url09",
+                "url10": "url10",
+                "url11": "url11",
+                "url12": "url12",
+                "url13": "Url13"
+            }
+        }
+    }
+}

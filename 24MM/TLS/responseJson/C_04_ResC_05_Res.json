@@ -1,0 +1,91 @@
+{
+  "targetsMetadata": [
+      {
+          "fileName": "mm",
+          "metadata": {
+              "signed": {
+                  "body": {
+                      "targets": [
+                          {
+                              "target": {
+                                  "fileName": "mm",
+                                  "length": 1,
+                                  "fileDownloadUrl": "https://test24mmresourcedl.g-book.com.cn/software/fullupdate.zip"
+                              },
+                              "custom": {
+                                  "softwarePackageId": 23
+                              }
+                          }
+                      ]
+                  },
+                  "type": "targets"
+              }
+          }
+      }
+  ],
+  "augmentedMetadata": {
+      "signed": {
+          "body": {
+              "campaigns": [
+                  {
+                      "campaignId": 65,
+                      "campaignType": "MARKET",
+                      "campaignKind": "MARKET",
+                      "hmiInformation": {
+                          "hmiMessage": {
+                              "reportId": "123",
+                              "url": "https://test24mmresourcedl.g-book.com.cn/software/HMI_File.json",
+                              "digest": ""
+                          },
+                          "requestedLocale": "",
+                          "defaultLocale": "..."
+                      }
+                  },
+                  {
+                      "campaignId": 68,
+                      "campaignType": "MARKET",
+                      "campaignKind": "MARKET",
+                      "hmiInformation": {
+                          "hmiMessage": {
+                              "reportId": "123",
+                              "url": "https://test24mmresourcedl.g-book.com.cn/software/HMI_File.json"
+                          },
+                          "requestedLocale": "",
+                          "defaultLocale": "..."
+                      }
+                  },
+                  {
+                      "campaignId": 69,
+                      "campaignType": "MARKET",
+                      "campaignKind": "MARKET",
+                      "hmiInformation": {
+                          "hmiMessage": {
+                              "reportId": "123",
+                              "url": "https://test24mmresourcedl.g-book.com.cn/software/HMI_File.json",
+                              "digest": ""
+                          },
+                          "requestedLocale": "",
+                          "defaultLocale": "..."
+                      }
+                  }
+              ],
+              "status": "UPDATE",
+              "selectedCampaign": {
+                  "campaignId": 68,
+                  "campaignType": "MARKET",
+                  "campaignKind": "MARKET",
+                  "hmiInformation": {
+                      "hmiMessage": {
+                          "reportId": "123",
+                          "url": "https://test24mmresourcedl.g-book.com.cn/software/HMI_File.json",
+                          "digest": ""
+                      },
+                      "requestedLocale": "",
+                      "defaultLocale": "..."
+                  }
+              }
+          },
+          "type": "augmented"
+      }
+  }
+}

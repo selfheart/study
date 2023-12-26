@@ -1,0 +1,20 @@
+{
+  "signed": {
+      "body": {
+          "actions": [
+              {
+                  "actionId": "GetActionCycle",
+                  "value": 0
+              },
+              {
+                  "actionId": "CarConfigInfoUploadNecessity",
+                  "value": 0
+              },
+              {
+                  "actionId": "DispConsentInCarHMI",
+                  "value": 0
+              }
+          ]
+      }
+  }
+}

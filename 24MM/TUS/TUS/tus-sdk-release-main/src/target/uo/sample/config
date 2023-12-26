@@ -1,0 +1,24 @@
+# place "config" in the same directory of main.lua
+# to change configuration file paths
+
+
+# config dir for uo.providers
+# provider=./provider/devhttpd
+provider=./provider/localfs
+# provider=./provider/sdpv3
+
+
+# config dir for uo.domains
+domain=./domain
+
+
+# httpd (UO -> DC) configs
+# 
+httpd_host=localhost
+# httpd_port=80
+# httpd_url_base=/tus/
+
+# if retry_interval == 0, UO will exit when no more update was found 
+retry_interval=0
+## otherwise new update will be chacked after 'retry_interval' seconds
+# retry_interval=600

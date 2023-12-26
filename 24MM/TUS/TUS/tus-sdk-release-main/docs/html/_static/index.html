@@ -1,0 +1,783 @@
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>API Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+<div id="main">
+<!-- Menu -->
+<div id="navigation">
+<br/>
+<h1>Lua API</h1>
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>tup_parser</strong></li>
+</ul>
+</div>
+<div id="content">
+<h1>Module <code>tup_parser</code></h1>
+<p></p>
+<p></p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">local tup_parser = require(&quot;tup_parser&quot;)
+local parser, err = tup_parser.from_file(&quot;/path/to/file&quot;)
+err = parser:validate()
+local tlvs, metadata
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+metadata, err = tlvs[1]:get_value()
+</pre>
+    </ul>
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#from_file">from_file (path)</a></td>
+	<td class="summary">Creates TUP parser object which parses TUP from file.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#from_url">from_url (url)</a></td>
+	<td class="summary">Creates TUP parser object which parses TUP from url.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#from_parser">from_parser (parser, index)</a></td>
+	<td class="summary">Creates TUP parser object which parses TUP from TUP parser.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#validate">validate ()</a></td>
+	<td class="summary">Validates the integrity of TUP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_tlv">get_tlv (args)</a></td>
+	<td class="summary">Gets the TLV format object of the given TLV ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_inner_package_count">get_inner_package_count ()</a></td>
+	<td class="summary">Gets the number of inner package in TUP.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_inner_package_info">get_inner_package_info (index)</a></td>
+	<td class="summary">Gets TLV format object of IPKGINFO of the given inner package index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_inner_package_data">get_inner_package_data (args)</a></td>
+	<td class="summary">Gets inner package data of the given inner package index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_inner_package_size">get_inner_package_size (index)</a></td>
+	<td class="summary">Gets inner package size of the given inner package index.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#verify_patched_data">verify_patched_data (patched, offset, TLV)</a></td>
+	<td class="summary">Verify patched data</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_type">get_type ()</a></td>
+	<td class="summary">Gets the type value of TLV object which has 2 bytes length with a following format.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_id">get_id ()</a></td>
+	<td class="summary">Gets the ID of TLV object which is defined in type value of TLV object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_length">get_length ()</a></td>
+	<td class="summary">Gets the length of TLV object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_value_size">get_value_size ()</a></td>
+	<td class="summary">Gets the value size of TLV object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_value">get_value (args)</a></td>
+	<td class="summary">Gets the value of TLV object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_delta_info">get_delta_info ()</a></td>
+	<td class="summary">Gets delta patch information</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#TLV_ID">TLV_ID</a></td>
+	<td class="summary">ID of TLV object with TLV type defined as field.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#FLAG">FLAG</a></td>
+	<td class="summary">Flag to set actions on getting the inner package.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ERROR">ERROR</a></td>
+	<td class="summary">Error values used in tup_parser.</td>
+	</tr>
+</table>
+<br/>
+<br/>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "from_file"></a>
+    <strong>from_file (path)</strong>
+    </dt>
+    <dd>
+    Creates TUP parser object which parses TUP from file.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        instance</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "from_url"></a>
+    <strong>from_url (url)</strong>
+    </dt>
+    <dd>
+    Creates TUP parser object which parses TUP from url.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">url</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        instance</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_url(<span class="string">"localhost/path/to/file"</span>)</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "from_parser"></a>
+    <strong>from_parser (parser, index)</strong>
+    </dt>
+    <dd>
+    Creates TUP parser object which parses TUP from TUP parser.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">parser</span>
+            <span class="types"><span class="type">userdata</span></span>
+
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         (should be within 1 and <i>get_inner_package_count()</i>)
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        instance</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> outer_parser, err = tup_parser.from_url(<span class="string">"localhost/path/to/file"</span>)
+<span class="keyword">local</span> inner_parser
+inner_parser, err = tup_parser.from_parser(outer_parser, <span class="number">1</span>)</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "validate"></a>
+    <strong>validate ()</strong>
+    </dt>
+    <dd>
+    Validates the integrity of TUP.
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">userdata</span></span>
+        error object (Succeeded: nil, Failed: not nil)
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+err = parser:validate()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_tlv"></a>
+    <strong>get_tlv (args)</strong>
+    </dt>
+    <dd>
+    Gets the TLV format object of the given TLV ID.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+  <p> - <span class="parameter">id         (mandatory)</span> (<b><i>integer</i></b>)</p>
+  <p> - <span class="parameter">parent_tlv (optional)</span>  (<b><i>userdata</i></b>)</p>
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        array of TLV format object</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_inner_package_count"></a>
+    <strong>get_inner_package_count ()</strong>
+    </dt>
+    <dd>
+    Gets the number of inner package in TUP.
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        package count</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> count
+count, err = parser:get_inner_package_count()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_inner_package_info"></a>
+    <strong>get_inner_package_info (index)</strong>
+    </dt>
+    <dd>
+    Gets TLV format object of IPKGINFO of the given inner package index.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         (should be within 1 and <i>get_inner_package_count()</i>)
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        TLV format object</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> info
+info, err = parser:get_inner_package_info(<span class="number">1</span>)</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_inner_package_data"></a>
+    <strong>get_inner_package_data (args)</strong>
+    </dt>
+    <dd>
+    Gets inner package data of the given inner package index.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+  <p> - <span class="parameter">index  (mandatory)</span> (<b><i>integer</i></b>)</p> (should be within 1 and <i>get_inner_package_count()</i>)
+  <p> - <span class="parameter">flags  (optional)</span>  (<b><i>integer</i></b>)</p>
+  <p> - <span class="parameter">offset (optional)</span>  (<b><i>integer</i></b>)</p>
+  <p> - <span class="parameter">size   (optional)</span>  (<b><i>integer</i></b>)</p>
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        inner package data</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> data
+data, err = parser:get_inner_package_data({index=<span class="number">1</span>, flags=tup_parser.FLAG.ICV_VERIFY})</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_inner_package_size"></a>
+    <strong>get_inner_package_size (index)</strong>
+    </dt>
+    <dd>
+    Gets inner package size of the given inner package index.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">integer</span></span>
+         (should be within 1 and <i>get_inner_package_count()</i>)
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         range
+<p> has following field as size information of inner package </p>
+  <p> - <span class="parameter">offset</span> (<b><i>integer</i></b>) Offset value to the inner package</p>
+  <p> - <span class="parameter">size</span> (<b><i>integer</i></b>) Size of the inner package</p>
+  <p> - <span class="parameter">raw_size</span> (<b><i>integer</i></b>) Original size of the inner package if compressed, otherwise same as <i>size</i></p></li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> range, size
+range, err = parser:get_inner_package_size(<span class="number">1</span>)
+size = range.size</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "verify_patched_data"></a>
+    <strong>verify_patched_data (patched, offset, TLV)</strong>
+    </dt>
+    <dd>
+    Verify patched data
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">patched</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         data
+        </li>
+        <li><span class="parameter">offset</span>
+            <span class="types"><span class="type">integer</span></span>
+         of patched data
+        </li>
+        <li><span class="parameter">TLV</span>
+            <span class="types"><span class="type">userdata</span></span>
+         object of ICV_AFTER_DATA
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">userdata</span></span>
+        error object (Succeeded: nil, Failed: not nil)
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> ipkginfo
+ipkginfo, err = parser:get_inner_package_info(<span class="number">1</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.ICV_AFTER_DATA, parent_tlv=ipkginfo})
+<span class="keyword">local</span> patched_data = <span class="string">"..."</span>
+<span class="keyword">local</span> offset = <span class="number">0</span>
+err = parser:verify_patched_data(patched_data, offset, tlvs[<span class="number">1</span>])</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_type"></a>
+    <strong>get_type ()</strong>
+    </dt>
+    <dd>
+    Gets the type value of TLV object which has 2 bytes length with a following format.
+<table style="width: 90%;" border="1">
+  <tbody>
+    <tr>
+        <th>bit</th> <th>0</th> <th>1</th> <th>2</th> <th>3</th>
+        <th>4</th> <th>5</th> <th>6</th> <th>7</th> <th>8</th> <th>9</th>
+        <th>10</th> <th>11</th> <th>12</th> <th>13</th> <th>14</th> <th>15</th>
+    </tr>
+    <tr>
+        <td>content</td> <td>N</td> <td>R</td> <td>R</td> <td>R</td>
+        <td>I</td> <td>I</td> <td>I</td> <td>I</td> <td>I</td> <td>I</td>
+        <td>I</td> <td>I</td> <td>V</td> <td>V</td> <td>V</td> <td>X</td>
+    </tr>
+  </tbody>
+</table>
+<p> - <span class="parameter">N</span> Namespace (1 bit) </p>
+<p> - <span class="parameter">R</span> Reserved (3 bits) </p>
+<p> - <span class="parameter">I</span> TLV ID (8 bits) (function <a href="index.html#get_id">get_id</a> is provided to get this value) </p>
+<p> - <span class="parameter">V</span> Version (3 bits) </p>
+<p> - <span class="parameter">X</span> Type-dependent bit (The usage is determined by the ID) (1 bit) </p>
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        type of TLV
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+<span class="keyword">local</span> <span class="global">type</span> = tlvs[<span class="number">1</span>]:get_type()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_id"></a>
+    <strong>get_id ()</strong>
+    </dt>
+    <dd>
+    Gets the ID of TLV object which is defined in type value of TLV object.
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        TLV ID (either field in <a href="index.html#TLV_ID">TLV_ID</a>)
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+<span class="keyword">local</span> id = tlvs[<span class="number">1</span>]:get_id()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_length"></a>
+    <strong>get_length ()</strong>
+    </dt>
+    <dd>
+    Gets the length of TLV object.
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        length of TLV
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+<span class="keyword">local</span> length = tlvs[<span class="number">1</span>]:get_length()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_value_size"></a>
+    <strong>get_value_size ()</strong>
+    </dt>
+    <dd>
+    Gets the value size of TLV object.
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        size of value in TLV
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+<span class="keyword">local</span> size = tlvs[<span class="number">1</span>]:get_value_size()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_value"></a>
+    <strong>get_value (args)</strong>
+    </dt>
+    <dd>
+    Gets the value of TLV object.
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+  <p> - <span class="parameter">offset (optional)</span> (<b><i>integer</i></b>)</p>
+  <p> - <span class="parameter">size   (optional)</span> (<b><i>integer</i></b>)</p>
+        </li>
+    </ul>
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        value of TLV</li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.UPDATEFLOW})
+<span class="keyword">local</span> data
+data, err = tlvs[<span class="number">1</span>]:get_value()</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "get_delta_info"></a>
+    <strong>get_delta_info ()</strong>
+    </dt>
+    <dd>
+    Gets delta patch information
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         delta patch information
+<p> has following field as delta patch information </p>
+  <p> - <span class="parameter">algorithm</span> (<b><i>integer</i></b>) Delta patch algorithm</p>
+  <p> - <span class="parameter">version</span> (<b><i>integer</i></b>) Delta patch algorithm version</p>
+  <p> - <span class="parameter">presize</span> (<b><i>integer</i></b>) Pre-patch data size</p>
+  <p> - <span class="parameter">postsize</span> (<b><i>integer</i></b>) Post-patch data size</p>
+  <p> - <span class="parameter">attr (optional)</span> (<b><i>string</i></b>) Algorithm specific attribution</p></li>
+        <li>
+           <span class="types"><span class="type">userdata</span></span>
+        error object</li>
+    </ol>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> parser, err = tup_parser.from_file(<span class="string">"/path/to/file"</span>)
+<span class="keyword">local</span> ipkginfo
+ipkginfo, err = parser:get_inner_package_info(<span class="number">1</span>)
+<span class="keyword">local</span> tlvs
+tlvs, err = parser:get_tlv({id=tup_parser.TLV_ID.DELTA_PATCH, parent_tlv=ipkginfo})
+<span class="keyword">local</span> deltainfo
+deltainfo, err = tlvs[<span class="number">1</span>]:get_delta_info()</pre>
+    </ul>
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "TLV_ID"></a>
+    <strong>TLV_ID</strong>
+    </dt>
+    <dd>
+    ID of TLV object with TLV type defined as field.
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">INDEX</span>
+         Type and position of the TLV objects
+        </li>
+        <li><span class="parameter">POS</span>
+         Positional information of the inner packages
+        </li>
+        <li><span class="parameter">ICV_TREE</span>
+         Information of the ICV tree structure
+        </li>
+        <li><span class="parameter">ICV_ARRAY</span>
+         Information of the tampering verification targets
+        </li>
+        <li><span class="parameter">IPKGINFO</span>
+         Inner package information
+        </li>
+        <li><span class="parameter">IPKGNAME</span>
+         Inner package name
+        </li>
+        <li><span class="parameter">COMP_ALL</span>
+         Has inner package with entire region being compressed
+        </li>
+        <li><span class="parameter">COMP_FIXED</span>
+         Has inner package compressed with a fixed length block size
+        </li>
+        <li><span class="parameter">COMP_VAR</span>
+         Has inner package compressed with a variable length block size
+        </li>
+        <li><span class="parameter">CRYPT</span>
+         Has encrypted inner package
+        </li>
+        <li><span class="parameter">UPDATEFLOW</span>
+         Update flow information
+        </li>
+        <li><span class="parameter">VERSION</span>
+         Inner package version
+        </li>
+        <li><span class="parameter">DOMAIN</span>
+         Domain where the inner package will be applied to
+        </li>
+        <li><span class="parameter">ORDER</span>
+         Processing order of compression, encryption, and ICV generation
+        </li>
+        <li><span class="parameter">DELTA_PATCH</span>
+         Delta update patch
+        </li>
+        <li><span class="parameter">ICV_AFTER_DATA</span>
+         Information on ICV of patched data
+        </li>
+        <li><span class="parameter">ICV_BLOCK</span>
+         Information of the ICV block
+        </li>
+    </ul>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> index_tlv_id = tup_parser.TLV_ID.INDEX
+<span class="keyword">local</span> updateflow_tlv_id = tup_parser.TLV_ID.UPDATEFLOW</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "FLAG"></a>
+    <strong>FLAG</strong>
+    </dt>
+    <dd>
+    Flag to set actions on getting the inner package.
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">DECRYPT</span>
+         Decrypt inner package
+        </li>
+        <li><span class="parameter">DECOMPRESS</span>
+         Decompress inner package
+        </li>
+        <li><span class="parameter">ICV_VERIFY</span>
+         Verify integrity of inner package by ICV
+        </li>
+    </ul>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> tup_parser = <span class="global">require</span>(<span class="string">"tup_parser"</span>)
+<span class="keyword">local</span> flag = tup_parser.FLAG.DECRYPT | tup_parser.FLAG.ICV_VERIFY</pre>
+    </ul>
+</dd>
+    <dt>
+    <a name = "ERROR"></a>
+    <strong>ERROR</strong>
+    </dt>
+    <dd>
+    Error values used in tup_parser.
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">INVALID_ARGUMENT</span>
+         invalid argument was given
+        </li>
+        <li><span class="parameter">OUT_OF_RANGE</span>
+         out of range value
+        </li>
+        <li><span class="parameter">CANNOT_ALLOCATE_MEMORY</span>
+         can not allocate memory
+        </li>
+        <li><span class="parameter">INTEGRITY_CHECK</span>
+         failed to integrity check
+        </li>
+        <li><span class="parameter">NOT_FOUND_TLV</span>
+         not found TLV
+        </li>
+        <li><span class="parameter">INVALID_ALGORITHM</span>
+         invalid algorithm
+        </li>
+        <li><span class="parameter">INVALID_KEY_INFORMATION</span>
+         invalid key information
+        </li>
+        <li><span class="parameter">NOT_FOUND_ICV_INFORMATION</span>
+         not found ICV information
+        </li>
+        <li><span class="parameter">CANNOT_OPEN_STREAM</span>
+         can not open stream
+        </li>
+        <li><span class="parameter">CANNOT_READ_STREAM</span>
+         can not read stream
+        </li>
+        <li><span class="parameter">CANNOT_CLOSE_STREAM</span>
+         can not close stream
+        </li>
+        <li><span class="parameter">INVALID_ENDIAN</span>
+         invalid endian
+        </li>
+        <li><span class="parameter">INVALID_META_CONTEXT</span>
+         invalid meta context
+        </li>
+        <li><span class="parameter">MISMATCH_TLV_ID</span>
+         mismatch TLV ID
+        </li>
+        <li><span class="parameter">SMALL_DATA_SIZE</span>
+         small data size
+        </li>
+        <li><span class="parameter">IMPORT_KEY</span>
+         failed to import key
+        </li>
+        <li><span class="parameter">VERIFY_SIGNATURE</span>
+         failed to verify signature
+        </li>
+        <li><span class="parameter">GENERATE_ICV</span>
+         failed to generate ICV
+        </li>
+    </ul>
+</dd>
+</dl>
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<style="float:left;">
+<ul>
+        Copyright</strong>: (C) 2022 TOYOTA MOTOR CORPORATION, All Rights Reserved.
+</style>
+</ul>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,7 @@
+id=Ubuntu
+
+# gRPC server listening address/port, shall be unique on a ECU
+grpc_listen=0.0.0.0:50051
+
+# where to store versions, shall be unique on a ECU
+versions=./versions

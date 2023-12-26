@@ -1,0 +1,25 @@
+# TMC CONFIDENTIAL
+# $TUSLibId$
+# Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+# All Rights Reserved.
+# TMC CONFIDENTIAL
+# $JITDFLibId$
+# Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+# All Rights Reserved.
+#name, facility code, description
+TMC_POSIX, 0x001, POSIX component
+TMC_JITDF, 0x002, JITDF component
+TMC_CAMVIEW, 0x003, camview component
+TMC_CAN, 0x004, CAN component
+TMC_DATA_HANDLER, 0x005, data handler component
+TMC_EDGEAI, 0x006, edgeai component
+TMC_GRPC, 0x007, gRPC component
+TMC_MOSQUITTO, 0x008, mosquitto component
+TMC_REGISTRY, 0x009, registry component
+TMC_SOCKETCAN, 0x00A, socketCAN component
+TMC_VIDEO_HANDLER, 0x00B, video handler component
+TMC_DATA_COLLECTION, 0x00C, data collection component
+TUS_UPDATE_ORCHESTRATOR, 0x00D, update orchestrator
+TUS_DOMAIN_CONTROLLER, 0x00E, domain controller
+TUP_PARSER, 0x00F, TUP parser
+TUS_DELTA_UPDATE_PATCH, 0x010, delta update patch

@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4.4. Deployment Tool subcommand &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.5. Delta Subcommand" href="delta.html" />
+    <link rel="prev" title="4.3.1. EMOOTA SDP v3.0 Subcommand" href="pdp/sdpv3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli_reference.html">4. TUS CLI Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tus.html">4.1. TUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tup.html">4.2. TUP Subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdp.html">4.3. PDP Subcommand</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.4. Deployment Tool subcommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-target-directory-structure">4.4.1. Initialize target directory structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deploy-tup">4.4.2. Deploy tup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-file-and-related-commands">4.4.3. Configuration file and related commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#provider-configuration">4.4.3.1. Provider Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#domain-configuration">4.4.3.2. Domain Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deployment-commands-for-domain-controller">4.4.4. Deployment commands for Domain Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="delta.html">4.5. Delta Subcommand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../cli_reference.html"><span class="section-number">4. </span>TUS CLI Reference</a> &raquo;</li>
+        
+      <li><span class="section-number">4.4. </span>Deployment Tool subcommand</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="deployment-tool-subcommand">
+<h1><span class="section-number">4.4. </span>Deployment Tool subcommand<a class="headerlink" href="#deployment-tool-subcommand" title="Permalink to this headline">¶</a></h1>
+<p>Deployment Tool is used for deploy some files to Target Device. Please note that some commands use <code class="docutils literal notranslate"><span class="pre">UO</span></code> and <code class="docutils literal notranslate"><span class="pre">DC</span></code> as abbreviations of Update Orchestrator and Domain Controller in the messages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool -h
+usage: tus dtool [-h] [-i PATH] [--host HOST]
+                 {initconf,tup,rootconf,domainconf,provconf,dc} ...
+
+TUS-SDK deployment tool for targets.
+
+positional arguments:
+  {initconf,tup,rootconf,domainconf,provconf,dc}
+                        help
+    initconf            prepare directories for deploying configuration files
+    tup                 deploy tup to target device
+    rootconf            deploy root configuration
+    domainconf          deploy domain configuration
+    provconf            deploy provider configuration
+    dc                  deploy files for domain controller
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i PATH               identity file
+  --host HOST           username@hostname, TARGET_HOSTNAME environment
+                        variable is defined if not specified
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Temporally deployment tool uses <code class="docutils literal notranslate"><span class="pre">scp</span></code> to communicate Target Device.
+When not using password authentication, please configure certificates and pass it to <code class="docutils literal notranslate"><span class="pre">-i</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tool expects that a destination folder exists already.
+When deploying file under <code class="docutils literal notranslate"><span class="pre">./domain</span></code>, domain folder shall be existed beforehand.</p>
+</div>
+<div class="section" id="initialize-target-directory-structure">
+<h2><span class="section-number">4.4.1. </span>Initialize target directory structure<a class="headerlink" href="#initialize-target-directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>This command will prepare directories for deploying configuration files for Update Orchestrator.
+Please run this command before deploying configuration files to target.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool initconf -h
+usage: tus dtool initconf [-h]
+                          [--provider [{localfs,devhttpd,sdpv3} [{localfs,devhttpd,sdpv3} ...]]]
+                          PATH
+
+prepare directories for deploying configuration files. This command will not
+overwrite if the directory already exists.
+
+positional arguments:
+  PATH                  path to the directory which contains update
+                        orchestrator uo/uo
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --provider [{localfs,devhttpd,sdpv3} [{localfs,devhttpd,sdpv3} ...]]
+                        PDP provider to use (default: [&#39;localfs&#39;])
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy-tup">
+<h2><span class="section-number">4.4.2. </span>Deploy tup<a class="headerlink" href="#deploy-tup" title="Permalink to this headline">¶</a></h2>
+<p>This tool can deploy tup to the Target Device directly.
+In this case, configuring local provider is needed. Please refer to <a class="reference external" href="#provider-configuration">here</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool tup -h
+usage: tus dtool tup [-h] --dest DEST file-path
+
+positional arguments:
+  file-path    tup file path to deploy
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --dest DEST  destination file path (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration-file-and-related-commands">
+<h2><span class="section-number">4.4.3. </span>Configuration file and related commands<a class="headerlink" href="#configuration-file-and-related-commands" title="Permalink to this headline">¶</a></h2>
+<p>Update Orchestrator search configuration file for deciding search location of other configuration files and its general configuration.
+This root configuration file is sent by <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">rootconf</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool rootconf -h
+usage: tus dtool rootconf [-h] --dest DEST [--httpd-host HTTPD_HOST]
+                          prov_search_path domain_search_path
+
+positional arguments:
+  prov_search_path      search path of provider configuration
+  domain_search_path    search path of domain configuration
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dest DEST           destination folder to deploy (default: None)
+  --httpd-host HTTPD_HOST
+                        httpd configuration between UO and DC (default:
+                        localhost)
+</pre></div>
+</div>
+<p>Provider means TUP hosting location. About provider configurations please refer to <a class="reference external" href="#provider-configuration">here</a>.</p>
+<p>Domain means configuration which Domain Controller would be located. About domain configurations, please refer to <a class="reference external" href="#domain-configuration">here</a>.</p>
+<div class="section" id="provider-configuration">
+<h3><span class="section-number">4.4.3.1. </span>Provider Configuration<a class="headerlink" href="#provider-configuration" title="Permalink to this headline">¶</a></h3>
+<p>For sending provider configuration, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">provconf</span></code> can be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool provconf -h
+usage: tus dtool provconf [-h] {local,sdpv3,devhttpd} ...
+
+positional arguments:
+  {local,sdpv3,devhttpd}
+                        provider type
+    local               deploy local provider configuration
+    sdpv3               deploy sdpv3 provider configuration
+    devhttpd            deploy devhttpd provider configuration.
+
+optional arguments:
+  -h, --help            show this help message and exit
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span></code> means that Update Orchestrator gets TUP from local filesystem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sdpv3</span></code> means that Update Orchestrator gets TUP from EMOOTA SDP v3.0 server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">devhttpd</span></code> means that Update Orchestrator gets TUP from httpd server.</p></li>
+</ul>
+<div class="section" id="local-provider-configuration">
+<h4><span class="section-number">4.4.3.1.1. </span>Local Provider Configuration<a class="headerlink" href="#local-provider-configuration" title="Permalink to this headline">¶</a></h4>
+<p>For sending local provider configuration,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool provconf local -h
+usage: tus dtool provconf local [-h] --dest DEST
+                                [--deploy_package DEPLOY_PACKAGE]
+                                package_path
+
+positional arguments:
+  package_path          tup path on target
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dest DEST           destination folder to deploy (default: None)
+  --deploy_package DEPLOY_PACKAGE
+                        deploy specified package to package_path on target
+                        (default: None)
+</pre></div>
+</div>
+<p>To send TUP file itself to Target Device, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">tup</span></code> can be used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folder path passed to <code class="docutils literal notranslate"><span class="pre">--dest</span></code> should be joined value of <code class="docutils literal notranslate"><span class="pre">--dest</span></code> and <code class="docutils literal notranslate"><span class="pre">prov_search_path</span></code> of <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">rootconf</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">rootconf</span> <span class="pre">--dest</span> <span class="pre">./tmp</span> <span class="pre">./provider</span> <span class="pre">./domain</span></code> is executed, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">provconf</span> <span class="pre">--dest</span> <span class="pre">./tmp/provider/</span> <span class="pre">...</span></code> should be executed.</p>
+</div>
+</div>
+<div class="section" id="devhttpd-provider-configuration">
+<h4><span class="section-number">4.4.3.1.2. </span>DevHTTPd Provider Configuration<a class="headerlink" href="#devhttpd-provider-configuration" title="Permalink to this headline">¶</a></h4>
+<p>For sending DevHTTPd provider configuration,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool provconf devhttpd -h
+usage: tus dtool provconf devhttpd [-h] --dest DEST --server SERVER
+                                   [--port PORT]
+                                   [--httpd-url-base HTTPD_URL_BASE]
+                                   [--pkg-name PKG_NAME]
+                                   [--pkg-version PKG_VERSION]
+
+Deploy devhttpd provider configuration. When using this provider, TUS runtime
+gets from server:port/httpd_url_base/pkg_version/pkg_name by HTTP request.
+After TUS runtime updates successfully, it increments pkg_version to search.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dest DEST           destination folder to deploy (default: None)
+  --server SERVER       httpd server address (default: None)
+  --port PORT           httpd server port number (default: 80)
+  --httpd-url-base HTTPD_URL_BASE
+                        httpd url base to get tup files (default:
+                        /tus/package/)
+  --pkg-name PKG_NAME   package name (default: None)
+  --pkg-version PKG_VERSION
+                        package version (default: 0)
+</pre></div>
+</div>
+<p>When using DevHTTPd provider, Update Orchestrator tries to fetch TUP from httpd server defined in the configuration file.
+After updating, Update Orchestrator increments package version and checks if TUP exists for incremented package version and then starts updating for next version.</p>
+<p>For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export TARGET_DEPLOY_DIR=./deploy
+export HOST_IP=xxx.xxx.xxx.xxx
+tus dtool provconf devhttpd --dest $TARGET_DEPLOY_DIR/target/uo/provider/devhttpd --server $HOST_IP --pkg-name tutorial_outer.tup --pkg-version 1
+</pre></div>
+</div>
+<p>In this case, <code class="docutils literal notranslate"><span class="pre">$TARGET_DEPLOY_DIR/target/uo/provider/devhttpd/config</span></code> is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="o">=</span><span class="n">devhttpd</span>
+<span class="n">httpd_server</span><span class="o">=</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span>
+<span class="n">httpd_port</span><span class="o">=</span><span class="mi">80</span>
+<span class="n">httpd_url_base</span><span class="o">=/</span><span class="n">tus</span><span class="o">/</span><span class="n">package</span><span class="o">/</span>
+<span class="n">package_name</span><span class="o">=</span><span class="n">tutorial_outer</span><span class="o">.</span><span class="n">tup</span>
+<span class="n">version</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>After updating, version in this config file shall be 2.</p>
+</div>
+<div class="section" id="emoota-sdp-v3-0-provider-configuration">
+<h4><span class="section-number">4.4.3.1.3. </span>EMOOTA SDP v3.0 Provider Configuration<a class="headerlink" href="#emoota-sdp-v3-0-provider-configuration" title="Permalink to this headline">¶</a></h4>
+<p>For sending EMOOTA SDP v3.0 provider configuration,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus dtool provconf sdpv3 -h
+usage: tus dtool provconf sdpv3 <span class="o">[</span>-h<span class="o">]</span> --dest DEST <span class="o">[</span>--server-host SERVER_HOST<span class="o">]</span>
+                                <span class="o">[</span>--server-port SERVER_PORT<span class="o">]</span>
+                                <span class="o">[</span>--gw-host GW_HOST<span class="o">]</span> <span class="o">[</span>--gw-port GW_PORT<span class="o">]</span> --vin
+                                VIN --vdesign-id VDESIGN_ID
+                                <span class="o">[</span>--prim-elementid PRIM_ELEMENTID<span class="o">]</span>
+                                <span class="o">[</span>--last-campaignid LAST_CAMPAIGNID<span class="o">]</span>
+                                <span class="o">[</span>--last-completionid LAST_COMPLETIONID<span class="o">]</span>
+                                <span class="o">[</span>--rxswin-dest RXSWIN_DEST<span class="o">]</span>
+                                <span class="o">[</span>--rxswins <span class="o">[</span>RXSWINS <span class="o">[</span>RXSWINS ...<span class="o">]]]</span>
+                                <span class="o">[</span>--rootca-dest ROOTCA_DEST<span class="o">]</span>
+                                <span class="o">[</span>--rootca-input ROOTCA_INPUT<span class="o">]</span>
+                                <span class="o">[</span>--ecu-json ECU_JSON<span class="o">]</span> <span class="o">[</span>--print-json<span class="o">]</span>
+
+deploy sdpv3 provider three configuration files <span class="o">(</span>sdpv3 configuration, rxswins
+and root.ca<span class="o">)</span>. It requires that environment variable SDP_USERNAME and
+SDP_PASSWORD to access SDP resources.
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --dest DEST           folder path to deploy sdpv3 configuration <span class="o">(</span>default:
+                        None<span class="o">)</span>
+  --server-host SERVER_HOST
+                        sdpv3 server hostname <span class="o">(</span>default: https://t-poc-r3-ap-
+                        northeast-1-cdn-unsigned.t-poc-r3.com<span class="o">)</span>
+  --server-port SERVER_PORT
+                        sdpv3 server port number <span class="o">(</span>default: <span class="m">443</span><span class="o">)</span>
+  --gw-host GW_HOST     sdpv3 gateway hostname <span class="o">(</span>default: https://t-poc-r3-ap-
+                        northeast-1-gw-mob.t-poc-r3.com<span class="o">)</span>
+  --gw-port GW_PORT     sdpv3 gateway port number <span class="o">(</span>default: <span class="m">443</span><span class="o">)</span>
+  --vin VIN             VIN <span class="o">(</span>default: None<span class="o">)</span>
+  --vdesign-id VDESIGN_ID
+                        vehicle design id which is registered <span class="k">for</span> update
+                        <span class="o">(</span>default: None<span class="o">)</span>
+  --prim-elementid PRIM_ELEMENTID
+                        primary ecu serial number, <span class="k">if</span> not <span class="nb">set</span> automatically
+                        collected from server <span class="o">(</span>default: None<span class="o">)</span>
+  --last-campaignid LAST_CAMPAIGNID
+                        last campaign id, <span class="k">if</span> not <span class="nb">set</span> automatically collected
+                        from server <span class="o">(</span>default: None<span class="o">)</span>
+  --last-completionid LAST_COMPLETIONID
+                        last completed uid <span class="o">(</span>default: <span class="m">0</span><span class="o">)</span>
+  --rxswin-dest RXSWIN_DEST
+                        rxswin configuration relative file path from config
+                        file on target <span class="o">(</span>default: ./rxswin<span class="o">)</span>
+  --rxswins <span class="o">[</span>RXSWINS <span class="o">[</span>RXSWINS ...<span class="o">]]</span>
+                        rxswin configuration, <span class="k">if</span> not <span class="nb">set</span> automatically
+                        collected from server <span class="o">(</span>default: None<span class="o">)</span>
+  --rootca-dest ROOTCA_DEST
+                        rootca relative file path from config file on target
+                        <span class="o">(</span>default: ./rootca.pem<span class="o">)</span>
+  --rootca-input ROOTCA_INPUT
+                        rootca file to pass, <span class="k">if</span> not <span class="nb">set</span> not update root.ca
+                        <span class="o">(</span>default: None<span class="o">)</span>
+  --ecu-json ECU_JSON   ecu information json path or stdin <span class="o">(</span>default: -<span class="o">)</span>
+  --print-json          print ecu json format <span class="o">(</span>default: <span class="o">{</span> <span class="s2">&quot;ecus&quot;</span>: <span class="o">[</span> <span class="o">{</span>
+                        <span class="s2">&quot;dest_path&quot;</span>: <span class="s2">&quot;./ecu&quot;</span>, <span class="s2">&quot;target_id&quot;</span>: <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;serial_num&quot;</span>:
+                        <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;ecu_hardware_part_a_id&quot;</span>: <span class="s2">&quot;&quot;</span>,
+                        <span class="s2">&quot;ecu_hardware_part_b_id&quot;</span>: <span class="s2">&quot;&quot;</span>,
+                        <span class="s2">&quot;ecu_software_part_a_id&quot;</span>: <span class="o">[{</span><span class="s2">&quot;sub_target_id&quot;</span>: <span class="s2">&quot;&quot;</span>,
+                        <span class="s2">&quot;product_number&quot;</span>: <span class="s2">&quot;&quot;</span><span class="o">}]</span>, <span class="s2">&quot;ecu_software_part_b_id&quot;</span>:
+                        <span class="o">[{</span><span class="s2">&quot;sub_target_id&quot;</span>: <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;product_number&quot;</span>: <span class="s2">&quot;&quot;</span><span class="o">}]</span>,
+                        <span class="s2">&quot;active_bank&quot;</span>: <span class="s2">&quot;A&quot;</span>, <span class="s2">&quot;rewrite_a_count&quot;</span>: <span class="m">0</span>,
+                        <span class="s2">&quot;rewrite_b_count&quot;</span>: <span class="m">0</span> <span class="o">}</span> <span class="o">]</span> <span class="o">}</span> <span class="o">)</span>
+</pre></div>
+</div>
+<p>For sending EMOOTA SDP v3.0 configuration, at least <code class="docutils literal notranslate"><span class="pre">VIN</span></code>, and <code class="docutils literal notranslate"><span class="pre">VDESIGN_ID</span></code> is needed.
+Other parameters are automatically collected from EMOOTA SDP v3.0 if not specified.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--ecu-json</span></code> is used for configuring hardware components information on the Target Device which are registered on EMOOTA SDP v3.0.
+<code class="docutils literal notranslate"><span class="pre">dest_path</span></code>, <code class="docutils literal notranslate"><span class="pre">target_id</span></code> and <code class="docutils literal notranslate"><span class="pre">serial_num</span></code> are mandatory. If other values are not specified in the json file, this collects information by EMOOTA SDP v3.0 and use it. In addition to this, if specified values are not matched on the server registered value, this prints warning log, but it can be ignored.
+Json file format can be able to print by passing <code class="docutils literal notranslate"><span class="pre">--print-json</span></code>.</p>
+<p>For example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ELEMENT_ID</span><span class="o">=</span>ex_element_id
+<span class="nb">export</span> <span class="nv">TARGET_ID</span><span class="o">=</span>ex_target_id
+<span class="nb">export</span> <span class="nv">PART_NUM</span><span class="o">=</span>ex_part_num
+<span class="nb">export</span> <span class="nv">PROD_NUMBER</span><span class="o">=</span>ex_prod_num
+<span class="nb">export</span> <span class="nv">SUBTARGET_ID</span><span class="o">=</span>ex_subtarget_id
+tus dtool provconf sdpv3 --print-json <span class="p">|</span> jq --arg ELEMENT_ID <span class="s2">&quot;</span><span class="nv">$ELEMENT_ID</span><span class="s2">&quot;</span> --arg TARGET_ID <span class="s2">&quot;</span><span class="nv">$TARGET_ID</span><span class="s2">&quot;</span> --arg PROD_NUMBER <span class="s2">&quot;</span><span class="nv">$PROD_NUMBER</span><span class="s2">&quot;</span> --arg PART_NUMBER <span class="s2">&quot;</span><span class="nv">$PART_NUM</span><span class="s2">&quot;</span> --arg SUBTARGET_ID <span class="s2">&quot;</span><span class="nv">$SUBTARGET_ID</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="s1">&#39;.ecus[0].target_id|=$TARGET_ID |</span>
+<span class="s1">.ecus[0].ecu_hardware_part_a_id|=$PART_NUMBER |</span>
+<span class="s1">.ecus[0].ecu_hardware_part_b_id|=$PART_NUMBER |</span>
+<span class="s1">.ecus[0].ecu_software_part_a_id[0].product_number|=$PROD_NUMBER |</span>
+<span class="s1">.ecus[0].ecu_software_part_b_id[0].product_number|=$PROD_NUMBER |</span>
+<span class="s1">.ecus[0].ecu_software_part_a_id[0].sub_target_id|=$SUBTARGET_ID |</span>
+<span class="s1">.ecus[0].ecu_software_part_b_id[0].sub_target_id|=$SUBTARGET_ID |</span>
+<span class="s1">.ecus[0].serial_num|=$ELEMENT_ID&#39;</span> &gt;ecu.json
+
+<span class="nb">export</span> <span class="nv">TARGET_HOSTNAME</span><span class="o">=</span><span class="s2">&quot;tus@192.168.0.1&quot;</span>
+<span class="nb">export</span> <span class="nv">TARGET_DEPLOY_DIR</span><span class="o">=</span><span class="s2">&quot;./deploy&quot;</span>
+<span class="nb">export</span> <span class="nv">VIN</span><span class="o">=</span>VIN00000000000001
+<span class="nb">export</span> <span class="nv">VDESIGN_ID</span><span class="o">=</span><span class="m">990</span>
+tus dtool provconf sdpv3 --dest <span class="s2">&quot;</span><span class="nv">$TARGET_DEPLOY_DIR</span><span class="s2">&quot;</span>/target/uo/provider/sdpv3 --vin <span class="s2">&quot;</span><span class="nv">$VIN</span><span class="s2">&quot;</span> --vdesign-id <span class="s2">&quot;</span><span class="nv">$VDESIGN_ID</span><span class="s2">&quot;</span> --ecu-json ./ecu.json
+</pre></div>
+</div>
+<p>It is required to collect mandatory parameter values by <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">pdp</span> <span class="pre">sdpv3</span></code> in advance.</p>
+</div>
+</div>
+<div class="section" id="domain-configuration">
+<h3><span class="section-number">4.4.3.2. </span>Domain Configuration<a class="headerlink" href="#domain-configuration" title="Permalink to this headline">¶</a></h3>
+<p>For sending domain configuration, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span></code> can be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool domainconf -h
+usage: tus dtool domainconf [-h] {root,domain} ...
+
+positional arguments:
+  {root,domain}  domain configuration type
+    root         deploy root configuration for managing each domain
+                 configuration
+    domain       deploy each domain configuration
+
+optional arguments:
+  -h, --help     show this help message and exit
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>root</strong> for sending root configuration file for searching each domain configuration</p></li>
+<li><p><strong>domain</strong> for sending domain specific configuration for Update Orchestrator to know each domain</p></li>
+</ul>
+<p>For sending <strong>root</strong> configuration,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool domainconf root -h
+usage: tus dtool domainconf root [-h] --dest DEST
+                                 domain-info [domain-info ...]
+
+positional arguments:
+  domain-info  Each domain configuration file information list, pairs of
+               domain name and file path of domain configuration file like
+               &quot;tus dtool domainconf Ubuntu ./ubuntu Raspi ./raspi&quot;. Each
+               domain name should be the same as passed in TUP generator.
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --dest DEST  destination folder to deploy (default: None)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folder path passed to <code class="docutils literal notranslate"><span class="pre">--dest</span></code> should be joined value of <code class="docutils literal notranslate"><span class="pre">--dest</span></code> and <code class="docutils literal notranslate"><span class="pre">domain_search_path</span></code> of <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">rootconf</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">rootconf</span> <span class="pre">--dest</span> <span class="pre">./tmp</span> <span class="pre">./provider</span> <span class="pre">./domain</span></code> is executed, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span> <span class="pre">--dest</span> <span class="pre">./tmp/domain/</span> <span class="pre">...</span></code> should be executed.</p>
+</div>
+<p>For sending <strong>domain</strong> configuration,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool domainconf domain -h
+usage: tus dtool domainconf domain [-h] --dest DEST [--protocol PROTOCOL]
+                                   [--hostname HOSTNAME] --filename FILENAME
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --dest DEST          folder path of domain configuration file (default:
+                       None)
+  --protocol PROTOCOL  protocol to connect from UO (default: grpc)
+  --hostname HOSTNAME  hostname to connect from UO (default: localhost:50051)
+  --filename FILENAME  filename of domain configuration. It shall be defined
+                       in domain root configuration file (default: None)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>File path combined DEST and FILENAME should be the same as passed to <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dool</span> <span class="pre">domainconf</span> <span class="pre">root</span></code>.
+And if this file path is relative, it is evaluated from folder location DEST specified by <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span> <span class="pre">root</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span> <span class="pre">root</span> <span class="pre">--dest</span> <span class="pre">./tmp/domain</span> <span class="pre">Ubuntu</span> <span class="pre">./ubuntu</span></code> is executed, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">domainconf</span> <span class="pre">domain</span> <span class="pre">--dest</span> <span class="pre">./tmp/domain</span> <span class="pre">--filename</span> <span class="pre">ubuntu</span></code> should be executed.</p>
+</div>
+</div>
+</div>
+<div class="section" id="deployment-commands-for-domain-controller">
+<h2><span class="section-number">4.4.4. </span>Deployment commands for Domain Controller<a class="headerlink" href="#deployment-commands-for-domain-controller" title="Permalink to this headline">¶</a></h2>
+<p>Configuration file for Domain Controller is sent by <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">dc</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool dc -h
+usage: tus dtool dc [-h] {rootconf} ...
+
+positional arguments:
+  {rootconf}  config type
+    rootconf  deploy root configuration for managing domain controller
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+<p>For sending <strong>root configuration</strong> file which will be used on starting up Domain Controller, <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">dc</span> <span class="pre">rootconf</span></code> can be used.
+This root configuration is used for passing Domain Controller some parameters such as interface information for gRPC server to listen to.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus dtool dc rootconf -h
+usage: tus dtool dc rootconf [-h] --dest DEST [--grpc-listen GRPC_LISTEN]
+                             [--versions PATH]
+                             id
+
+positional arguments:
+  id                    ID of the target domain controller
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dest DEST           destination folder to deploy (default: None)
+  --grpc-listen GRPC_LISTEN
+                        interface for gRPC server to listen to (default:
+                        0.0.0.0:50051)
+  --versions PATH       path to directory which contains DC&#39;s version
+                        information (default: ./versions)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="delta.html" class="btn btn-neutral float-right" title="4.5. Delta Subcommand" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pdp/sdpv3.html" class="btn btn-neutral float-left" title="4.3.1. EMOOTA SDP v3.0 Subcommand" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

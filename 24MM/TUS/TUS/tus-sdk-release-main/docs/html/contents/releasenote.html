@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. Release Note &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Tutorial" href="tutorial.html" />
+    <link rel="prev" title="1. Document Architecture" href="document_architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Release Note</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-new">2.1. What’s New</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tus-runtime">2.1.1. TUS Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#host-tools">2.1.2. Host Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#others">2.1.3. Others</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">2.2. Limitations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#host-tools-limitations">2.2.1. Host Tools limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tus-runtime-limitations">2.2.2. TUS Runtime limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tup-structure-limitations">2.2.3. TUP structure limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#announcements">2.3. Announcements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-issues">2.4. Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Release Note</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="release-note">
+<h1><span class="section-number">2. </span>Release Note<a class="headerlink" href="#release-note" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-s-new">
+<h2><span class="section-number">2.1. </span>What’s New<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tus-runtime">
+<h3><span class="section-number">2.1.1. </span>TUS Runtime<a class="headerlink" href="#tus-runtime" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>New target platform</p>
+<ul>
+<li><p>support Cockpit IVI/IC version 5.3.0 SDK on Qualcomm SA6155P.</p></li>
+</ul>
+</li>
+<li><p>support delta patch</p>
+<ul>
+<li><p>Domain Controller Lua scripts may use features needed to apply binary-diffs from <code class="docutils literal notranslate"><span class="pre">dc.delta_patch</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Add Domain Controller platform-abstraction layer to customize behaviors of Domain Controller depending on target types.</p>
+<ul>
+<li><p>The APIs are not stable yet. A sample implementation is available as <code class="docutils literal notranslate"><span class="pre">src/target/dc/platform/exmaple.c</span></code>, and alternate file may be added to <code class="docutils literal notranslate"><span class="pre">src/target/dc/platform/NAME.c</span></code> and giving the <code class="docutils literal notranslate"><span class="pre">NAME</span></code> to CMake as <code class="docutils literal notranslate"><span class="pre">TUS_DC_PLATFORM</span></code>.</p></li>
+<li><p>Allow customizing how TUS interacts with external systems.</p>
+<ul>
+<li><p>The sample has <code class="docutils literal notranslate"><span class="pre">gather_environment()</span></code> and <code class="docutils literal notranslate"><span class="pre">propagate_environment()</span></code> that uses files under <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> as communication channels.</p></li>
+</ul>
+</li>
+<li><p>Provide features needed to register custom updater types by implementing <code class="docutils literal notranslate"><span class="pre">get_updater()</span></code>/<code class="docutils literal notranslate"><span class="pre">free_updater()</span></code>.</p>
+<ul>
+<li><p>The sample creates a custom updater named ‘example1’, which provides a ‘specific.func1’.</p></li>
+</ul>
+</li>
+<li><p>The platform-dependent implementation may get notifications from TUS runtime by implementing <code class="docutils literal notranslate"><span class="pre">notify()</span></code></p>
+<ul>
+<li><p>The sample just leave logs for the notified events.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Allow building TUS with <code class="docutils literal notranslate"><span class="pre">Mbed</span> <span class="pre">TLS</span></code> instead of <code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code> by setting a CMake option <code class="docutils literal notranslate"><span class="pre">TUS_CRYPT_LIBRARY</span></code> to <code class="docutils literal notranslate"><span class="pre">mbedtls</span></code>.</p></li>
+<li><p>Support issuing HTTP ranged GET request from Domain Controller scripts.</p></li>
+<li><p>Dropped EMOOTA SDP v2.0 support.</p></li>
+<li><p>Stabilize EMOOTA SDP v3.0 support</p>
+<ul>
+<li><p>Resources needed to use EMOOTA SDP v3.0 are reduced</p></li>
+<li><p>Notifications sent to servers are improved to show more appropriate results even on something has failed.</p></li>
+</ul>
+</li>
+<li><p>Imported lz4 as a source to allow building without system-provided one (set a Cmake option ‘TUS_LIBLZ4’ to ‘module’).</p></li>
+<li><p>Support storing/updating “vehicle-config” data on each Domain Controller from scripts run on it, and check their status from Update Orchestrator.</p></li>
+<li><p>Add new updater type ‘image’ with minimal features.</p></li>
+<li><p>Make running multiple Domain Controller instances on a same host easier</p>
+<ul>
+<li><p>Domain Controller will read a configuration file from the executable’s directory, or where specified <code class="docutils literal notranslate"><span class="pre">-c</span></code> option. Runtime parameters can be set for each Domain Controller in the config files, like <code class="docutils literal notranslate"><span class="pre">grpc_listen=0.0.0.0:34567</span></code> to avoid interference between Domain Controllers.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cURL</span></code> library is imported as a source and will be built/linked from TUS source by default</p></li>
+<li><p>Support a TUP which contains zlib(deflate)-compressed data.</p></li>
+<li><p>Let Lua TUP parser be available for scripts run on Domain Controller</p></li>
+<li><p>Allow Update Orchestrator/Domain Controller scripts to wait completions of asynchronous operations in non-blocking manner, so that a finite-state-machine which waits their completions can be constructed if needed.</p></li>
+<li><p>Lua script may construct a TUP parser directly from another parer’s data, without storing the intermediate data.</p></li>
+</ul>
+</div>
+<div class="section" id="host-tools">
+<h3><span class="section-number">2.1.2. </span>Host Tools<a class="headerlink" href="#host-tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Updates of TUP Generator for Update Flow</p>
+<ul>
+<li><p>support Delta Update Update Flow generation</p>
+<ul>
+<li><p>TUP Generator can generate Update Flow which uses Delta Update.</p></li>
+</ul>
+</li>
+<li><p>support Image updater</p>
+<ul>
+<li><p>TUP Generator can generate Update Flow which uses Image Updater.</p></li>
+</ul>
+</li>
+<li><p>support Update Flow generation for Customized Updater</p>
+<ul>
+<li><p>TUP Generator can generate Update Flow including Customized Updater. When using this, implementing your own Customized Updater is needed on TUS Runtime.</p></li>
+</ul>
+</li>
+<li><p>support device configuration when TUP generation</p>
+<ul>
+<li><p>generated Update Flow calls <code class="docutils literal notranslate"><span class="pre">dc:update_version</span></code>. <code class="docutils literal notranslate"><span class="pre">deviceConfiguration</span></code> parameter is mandatory for InnerTUP generation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Updates of TUP Generator for metadata</p>
+<ul>
+<li><p>support ZLIB algorithm for compression</p></li>
+<li><p>support Compression block size configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">block</span> <span class="pre">size</span></code> can be configured for compression.</p></li>
+</ul>
+</li>
+<li><p>support ICV parameter configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">algorithm</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span> <span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">key</span></code> can be configured when TUP generation for Inner Package, Variable Header and Variable Footer.</p></li>
+</ul>
+</li>
+<li><p>support algorithm extension for Compression and ICV</p>
+<ul>
+<li><p>your own compression and ICV algorithm can be specified by extending TUP Generator and TUP Parser.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Updates of EMOOTA SDP Operator</p>
+<ul>
+<li><p>support EMOOTA SDP Operator human readable output not json format</p>
+<ul>
+<li><p>EMOOTA SDP Operator outputs yaml-like output. Json format output is still available.</p></li>
+</ul>
+</li>
+<li><p>support HMI file registration for campaign</p></li>
+<li><p>append <code class="docutils literal notranslate"><span class="pre">--async_ops</span></code> option to <code class="docutils literal notranslate"><span class="pre">ul-tup</span></code> command instead of <code class="docutils literal notranslate"><span class="pre">ul-tup-async</span></code> command.</p></li>
+</ul>
+</li>
+<li><p>Updates of Deployment tool</p>
+<ul>
+<li><p>support <code class="docutils literal notranslate"><span class="pre">initconf</span></code> to initialize configuration files of Update Orchestrator.</p></li>
+<li><p>support multiple subtargets configuration for EMOOTA SDP v3.0 provider.</p></li>
+<li><p>support <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">dtool</span> <span class="pre">dc</span></code> command to generate Domain Controller configurations.</p></li>
+<li><p>support stdin as an input to SDP sub-command argument “–json”</p></li>
+</ul>
+</li>
+<li><p>support Delta Patch generation</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">delta</span></code> command can generate delta patch file.</p></li>
+</ul>
+</li>
+<li><p>support TUP viewer</p>
+<ul>
+<li><p>TUP viewer generates an HTML file from TUP file.</p></li>
+</ul>
+</li>
+<li><p>deprecate SDPv2 related function</p></li>
+<li><p>support source code distribution in addition to binaries</p></li>
+</ul>
+</div>
+<div class="section" id="others">
+<h3><span class="section-number">2.1.3. </span>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>As a reference information, OSS Libraries list for the TUS Runtime is added to an Appendix.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="limitations">
+<h2><span class="section-number">2.2. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="host-tools-limitations">
+<h3><span class="section-number">2.2.1. </span>Host Tools limitations<a class="headerlink" href="#host-tools-limitations" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>TUP Generator</p>
+<p>The following limitations are basically removed in the future version.</p>
+<ul class="simple">
+<li><p>Metadata including Variable Header, Variable Footer and Inner Package order is fixed in generated TUP. Please refer to <a class="reference external" href="#tup-structure-limitations">here</a>.</p></li>
+<li><p>Compression</p>
+<ul>
+<li><p>Cannot specify compression of whole Inner Package and variable block size</p></li>
+</ul>
+</li>
+<li><p>Encryption is not supported yet because Target Device does not support decryption.</p></li>
+<li><p>Version for Inner Package is not supported</p></li>
+<li><p>Processing Order for Inner Package is fixed. Currently only compression then signing order is supported.</p></li>
+<li><p>ICV settings including key info can be only configured for Inner Package, Variable Header and Variable Footer.</p></li>
+</ul>
+</li>
+<li><p>Deployment Tool</p>
+<ul class="simple">
+<li><p>Other than <code class="docutils literal notranslate"><span class="pre">scp</span></code>, some protocols to deploy will be supported if needed.</p></li>
+</ul>
+</li>
+<li><p>Others</p>
+<ul class="simple">
+<li><p>The following Host Tools are not supported yet. They will be supported in the future version.</p>
+<ul>
+<li><p>SILS</p></li>
+<li><p>Dummy OTA Center</p></li>
+<li><p>TUP Updater</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>For EMOOTA SDP licensed users,</p>
+<ul class="simple">
+<li><p>EMOOTA SDP v3.0 Operator</p>
+<ul>
+<li><p>Doesn’t support all EMOOTA SDP operations.</p></li>
+<li><p>EMOOTA SDP response may include paginated response, but this client print only 1st page.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="tus-runtime-limitations">
+<h3><span class="section-number">2.2.2. </span>TUS Runtime limitations<a class="headerlink" href="#tus-runtime-limitations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Limited logging / error handling facilities</p>
+<ul>
+<li><p>Runtime error may not be handled gracefully yet.</p></li>
+<li><p>Error-code system will be defined in a later release.</p></li>
+<li><p>Execution logs for Update Orchestrator, Domain Controller and TUP scripts run on them are outputted to console.</p></li>
+<li><p>Telemetry system is not included.</p></li>
+</ul>
+</li>
+<li><p>Communication between Update Orchestrator and Domain Controller are always performed through network, using gRPC and HTTP</p>
+<ul>
+<li><p>In the future version, will support direct inter-process communication if Update Orchestrator and Domain Controller were located on a same host.</p></li>
+<li><p>Transports are not encrypted. TLS certificate/key management will be added</p></li>
+</ul>
+</li>
+<li><p>Domain Controller-side ‘version’ are not utilized.</p></li>
+<li><p>Lua extensions provided for Update Orchestrator and Domain Controller has minimal features and not yet fully optimized. Some operations are slower than ideally expected, or block when they shall be asynchronously executed.</p></li>
+<li><p>Available updaters are for Debian/Ubuntu packages and for files /device-images only. Support for other update target will be added.</p></li>
+<li><p>Platform abstraction layer is not yet stable</p>
+<ul>
+<li><p>Current implementation assumes POSIX-like OS.</p></li>
+<li><p>Hardware assisted cryptography / (de-)compression are not available yet.</p></li>
+<li><p>No updater which supports A/B banked storage is provided.</p></li>
+</ul>
+</li>
+<li><p>Domain Controller will not work without being controlled from Update Orchestrator for now. Domain Controller will support stand-alone operation mode for testing convenience.</p></li>
+<li><p>To use EMOOTA SDP v3.0, configuration files shall be placed under <code class="docutils literal notranslate"><span class="pre">/data</span></code>. This requirement will be lifted.</p></li>
+</ul>
+</div>
+<div class="section" id="tup-structure-limitations">
+<h3><span class="section-number">2.2.3. </span>TUP structure limitations<a class="headerlink" href="#tup-structure-limitations" title="Permalink to this headline">¶</a></h3>
+<p>Supported TUP structure is limited to TUP file including from one to four Inner Packages that are also in TUP format.</p>
+<p><img alt="Supported architecture" src="../_images/tup_architecture.drawio.svg" /></p>
+</div>
+</div>
+<div class="section" id="announcements">
+<h2><span class="section-number">2.3. </span>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h2>
+<p>As announced in the TUS SDK 0.2.0 Release Note, the TUS SDK 0.3.0 no longer supports EMOOTA SDP v2.0.</p>
+</div>
+<div class="section" id="known-issues">
+<h2><span class="section-number">2.4. </span>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Even when the update was completed successfully on Target Device, the update result might not be classified into “Successful OTA Update” on EMOOTA SDP v3.0 portal.</p></li>
+<li><p>If 4096 (4KiB) divided by ICV Tree block size in ICV-AFTER-DATA of Generated TUP is not equal to 0, Delta Update fails with ICV verification error.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="3. Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="document_architecture.html" class="btn btn-neutral float-left" title="1. Document Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0) &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. TUS CLI Reference" href="../cli_reference.html" />
+    <link rel="prev" title="3.5.4.1. Tutorial 2 (using DevHTTPd provider)" href="tutorial_devhttpd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">3. Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#uninstall-old-sdk">3.1. Uninstall old SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#prerequisites">3.2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#how-to-install-host-tools">3.3. How to install Host Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#how-to-build-target-device-components">3.4. How to build Target Device components</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tutorial.html#tutorials">3.5. Tutorials</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tup-for-the-tutorials-1-and-2">3.5.1. TUP for the tutorials #1 and #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tup-for-the-tutorial-3">3.5.2. TUP for the tutorial #3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tutorial-1-deploy-a-tup-directly-to-target-device">3.5.3. Tutorial 1 (deploy a TUP directly to Target Device)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial.html#tutorial-2-using-devhttpd-provider">3.5.4. Tutorial 2 (using DevHTTPd provider)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../tutorial.html#tutorial-3-using-emoota-sdp-v3-0">3.5.5. Tutorial 3 (using EMOOTA SDP v3.0)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial.html#for-further-information">3.6. For further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorial.html"><span class="section-number">3. </span>Tutorial</a> &raquo;</li>
+        
+      <li><span class="section-number">3.5.5.1. </span>Tutorial 3 (using EMOOTA SDP v3.0)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="tutorial-3-using-emoota-sdp-v3-0">
+<h1><span class="section-number">3.5.5.1. </span>Tutorial 3 (using EMOOTA SDP v3.0)<a class="headerlink" href="#tutorial-3-using-emoota-sdp-v3-0" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial is only for EMOOTA SDP v3.0 licensed users.</p>
+</div>
+<p>In this tutorial, you can learn how to create a campaign on EMOOTA SDP v3.0, upload a TUP file to it and run the Target Device components to update/install it.</p>
+<p>In this tutorial, scripts under <code class="docutils literal notranslate"><span class="pre">etc/emoota/v3/</span></code> to execute operations on EMOOTA SDP v3.0.
+These scripts create the simple configuration. If more complicated configuration on EMOOTA SDP v3.0 is needed, please refer to there scripts and the <a class="reference internal" href="../cli_references/pdp.html"><span class="doc std std-doc">CLI Reference</span></a>.</p>
+<div class="section" id="target-devices">
+<h2><span class="section-number">3.5.5.1.1. </span>Target Devices<a class="headerlink" href="#target-devices" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial requires four Target Devices as follows.</p>
+<p><img alt="Target Devices" src="../../_images/tutorial_sdpv3.drawio.svg" /></p>
+</div>
+<div class="section" id="create-vehicle-resources">
+<h2><span class="section-number">3.5.5.1.2. </span>Create vehicle resources<a class="headerlink" href="#create-vehicle-resources" title="Permalink to this headline">¶</a></h2>
+<p>First of all, please set username and password for EMOOTA SDP v3.0.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">SDP_USERNAME</span><span class="o">=</span><span class="s2">&quot;your_sdp_account_username&quot;</span>
+$ <span class="nb">export</span> <span class="nv">SDP_PASSWD</span><span class="o">=</span><span class="s2">&quot;your_sdp_account_password&quot;</span>
+</pre></div>
+</div>
+<p>And then execute,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ./etc/emoota/v3/
+$ ./init_vehicles.sh
+</pre></div>
+</div>
+<p>This script creates the vehicle and publish VIN, and generate <code class="docutils literal notranslate"><span class="pre">vehicle_information</span></code> file used in below steps.</p>
+</div>
+<div class="section" id="deploy-source-codes-and-configurations-to-target-device-which-update-orchestrator-runs">
+<h2><span class="section-number">3.5.5.1.3. </span>Deploy source codes and configurations to Target Device which Update Orchestrator runs<a class="headerlink" href="#deploy-source-codes-and-configurations-to-target-device-which-update-orchestrator-runs" title="Permalink to this headline">¶</a></h2>
+<p>Before proceeding this step, please make sure that binaries for Target Device are sent.</p>
+<p>In addition to that, please copy the directory <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/src/lib/emoota/r3/data</span></code> in the SDK package as <code class="docutils literal notranslate"><span class="pre">/data</span></code> on the Target Device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that the <code class="docutils literal notranslate"><span class="pre">/data</span></code> directory created above should be writable by the user executing the Update Orchestrator.</p>
+</div>
+<p>After copying, the directory tree on the target device should look like below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/data/
+├── aqconfig/
+├── t1_app/ 
+└── uptane/
+</pre></div>
+</div>
+<p>And please confirm Target Device configurations (ip addresses) in <code class="docutils literal notranslate"><span class="pre">deploy_confs.sh</span></code>.
+If your Target Device ip addresses are not the same, please update them.
+Also, please rename the host name of Target Devices, defined as variable <code class="docutils literal notranslate"><span class="pre">dc_targets</span></code> in <code class="docutils literal notranslate"><span class="pre">deploy_confs.sh</span></code>, where Domain Controller configurations will be sent.</p>
+<p>After updating <code class="docutils literal notranslate"><span class="pre">deploy_confs.sh</span></code>, please execute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./deploy_confs.sh vehicle_information
+</pre></div>
+</div>
+<p>If you require TARGET_HOSTNAME and TARGET_DEPLOY_DIR, please input appropriate information to deploy.</p>
+</div>
+<div class="section" id="create-update-resources">
+<h2><span class="section-number">3.5.5.1.4. </span>Create update resources<a class="headerlink" href="#create-update-resources" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./create_update_vehicle_resources.sh vehicle_information
+</pre></div>
+</div>
+<p>This script generates <code class="docutils literal notranslate"><span class="pre">update_vehicle_information</span></code> required in the following steps.
+When creating TUP, <code class="docutils literal notranslate"><span class="pre">NEW_VDESIGN_ID</span></code> output by this script is needed.</p>
+</div>
+<div class="section" id="create-tup">
+<h2><span class="section-number">3.5.5.1.5. </span>Create TUP<a class="headerlink" href="#create-tup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generating-innerpackage-tup-for-rpi1">
+<h3><span class="section-number">3.5.5.1.5.1. </span>Generating InnerPackage TUP for Rpi1<a class="headerlink" href="#generating-innerpackage-tup-for-rpi1" title="Permalink to this headline">¶</a></h3>
+<p>Please prepare below <code class="docutils literal notranslate"><span class="pre">tutorial-rpi1.json</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;deb&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .deb file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;01000&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: &lt;Please Input SUB_TARGET_ID1&gt;,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;2.0&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure to input the value of <code class="docutils literal notranslate"><span class="pre">SUBTARGET_ID1</span></code> written in the file <code class="docutils literal notranslate"><span class="pre">vehicle_information</span></code>.</p>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-rpi1.json --out tutorial-rpi1.tup --out-html tutorial-rpi1.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-innerpackage-tup-for-rpi2">
+<h3><span class="section-number">3.5.5.1.5.2. </span>Generating InnerPackage TUP for Rpi2<a class="headerlink" href="#generating-innerpackage-tup-for-rpi2" title="Permalink to this headline">¶</a></h3>
+<p>Please prepare below <code class="docutils literal notranslate"><span class="pre">tutorial-rpi2.json</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;deb&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .deb file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;01001&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: &lt;Please Input SUB_TARGET_ID2&gt;,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;2.5&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure to input the value of <code class="docutils literal notranslate"><span class="pre">SUBTARGET_ID2</span></code> written in the file <code class="docutils literal notranslate"><span class="pre">vehicle_information</span></code>.</p>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-rpi2.json --out tutorial-rpi2.tup --out-html tutorial-rpi2.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-innerpackage-tup-for-rpi3">
+<h3><span class="section-number">3.5.5.1.5.3. </span>Generating InnerPackage TUP for Rpi3<a class="headerlink" href="#generating-innerpackage-tup-for-rpi3" title="Permalink to this headline">¶</a></h3>
+<p>Rpi3 is running on Yocto which does not have <code class="docutils literal notranslate"><span class="pre">deb</span></code> updater.
+For this reason, create tup including compressed text.</p>
+<p>Please prepare below <code class="docutils literal notranslate"><span class="pre">tutorial-rpi3.json</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;LZ4-compressed&quot;</span>,
+                <span class="s2">&quot;compress&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span>: <span class="s2">&quot;LZ4&quot;</span>,
+                    <span class="s2">&quot;tableType&quot;</span>: <span class="s2">&quot;fixed&quot;</span>
+                <span class="o">}</span>,
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;txt&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .txt file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;01010&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: &lt;Please Input SUB_TARGET_ID3&gt;,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;3.0&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure to input the value of <code class="docutils literal notranslate"><span class="pre">SUBTARGET_ID3</span></code> written in the file <code class="docutils literal notranslate"><span class="pre">vehicle_information</span></code>.</p>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-rpi3.json --out tutorial-rpi3.tup --out-html tutorial-rpi3.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-innerpackage-tup-for-rpi4">
+<h3><span class="section-number">3.5.5.1.5.4. </span>Generating InnerPackage TUP for Rpi4<a class="headerlink" href="#generating-innerpackage-tup-for-rpi4" title="Permalink to this headline">¶</a></h3>
+<p>Rpi4 is running on Yocto which does not have <code class="docutils literal notranslate"><span class="pre">deb</span></code> updater.
+For this reason, create tup including compressed text.</p>
+<p>Please prepare below <code class="docutils literal notranslate"><span class="pre">tutorial-rpi4.json</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;inner&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;LZ4-compressed&quot;</span>,
+                <span class="s2">&quot;compress&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;algorithm&quot;</span>: <span class="s2">&quot;LZ4&quot;</span>,
+                    <span class="s2">&quot;tableType&quot;</span>: <span class="s2">&quot;fixed&quot;</span>
+                <span class="o">}</span>,
+                <span class="s2">&quot;updater&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;id&quot;</span>: <span class="s2">&quot;txt&quot;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: &lt;Path to sample .txt file&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;deviceConfigurations&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;targetId&quot;</span>: <span class="s2">&quot;01011&quot;</span>,
+                    <span class="s2">&quot;softwares&quot;</span>: <span class="o">[</span>
+                        <span class="o">{</span>
+                            <span class="s2">&quot;softwareId&quot;</span>: &lt;Please Input SUB_TARGET_ID4&gt;,
+                            <span class="s2">&quot;productNumber&quot;</span>: <span class="s2">&quot;3.5&quot;</span>
+                        <span class="o">}</span>
+                    <span class="o">]</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure to input the value of <code class="docutils literal notranslate"><span class="pre">SUBTARGET_ID4</span></code> written in the file <code class="docutils literal notranslate"><span class="pre">vehicle_information</span></code>.</p>
+</div>
+<p>Then, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-rpi4.json --out tutorial-rpi4.tup --out-html tutorial-rpi4.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-tup-for-uo">
+<h3><span class="section-number">3.5.5.1.5.5. </span>Generating TUP for UO<a class="headerlink" href="#generating-tup-for-uo" title="Permalink to this headline">¶</a></h3>
+<p>Please prepare below <code class="docutils literal notranslate"><span class="pre">tutorial-outer.json</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;outer&quot;</span>,
+    <span class="s2">&quot;innerPackages&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg1&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi1&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-rpi1.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;tutorial-rpi1.tup&quot;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg2&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi2&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-rpi2.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;tutorial-rpi2.tup&quot;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg3&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi3&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-rpi3.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;tutorial-rpi3.tup&quot;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">&quot;metadata&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;innerpkg4&quot;</span>,
+                <span class="s2">&quot;domainname&quot;</span>: <span class="s2">&quot;Rpi4&quot;</span>,
+                <span class="s2">&quot;originalMetadataPath&quot;</span>: <span class="s2">&quot;tutorial-rpi4.json&quot;</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;src&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;tutorial-rpi4.tup&quot;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;metadata&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;provider&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;sdpv3&quot;</span>,
+                <span class="s2">&quot;vehicleDesignId&quot;</span>: &lt;Please Input NEW_VDESIGN_ID&gt;
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;rootICV&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure that the <code class="docutils literal notranslate"><span class="pre">NEW_VDESIGN_ID</span></code> is corresponding to your update_vehicle_information.</p>
+</div>
+<p>And then,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tus tup gen --src-type json --src tutorial-outer.json --out tutorial-outer.tup --out-html tutorial-outer.html
+</pre></div>
+</div>
+</div>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this tutorial, outer TUP name is tutorial-outer.tup.
+To make sure that Target Device works, please rename it and use unique name on the EMOOTA SDP v3.0.</p>
+</div>
+</div>
+<div class="section" id="create-campaigns">
+<h2><span class="section-number">3.5.5.1.6. </span>Create campaigns<a class="headerlink" href="#create-campaigns" title="Permalink to this headline">¶</a></h2>
+<p>This script uploads TUPs and create campaigns for Target Device to use.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./create_campaigns.sh update_vehicle_information &lt;TUP FILE PATH FOR UO&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-in-vehicle-components">
+<h2><span class="section-number">3.5.5.1.7. </span>Run In-Vehicle Components<a class="headerlink" href="#run-in-vehicle-components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launch-domain-controller">
+<h3><span class="section-number">3.5.5.1.7.1. </span>Launch Domain Controller<a class="headerlink" href="#launch-domain-controller" title="Permalink to this headline">¶</a></h3>
+<p>Please move to each device’s <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory where you deployed in the instruction <a class="reference external" href="../tutorial.html#build-with-the-yocto-sdk-on-docker">5.4.1.3. Build with the Yocto SDK on Docker</a> and run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./target/dc/dc
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to add <code class="docutils literal notranslate"><span class="pre">sudo</span></code> during the above process depending on your account permissions.</p>
+</div>
+</div>
+<div class="section" id="launch-update-orchestrator">
+<h3><span class="section-number">3.5.5.1.7.2. </span>Launch Update Orchestrator<a class="headerlink" href="#launch-update-orchestrator" title="Permalink to this headline">¶</a></h3>
+<p>After launching each device’s Domain Controller, run the following command on <code class="docutils literal notranslate"><span class="pre">deploy</span></code> directory where you deployed in the instruction <a class="reference external" href="../tutorial.html#build-with-the-yocto-sdk-on-docker">5.4.1.3. Build with the Yocto SDK on Docker</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./target/uo/uo
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might need to add <code class="docutils literal notranslate"><span class="pre">sudo</span></code> during the above process depending on your account permissions.</p>
+</div>
+<p>Before updating, Update Orchestrator prints current vehicle configurations on as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:267 verify_vehicle_config<span class="o">()</span> 	DC vehicle_config<span class="o">[</span>Ubuntu<span class="o">]</span> <span class="o">=</span>	<span class="o">{</span><span class="nv">ecu_target_id</span> <span class="o">=</span> <span class="s2">&quot;01000&quot;</span>, <span class="nv">new_ecu_software_part_id</span> <span class="o">=</span> <span class="o">{{</span>
+<span class="nv">subtarget_id</span><span class="o">=</span><span class="s2">&quot;3d500&quot;</span>,
+<span class="nv">product_number</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>,
+<span class="o">}}}</span>,
+</pre></div>
+</div>
+<p>These configuration values are fetched from Domain Controller and the way to load them on Domain Controller depends on the implementation of PAL.
+In the sample implementation in <code class="docutils literal notranslate"><span class="pre">example.c</span></code>, Domain Controller load vehicle configurations from <code class="docutils literal notranslate"><span class="pre">./target/dc/version/vehicle_config</span></code>.</p>
+<p>If no updates are applied yet, Update Orchestrator prints current vehicle configurations as follows because initializing Domain Controller’s vehicle configurations is not supported yet.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:271 verify_vehicle_config<span class="o">()</span> 	DC vehicle_config<span class="o">[</span>Ubuntu<span class="o">]</span> is not <span class="nb">set</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configurations log changes depending on EMOOTA SDP v3.0 and domain configurations.</p>
+</div>
+</div>
+<div class="section" id="check-the-update-result">
+<h3><span class="section-number">3.5.5.1.7.3. </span>Check the update result<a class="headerlink" href="#check-the-update-result" title="Permalink to this headline">¶</a></h3>
+<p>For the debian package file, you can check whether it was installed successfully or not on RaspberryPi4 #1 and #2 by the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>e.g.<span class="o">)</span>
+
+$ dpkg-query -s hello
+Package: hello
+Status: install ok installed
+Priority: optional
+Section: devel
+Installed-Size: <span class="m">9</span>
+Maintainer: Toyota Motor Corporation
+Architecture: all
+Version: <span class="m">0</span>.1.0
+Description: hello
+ TMC CONFIDENTIAL
+ <span class="nv">$TUSLibId</span>$
+ Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2022</span> TOYOTA MOTOR CORPORATION
+ All Rights Reserved.
+</pre></div>
+</div>
+<p>And, you can also find the text file <code class="docutils literal notranslate"><span class="pre">/tmp/written_txt_data</span></code> on RaspberryPi4 #3 and #4 if succeeded.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>e.g.<span class="o">)</span>
+
+$ less /tmp/written_txt_data
+
+The Project Gutenberg eBook of Alice’s Adventures <span class="k">in</span> Wonderland, by Lewis Carroll
+
+This eBook is <span class="k">for</span> the use of anyone anywhere <span class="k">in</span> the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online at
+www.gutenberg.org. If you are not located <span class="k">in</span> the United States, you
+will have to check the laws of the country where you are located before
+using this eBook.
+
+Title: Alice’s Adventures <span class="k">in</span> Wonderland
+
+Author: Lewis Carroll
+
+Release Date: January, <span class="m">1991</span> <span class="o">[</span>eBook <span class="c1">#11]</span>
+<span class="o">[</span>Most recently updated: October <span class="m">12</span>, <span class="m">2020</span><span class="o">]</span>
+
+...
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The detail results described as example above will differ depending on the contents of the debian package file and the text file.</p>
+</div>
+<p>After updating, Update Orchestrator prints current Domain Controller’s vehicle configurations as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:267 verify_vehicle_config<span class="o">()</span> 	DC vehicle_config<span class="o">[</span>Ubuntu<span class="o">]</span> <span class="o">=</span>	<span class="o">{</span><span class="nv">ecu_target_id</span> <span class="o">=</span> <span class="s2">&quot;01000&quot;</span>, <span class="nv">new_ecu_software_part_id</span> <span class="o">=</span> <span class="o">{{</span>
+<span class="nv">subtarget_id</span><span class="o">=</span><span class="s2">&quot;3d500&quot;</span>,
+<span class="nv">product_number</span><span class="o">=</span><span class="s2">&quot;2.0&quot;</span>,
+<span class="o">}}}</span>,
+</pre></div>
+</div>
+<p>In addition to that, Update Orchestrator prints all Domain Controller’s vehicle configurations which Update Orchestrator has under <code class="docutils literal notranslate"><span class="pre">./target/uo/provider/sdpv3/</span></code> to check consistency.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:275 verify_vehicle_config<span class="o">()</span> 	UO vehicle_config.ecu_info:
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_hardware_part_a_id	1d3c5adb-c15d-4d	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_target_id	<span class="m">01000</span>	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_hardware_part_b_id	1d3c5adb-c15d-4d	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:282 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_software_part_a_id	<span class="m">1</span>	sub_target_id	3d500	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:282 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_software_part_a_id	<span class="m">1</span>	software_id	<span class="m">1</span>.0	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	rewrite_b_count	<span class="m">0</span>	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	active_bank	A	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:282 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_software_part_b_id	<span class="m">1</span>	sub_target_id	3d500	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:282 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	ecu_software_part_b_id	<span class="m">1</span>	software_id	<span class="m">1</span>.0	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	serial_num	e2fc677f-5b1b-4988	<span class="o">)</span>
+ <span class="o">(</span>provider.sdpv3<span class="o">)</span>: @./provider/sdpv3.lua:290 verify_vehicle_config<span class="o">()</span> 	<span class="o">[</span><span class="m">1</span><span class="o">]</span> - <span class="o">(</span>	rewrite_a_count	<span class="m">0</span>	<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Configurations log changes depending on EMOOTA SDP v3.0 and domain configurations.</p>
+</div>
+</div>
+<!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../cli_reference.html" class="btn btn-neutral float-right" title="4. TUS CLI Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorial_devhttpd.html" class="btn btn-neutral float-left" title="3.5.4.1. Tutorial 2 (using DevHTTPd provider)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

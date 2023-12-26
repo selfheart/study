@@ -1,0 +1,120 @@
+#TMC CONFIDENTIAL
+#$TUSLibId$
+#Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+#All Rights Reserved.
+
+
+FROM ubuntu:22.04 as arm64-apt-sources
+
+# create  /etc/apt/sources.list.d/arm64.list from the default apt sources.list
+# note: the file must have a suffix (.list)
+RUN grep -v deb-src /etc/apt/sources.list | grep -v "^#" > /etc/apt/sources.list.d/arm64.list
+RUN sed -i "s/deb h/deb [arch=arm64] h/g" /etc/apt/sources.list.d/arm64.list
+RUN sed -i "s#http://[^ ]+#http://ports.ubuntu.com/ubuntu-ports#g" /etc/apt/sources.list.d/arm64.list
+RUN sed -i 's#http.*/ #http://ports.ubuntu.com/ubuntu-ports/ #g' /etc/apt/sources.list.d/arm64.list
+
+
+FROM ubuntu:22.04
+
+# let apt update find arm64 packages
+RUN sed -i "s/deb h/deb [arch=amd64] h/g" /etc/apt/sources.list
+COPY --from=arm64-apt-sources /etc/apt/sources.list.d/arm64.list /etc/apt/sources.list.d/arm64.list
+RUN dpkg --add-architecture arm64
+
+
+ENV DEBIAN_FRONTEND noninteractive
+
+# install host-side build env
+# note that protobufs must be compiled on the host env
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      bash \
+      bash-completion \
+      binutils-multiarch \
+      clang \
+      cmake \
+      coreutils \
+      diffutils \
+      elfutils \
+      file \
+      findutils \
+      g++ \
+      g++ \
+      gpg \
+      grep \
+      gzip \
+      less \
+      lld \
+      lldb \
+      llvm \
+      locales \
+      lz4 \
+      make \
+      ninja-build \
+      openssl \
+      openssh-client \
+      patch \
+      patchutils \
+      pkg-config \
+      protobuf-c-compiler \
+      protobuf-compiler \
+      protobuf-compiler-grpc \
+      python3-grpcio \
+      qemu-user-static \
+      tar \
+      unzip \
+      vim \
+      wget \
+      xxd \
+      xz-utils \
+      zip \
+      zstd
+
+
+# install multi-arch libs (for arm64 cross)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      binutils-aarch64-linux-gnu \
+      libc++-dev:arm64 \
+      libc++abi-dev:arm64 \
+      libc6-dev:arm64 \
+      libcurl4-openssl-dev:arm64 \
+      libgcc-11-dev:arm64 \
+      libgrpc-dev:arm64 \
+      libgrpc++-dev:arm64 \
+      libgtest-dev:arm64 \
+      liblz4-dev:arm64 \
+      liblzma-dev:arm64 \
+      libprotobuf-c-dev:arm64 \
+      libprotobuf-dev:arm64 \
+      libssl-dev:arm64 \
+      libstdc++-11-dev:arm64 \
+      libwebsockets-dev:arm64 \
+      libzstd-dev:arm64 \
+      && apt-get clean \
+      && rm -rf /var/lib/apt/lists/*
+
+# let CMake use /llvm-aarch64.cmake
+# (to use --target=aarch64-linux-gnu with clang)
+RUN echo "set(CMAKE_SYSTEM_NAME Linux)\n\
+set(CMAKE_SYSTEM_PROCESSOR aarch64)\n\
+\n\
+# clang --target=aarch64-linux-gnu\n\
+SET(CLANG_TARGET_TRIPLE aarch64-linux-gnu)\n\
+\n\
+SET(CMAKE_C_COMPILER_TARGET \${CLANG_TARGET_TRIPLE})\n\
+SET(CMAKE_C_COMPILER clang)\n\
+\n\
+SET(CMAKE_CXX_COMPILER_TARGET \${CLANG_TARGET_TRIPLE})\n\
+SET(CMAKE_CXX_COMPILER clang++)\n\
+\n\
+SET(CMAKE_ASM_COMPILER_TARGET \${CLANG_TARGET_TRIPLE})\n\
+SET(CMAKE_ASM_COMPILER clang)\n\
+" >> /llvm-aarch64.cmake
+ENV CMAKE_TOOLCHAIN_FILE /llvm-aarch64.cmake
+
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+

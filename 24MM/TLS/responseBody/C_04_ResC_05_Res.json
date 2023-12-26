@@ -1,0 +1,53 @@
+{
+    "signatures": [],
+    "signed": {
+      "body": {
+        "targetsMetadata": [
+          {
+            "fileName": "mm",
+            "metadata": {
+              "signed": {
+                "body": {
+                  "targets": [
+                    {
+                      "target": {
+                        "fileName": "mm",
+                        "length": 1,
+                        "fileDownloadUrl": "http://192.168.248.191:32123/ota-24mm-dev/PUBLIC_APPLICATION/c48ef45d9689444d9ba3b5ef999e820c.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20231012T074621Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=ARTIFACTORYMINIOACCESSKEY%2F20231012%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Signature=a187a8d3cd38a063d4afc51fd3839796d63ca9fed61dacecbc6a531c1f94397d"
+                      },
+                      "custom": {
+                        "softwarePackageId": 1
+                      }
+                    }
+                  ]
+                },
+                "type": "targets"
+              }
+            }
+          }
+        ],
+        "augmentedMetadata": {
+          "signed": {
+            "body": {
+              "campaigns": [
+                {
+                  "campaignId": 1
+                },
+                {
+                  "campaignId": 1
+                },
+                {
+                  "campaignId": 18
+                }
+              ],
+              "status": "",
+              "selectedCampaign": {
+                "campaignId": 18
+              }
+            },
+            "type": "augmented"
+          }
+        }
+      }
+    }
+  }

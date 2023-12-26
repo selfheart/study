@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.iauto.tls.api'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 29
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation files('libs\\gbook-0.1.jar')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+}
+
+task makeJar(type: Jar) {
+}
+
+// 定义 copyJar 任务
+task copyJar(dependsOn: [makeJar]) {
+    def jarName  = "iauto-tls-api.jar"
+    def srcDir = "build/intermediates/aar_main_jar/release/"
+
+    def destDirs = [
+            "../otamaster/libs/"
+    ]
+
+    // 复制 Jar 文件到每个目标目录
+    destDirs.each { dir ->
+        doLast {
+            println("Copying $jarName to $dir")
+            copy {
+                from "$srcDir"
+                into dir
+                include('classes.jar')
+                rename ('classes.jar', "iauto-tls-api.jar")
+            }
+        }
+    }
+}
+
+makeJar.dependsOn(build)

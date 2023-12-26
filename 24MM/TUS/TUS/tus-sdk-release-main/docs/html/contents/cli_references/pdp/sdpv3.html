@@ -1,0 +1,1270 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4.3.1. EMOOTA SDP v3.0 Subcommand &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4.4. Deployment Tool subcommand" href="../dtool.html" />
+    <link rel="prev" title="4.3. PDP Subcommand" href="../pdp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../cli_reference.html">4. TUS CLI Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tus.html">4.1. TUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tup.html">4.2. TUP Subcommand</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../pdp.html">4.3. PDP Subcommand</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.1. EMOOTA SDP v3.0 Subcommand</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-operations">4.3.1.1. Common operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdpv3-specific-operation">4.3.1.2. SDPv3 specific operation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dtool.html">4.4. Deployment Tool subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../delta.html">4.5. Delta Subcommand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../cli_reference.html"><span class="section-number">4. </span>TUS CLI Reference</a> &raquo;</li>
+        
+          <li><a href="../pdp.html"><span class="section-number">4.3. </span>PDP Subcommand</a> &raquo;</li>
+        
+      <li><span class="section-number">4.3.1. </span>EMOOTA SDP v3.0 Subcommand</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="emoota-sdp-v3-0-subcommand">
+<h1><span class="section-number">4.3.1. </span>EMOOTA SDP v3.0 Subcommand<a class="headerlink" href="#emoota-sdp-v3-0-subcommand" title="Permalink to this headline">¶</a></h1>
+<p>EMOOTA SDP v3.0 subcommand usage is following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 -h
+usage: tus pdp sdpv3 [-h] [--endpoint ENDPOINT] [--username USERNAME]
+                     {rest,ul-pkg,get-pkg-status,get-vconf-info,approve-pkg,dl-pkg}
+                     ...
+
+EMOOTA SDPv3 operator To set username and password of EMOOTA SDPv3, please
+define SDP_USERNAME and SDP_PASSWD environment variables.
+
+positional arguments:
+  {rest,ul-pkg,get-pkg-status,get-vconf-info,approve-pkg,dl-pkg}
+                        help
+    rest                wraps some REST APIs
+    ul-pkg              upload package files including TUP to pdp.
+    get-pkg-status      check status of uploaded file on pdp.
+    get-vconf-info      get current vehicle configuration information
+    approve-pkg         approve uploaded file on pdp.
+    dl-pkg              download package files including TUP
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --endpoint ENDPOINT   base URL of EMOOTA SDPv3.
+                        default=&#39;https://t-poc-r3-ap-
+                        northeast-1-b2b.t-poc-r3.com/&#39;
+  --username USERNAME   username of EMOOTA SDPv3. SDP_USERNAME environment
+                        variable is used if not specified. SDP_PASSWD
+                        environment variable should be defined.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To use this subcommand, EMOOTA SDP v3.0 user account is needed.</p></li>
+<li><p>EMOOTA SDP v3.0 command prints error information including EMOOTA SDP v3.0 error code if HTTP Status code is not 20x. To know EMOOTA SDP v3.0 error code details, please refer to EMOOTA OTAmatic documents.</p></li>
+</ul>
+<div class="section" id="common-operations">
+<h2><span class="section-number">4.3.1.1. </span>Common operations<a class="headerlink" href="#common-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="upload-packages-including-tup-and-wait-for-upload-to-be-processed">
+<h3><span class="section-number">4.3.1.1.1. </span>upload packages including TUP and wait for upload to be processed<a class="headerlink" href="#upload-packages-including-tup-and-wait-for-upload-to-be-processed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 ul-pkg -h
+usage: tus pdp sdpv3 ul-pkg [-h]
+                            [--file-type {VSPA,REPRO_METADATA,DOWNLOAD_METADATA}]
+                            [--file_hash_value FILE_HASH_VALUE]
+                            [--target_id TARGET_ID] [--part_size PART_SIZE]
+                            [--approve] [--async_ops]
+                            id file-path
+
+positional arguments:
+  id                    change event package id
+  file-path             package file path, if VSPA is passed this file is
+                        archived by ZIP format automatically.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --file-type {VSPA,REPRO_METADATA,DOWNLOAD_METADATA}
+                        file type (default: VSPA)
+  --file_hash_value FILE_HASH_VALUE
+                        Hash Values of the file. This is mandatory for
+                        specific file types like REPRO_UPDATE, ROLLBACK_DATA
+                        etc. (default: None)
+  --target_id TARGET_ID
+                        target id. This is mandatory for specific file types
+                        like REPRO_UPDATE, ROLLBACK_DATA etc. (default: None)
+  --part_size PART_SIZE
+                        Maximum size of a content to upload on a each single
+                        upload. Should be within 5242880 and 5368709120 byte
+                        (default: 5242880)
+  --approve             if this option is passed, after uploading package this
+                        automatically approves. (default: False)
+  --async_ops           if this option is passed, it will upload packages
+                        without checking upload status on pdp. if --approve is
+                        set as well, it will wait until uploaded package
+                        status becomes approvable. (default: False)
+</pre></div>
+</div>
+<p>Before uploading, creating change event package by <code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">pdp</span> <span class="pre">sdpv3</span> <span class="pre">rest</span> <span class="pre">create-chevent</span></code> is needed.</p>
+<p>For EMOOTA SDP v3.0, at least 3 files must be uploaded.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VSPA</span></code> can be used for TUP. This operator creates zip file automatically and upload it because EMOOTA SDP v3.0 requires zip file for <code class="docutils literal notranslate"><span class="pre">VSPA</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DOWNLOAD_METADATA</span></code> can be used for metadata. This shall include just filename of TUP as follows.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat dl_meta.txt
+tutorial_outer.tup
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">REPRO_METADATA</span></code> can be used for metadata. Target Device does not read this file, but writing some dummy text content is needed for uploading.</p></li>
+</ul>
+</div>
+<div class="section" id="check-status-of-uploaded-packages">
+<h3><span class="section-number">4.3.1.1.2. </span>check status of uploaded packages<a class="headerlink" href="#check-status-of-uploaded-packages" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 get-pkg-status -h
+usage: tus pdp sdpv3 get-pkg-status [-h] upload_location
+
+positional arguments:
+  upload_location  location of uploaded file on pdp.
+
+optional arguments:
+  -h, --help       show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="approve-tup">
+<h3><span class="section-number">4.3.1.1.3. </span>approve TUP<a class="headerlink" href="#approve-tup" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 approve-pkg -h
+usage: tus pdp sdpv3 approve-pkg [-h] id
+
+positional arguments:
+  id          change event package id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="downloading-packages">
+<h3><span class="section-number">4.3.1.1.4. </span>downloading packages<a class="headerlink" href="#downloading-packages" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 dl-pkg -h
+usage: tus pdp sdpv3 dl-pkg [-h]
+                            [--file-type {VSPA,REPRO_METADATA,DOWNLOAD_METADATA}]
+                            --out PATH
+                            id
+
+positional arguments:
+  id                    change event package id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --file-type {VSPA,REPRO_METADATA,DOWNLOAD_METADATA}
+                        file type (default: VSPA)
+  --out PATH            output file path (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-configuration-information">
+<h3><span class="section-number">4.3.1.1.5. </span>get vehicle configuration information<a class="headerlink" href="#get-vehicle-configuration-information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 get-vconf-info -h
+usage: tus pdp sdpv3 get-vconf-info [-h] [--print-json] id
+
+positional arguments:
+  id            Vehicle Identification Number
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sdpv3-specific-operation">
+<h2><span class="section-number">4.3.1.2. </span>SDPv3 specific operation<a class="headerlink" href="#sdpv3-specific-operation" title="Permalink to this headline">¶</a></h2>
+<p>This subcommand provides some REST APIs wrapper including EMOOTA OTAmatic admin and FactoryFeed.
+About each API details, please refer to CLI help message and API documents provided by EMOOTA SDK.
+Please make sure that all APIs and parameters are not completely supported now.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest -h
+usage: tus pdp sdpv3 rest [-h]
+                          {create-vtype,search-vtype,get-vtype,delete-vtype,create-vtype-region,search-vtype-region,get-vtype-region,delete-vtype-region,create-subsys,get-subsys,delete-subsys,create-hwcomp,search-hwcomp,get-hwcomp,create-subsysconf,update-subsysconf,create-vdesign,get-vdesign,approve-vdesign,delete-vdesign,create-vehicle,search-vehicle,get-vehicle,delete-vehicle,create-chevent,get-chevent,update-chevent,submit-chevent,approve-chevent,delete-chevent,create-subsysdiff,create-cheventpkg,update-cheventpkg,approve-cheventpkg,get-cheventpkg,delete-cheventpkg,create-campaign,update-campaign,get-campaign,submit-campaign,approve-campaign,cancel-campaign,delete-campaign,get-vin-sysevent,get-vin-currconf,get-vin-histupdate,get-vin-histconf}
+                          ...
+
+positional arguments:
+  {create-vtype,search-vtype,get-vtype,delete-vtype,create-vtype-region,search-vtype-region,get-vtype-region,delete-vtype-region,create-subsys,get-subsys,delete-subsys,create-hwcomp,search-hwcomp,get-hwcomp,create-subsysconf,update-subsysconf,create-vdesign,get-vdesign,approve-vdesign,delete-vdesign,create-vehicle,search-vehicle,get-vehicle,delete-vehicle,create-chevent,get-chevent,update-chevent,submit-chevent,approve-chevent,delete-chevent,create-subsysdiff,create-cheventpkg,update-cheventpkg,approve-cheventpkg,get-cheventpkg,delete-cheventpkg,create-campaign,update-campaign,get-campaign,submit-campaign,approve-campaign,cancel-campaign,delete-campaign,get-vin-sysevent,get-vin-currconf,get-vin-histupdate,get-vin-histconf}
+                        help
+    create-vtype        create vehicle type
+    search-vtype        search vehicle type
+    get-vtype           get vehicle type
+    delete-vtype        delete vehicle type
+    create-vtype-region
+                        create vehicle type region
+    search-vtype-region
+                        search vehicle type region
+    get-vtype-region    get vehicle type region
+    delete-vtype-region
+                        delete vehicle type region
+    create-subsys       create subsystem
+    get-subsys          get subsystem
+    delete-subsys       delete subsystem
+    create-hwcomp       create hardware component
+    search-hwcomp       search hardware component
+    get-hwcomp          get hardware component
+    create-subsysconf   create subsystem configuration
+    update-subsysconf   update subsystem configuration
+    create-vdesign      create vehicle design
+    get-vdesign         get vehicle design
+    approve-vdesign     approve vehicle design
+    delete-vdesign      delete vehicle design
+    create-vehicle      create vehicle and new VINs
+    search-vehicle      search vehicle
+    get-vehicle         get vehicle
+    delete-vehicle      delete vehicle
+    create-chevent      create change event
+    get-chevent         get change event
+    update-chevent      update change event
+    submit-chevent      submit change event
+    approve-chevent     approve change event
+    delete-chevent      delete change event
+    create-subsysdiff   create subsystem diff
+    create-cheventpkg   create change event package.
+    update-cheventpkg   update change event package
+    approve-cheventpkg  approve change event package
+    get-cheventpkg      get change event package
+    delete-cheventpkg   delete change event package
+    create-campaign     create campaign
+    update-campaign     update campaign
+    get-campaign        get campaign
+    submit-campaign     submit campaign
+    approve-campaign    approve campaign
+    cancel-campaign     cancel campaign
+    delete-campaign     delete campaign, only DRAFT, PENDING_APPROVAL,
+                        APPROVED, CHANGE_REQUESTED status can be deleted.
+    get-vin-sysevent    get vehicle system events
+    get-vin-currconf    get vehicle current configuration
+    get-vin-histupdate  get vehicle campaign update history
+    get-vin-histconf    get vehicle config history
+
+optional arguments:
+  -h, --help            show this help message and exit
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">search-xxx</span></code> search resources on EMOOTA SDP v3.0 but it does not handle pagination.</p>
+</div>
+<div class="section" id="create-vehicle-type">
+<h3><span class="section-number">4.3.1.2.1. </span>create vehicle type<a class="headerlink" href="#create-vehicle-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-vtype -h
+usage: tus pdp sdpv3 rest create-vtype [-h] [--model-code MODEL_CODE]
+                                       [--trim-code TRIM_CODE]
+                                       [--year-code YEAR_CODE]
+                                       [--region REGION]
+                                       makecode
+
+positional arguments:
+  makecode              make code
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model-code MODEL_CODE
+                        model code, if not set make code is used as a default
+                        value (default: None)
+  --trim-code TRIM_CODE
+                        trim code if not set make code is used as a default
+                        value (default: None)
+  --year-code YEAR_CODE
+                        year code (default: 2024)
+  --region REGION       region (default: Japan)
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-vehicle-type">
+<h3><span class="section-number">4.3.1.2.2. </span>search vehicle type<a class="headerlink" href="#search-vehicle-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest search-vtype -h
+usage: tus pdp sdpv3 rest search-vtype [-h] [--model-code MODEL_CODE]
+                                       [--campaign-id CAMPAIGN_ID]
+                                       [--print-json] [--limit LIMIT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model-code MODEL_CODE
+                        model code (default: None)
+  --campaign-id CAMPAIGN_ID
+                        campaign_id (default: None)
+  --print-json          print json format to stdout (default: False)
+  --limit LIMIT         maximum number to output. (default: 100)
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-vehicle-type">
+<h3><span class="section-number">4.3.1.2.3. </span>delete vehicle type<a class="headerlink" href="#delete-vehicle-type" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-vtype -h
+usage: tus pdp sdpv3 rest delete-vtype [-h] makecode modelcode
+
+positional arguments:
+  makecode    make code
+  modelcode   model code
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-vehicle-type-region">
+<h3><span class="section-number">4.3.1.2.4. </span>create vehicle type region<a class="headerlink" href="#create-vehicle-type-region" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-vtype-region -h
+usage: tus pdp sdpv3 rest create-vtype-region [-h] name
+
+positional arguments:
+  name        region name
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-vehicle-type-region">
+<h3><span class="section-number">4.3.1.2.5. </span>search vehicle type region<a class="headerlink" href="#search-vehicle-type-region" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest search-vtype-region -h
+usage: tus pdp sdpv3 rest search-vtype-region [-h] [--name NAME]
+                                              [--print-json] [--limit LIMIT]
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --name NAME    region name (default: None)
+  --print-json   print json format to stdout (default: False)
+  --limit LIMIT  maximum number to output. Cannot be more than 100 due to
+                 SDPv3 specification. (default: 100)
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-vehicle-type-region">
+<h3><span class="section-number">4.3.1.2.6. </span>delete vehicle type region<a class="headerlink" href="#delete-vehicle-type-region" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-vtype-region -h
+usage: tus pdp sdpv3 rest delete-vtype-region [-h] id
+
+positional arguments:
+  id          vehicle type region id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-subsystem">
+<h3><span class="section-number">4.3.1.2.7. </span>create subsystem<a class="headerlink" href="#create-subsystem" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-subsys -h
+usage: tus pdp sdpv3 rest create-subsys [-h] [--disable-check]
+                                        [--vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]]
+                                        [--rxswins [RXSWINS [RXSWINS ...]]]
+                                        name sysId
+
+positional arguments:
+  name                  subsystem name
+  sysId                 subsystem sysId
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --disable-check       disable system check (default: True)
+  --vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]
+                        vehicle type ids (default: None)
+  --rxswins [RXSWINS [RXSWINS ...]]
+                        RXSWINs (default: )
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-subsystem">
+<h3><span class="section-number">4.3.1.2.8. </span>get subsystem<a class="headerlink" href="#get-subsystem" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-subsys -h
+usage: tus pdp sdpv3 rest get-subsys [-h] [--print-json] id
+
+positional arguments:
+  id            subsystem id
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-subsystem">
+<h3><span class="section-number">4.3.1.2.9. </span>delete subsystem<a class="headerlink" href="#delete-subsystem" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-subsys -h
+usage: tus pdp sdpv3 rest delete-subsys [-h] id
+
+positional arguments:
+  id          subsystem id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-hardware-component">
+<h3><span class="section-number">4.3.1.2.10. </span>create hardware component<a class="headerlink" href="#create-hardware-component" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-hwcomp -h
+usage: tus pdp sdpv3 rest create-hwcomp [-h] [--repro-platform {cp,ap}]
+                                        [--part-num PART_NUM]
+                                        [--physical-addr PHYSICAL_ADDR]
+                                        [--rom-part {SINGLE_BANK,DUAL_BANK}]
+                                        targetid name
+
+positional arguments:
+  targetid              target id ( 24 limit string ), it shall be able to be
+                        converted into octal number.
+  name                  ECU name ( 50 limit string )
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --repro-platform {cp,ap}
+                        repro platform (default: ap)
+  --part-num PART_NUM   part number (default: None)
+  --physical-addr PHYSICAL_ADDR
+                        physical address ( 24 limit length ) (default: None)
+  --rom-part {SINGLE_BANK,DUAL_BANK}
+                        bank (default: DUAL_BANK)
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-hardware-component">
+<h3><span class="section-number">4.3.1.2.11. </span>search hardware component<a class="headerlink" href="#search-hardware-component" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest search-hwcomp -h
+usage: tus pdp sdpv3 rest search-hwcomp [-h]
+                                        [--subsystem-ids [SUBSYSTEM_IDS [SUBSYSTEM_IDS ...]]]
+                                        [--print-json] [--limit LIMIT]
+                                        [--ecu-name ECU_NAME | --part-num PART_NUM | --target-id TARGET_ID]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --subsystem-ids [SUBSYSTEM_IDS [SUBSYSTEM_IDS ...]]
+                        subsystem ids (default: None)
+  --print-json          print json format to stdout (default: False)
+  --limit LIMIT         maximum number to output. Cannot be more than 100 due
+                        to SDPv3 specification. (default: 100)
+  --ecu-name ECU_NAME   ecu name (default: None)
+  --part-num PART_NUM   part number (default: None)
+  --target-id TARGET_ID
+                        target id (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-subsystem-configuration">
+<h3><span class="section-number">4.3.1.2.12. </span>create subsystem configuration<a class="headerlink" href="#create-subsystem-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-subsysconf -h
+usage: tus pdp sdpv3 rest create-subsysconf [-h]
+                                            [--compare-sysid COMPARE_SYSID]
+                                            [--vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]]
+                                            [--rxswins [RXSWINS [RXSWINS ...]]]
+                                            [--print-json] [--json JSON]
+                                            id sysid
+
+positional arguments:
+  id                    subsystem id
+  sysid                 sys id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --compare-sysid COMPARE_SYSID
+                        compare sys id
+  --vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]
+                        vehicle type ids
+  --rxswins [RXSWINS [RXSWINS ...]]
+                        RXSWINs
+  --print-json          print json format to stdout
+  --json JSON           json file path or stdin
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-subsystem-configuration">
+<h3><span class="section-number">4.3.1.2.13. </span>update subsystem configuration<a class="headerlink" href="#update-subsystem-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest update-subsysconf -h
+usage: tus pdp sdpv3 rest update-subsysconf [-h] [--sysid SYSID]
+                                            [--vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]]
+                                            [--rxswins [RXSWINS [RXSWINS ...]]]
+                                            [--print-json] [--json JSON]
+                                            id
+
+positional arguments:
+  id                    subsystem configuration id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --sysid SYSID         sys id
+  --vtype-ids [VTYPE_IDS [VTYPE_IDS ...]]
+                        vehicle type ids
+  --rxswins [RXSWINS [RXSWINS ...]]
+                        RXSWINs
+  --print-json          print json format to stdout
+  --json JSON           json file path or stdin
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-vehicle-design">
+<h3><span class="section-number">4.3.1.2.14. </span>create vehicle design<a class="headerlink" href="#create-vehicle-design" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-vdesign -h
+usage: tus pdp sdpv3 rest create-vdesign [-h] [--status {DRAFT,PENDING}]
+                                         [--prev-vdesign-id PREV_VDESIGN_ID]
+                                         [--print-json] [--json JSON]
+                                         [--prev-rxswin PREV_RXSWIN]
+                                         [--new-rxswin NEW_RXSWIN]
+                                         [--same-rxswin-system-name SAME_RXSWIN_SYSTEM_NAME]
+                                         [--updated UPDATED]
+                                         ids [ids ...]
+
+positional arguments:
+  ids                   vehicle type ids
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --status {DRAFT,PENDING}
+                        vehicle design status. default=&#39;PENDING&#39;
+  --prev-vdesign-id PREV_VDESIGN_ID
+                        previous vehicle design id
+  --print-json          print json format to stdout
+  --json JSON           json filepath to input subsystem
+
+rxswin update info:
+  update info related rxswin. If one of --prev-rxswin, --new-rxswin, --same-
+  rxswin-system-name and --updated are passed, --new-rxswin and --same-
+  rxswin-system-name are mandatory.
+
+  --prev-rxswin PREV_RXSWIN
+                        previous rxswin
+  --new-rxswin NEW_RXSWIN
+                        new rxswin
+  --same-rxswin-system-name SAME_RXSWIN_SYSTEM_NAME
+                        system information which caused the update in other
+                        system
+  --updated UPDATED     user&#39;s input for the update
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-design">
+<h3><span class="section-number">4.3.1.2.15. </span>get vehicle design<a class="headerlink" href="#get-vehicle-design" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-vdesign -h
+usage: tus pdp sdpv3 rest get-vdesign [-h] [--print-json] id
+
+positional arguments:
+  id            vehicle design id
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="approve-vehicle-design">
+<h3><span class="section-number">4.3.1.2.16. </span>approve vehicle design<a class="headerlink" href="#approve-vehicle-design" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest approve-vdesign -h
+usage: tus pdp sdpv3 rest approve-vdesign [-h] id
+
+positional arguments:
+  id          vehicle design id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-vehicle-design">
+<h3><span class="section-number">4.3.1.2.17. </span>delete vehicle design<a class="headerlink" href="#delete-vehicle-design" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-vdesign -h
+usage: tus pdp sdpv3 rest delete-vdesign [-h] id
+
+positional arguments:
+  id          vehicle design id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-vehicle-factoryfeed">
+<h3><span class="section-number">4.3.1.2.18. </span>create vehicle ( FactoryFeed )<a class="headerlink" href="#create-vehicle-factoryfeed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-vehicle -h
+usage: tus pdp sdpv3 rest create-vehicle [-h] [--public-key PUBLIC_KEY]
+                                         [--print-json] [--json JSON]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --public-key PUBLIC_KEY
+                        public key file path for primary ECU
+  --print-json          print json format to stdout
+  --json JSON           json file path or stdin
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-vehicle-factoryfeed">
+<h3><span class="section-number">4.3.1.2.19. </span>search vehicle ( FactoryFeed )<a class="headerlink" href="#search-vehicle-factoryfeed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest search-vehicle -h
+usage: tus pdp sdpv3 rest search-vehicle [-h] [--vin VIN] [--print-json]
+                                         [--limit LIMIT]
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --vin VIN      case insensitive complete match or substring match (default:
+                 None)
+  --print-json   print json format to stdout (default: False)
+  --limit LIMIT  maximum number to output. (default: 100)
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-vehicle-factoryfeed">
+<h3><span class="section-number">4.3.1.2.20. </span>delete vehicle ( FactoryFeed )<a class="headerlink" href="#delete-vehicle-factoryfeed" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-vehicle -h
+usage: tus pdp sdpv3 rest delete-vehicle [-h] [--is-confirm IS_CONFIRM]
+                                         vin event-id
+
+positional arguments:
+  vin                   VIN
+  event-id              event id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --is-confirm IS_CONFIRM
+                        require confirmation by Admin before deleting
+                        (default: False)
+</pre></div>
+</div>
+<div class="section" id="create-change-event">
+<h4><span class="section-number">4.3.1.2.20.1. </span>create change event<a class="headerlink" href="#create-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-chevent -h
+usage: tus pdp sdpv3 rest create-chevent [-h] [--name NAME]
+                                         [--description DESCRIPTION]
+                                         [--pkg-id PKG_ID]
+                                         [--depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]]
+                                         [--authority-report-id AUTHORITY_REPORT_ID]
+                                         [--reason-class REASON_CLASS]
+                                         [--reason-content REASON_CONTENT]
+                                         [--type {INFORMATIONAL,SOFTWARE_UPDATE}]
+                                         [--status {DRAFT,PENDING_APPROVAL}]
+                                         [--print-json] [--json JSON]
+                                         chevent-id
+
+positional arguments:
+  chevent-id            user defined change event id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --name NAME           change event name, if not specified chevent-id is
+                        used. (default: None)
+  --description DESCRIPTION
+                        change event description if not specified chevent-id
+                        is used (default: None)
+  --pkg-id PKG_ID       package id (default: None)
+  --depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]
+                        sysid list of dependent systems associated to change
+                        event (default: None)
+  --authority-report-id AUTHORITY_REPORT_ID
+                        authority report id (default: None)
+  --reason-class REASON_CLASS
+                        reason class (default: 9) (default: 9)
+  --reason-content REASON_CONTENT
+                        reason content (default: None)
+  --type {INFORMATIONAL,SOFTWARE_UPDATE}
+                        change event type (default: SOFTWARE_UPDATE)
+  --status {DRAFT,PENDING_APPROVAL}
+                        change event status (default: DRAFT)
+  --print-json          print json format to stdout (default: {
+                        &quot;modifications&quot;:[ { &quot;starts&quot;:[ { &quot;startSysId&quot;:&quot;&quot;,
+                        &quot;subTargetReproTypes&quot;:[ { &quot;elementConfigSwId&quot;:0,
+                        &quot;reproType&quot;:&quot;full&quot; } ] } ], &quot;resultSysId&quot;:&quot;&quot; } ] })
+  --json JSON           json file path or stdin (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-change-event">
+<h4><span class="section-number">4.3.1.2.20.2. </span>get change event<a class="headerlink" href="#get-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-chevent -h
+usage: tus pdp sdpv3 rest get-chevent [-h] [--print-json] id
+
+positional arguments:
+  id            change event id
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-change-event">
+<h4><span class="section-number">4.3.1.2.20.3. </span>update change event<a class="headerlink" href="#update-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest update-chevent -h
+usage: tus pdp sdpv3 rest update-chevent [-h] [--name NAME]
+                                         [--description DESCRIPTION]
+                                         [--pkg-id PKG_ID]
+                                         [--depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]]
+                                         [--authority-report-id AUTHORITY_REPORT_ID]
+                                         [--reason-class REASON_CLASS]
+                                         [--reason-content REASON_CONTENT]
+                                         [--print-json] [--json JSON]
+                                         id chevent-id
+
+positional arguments:
+  id                    server generated change event id
+  chevent-id            user defined change event id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --name NAME           change event name, if not specified chevent-id is
+                        used. (default: None)
+  --description DESCRIPTION
+                        change event description if not specified chevent-id
+                        is used (default: None)
+  --pkg-id PKG_ID       package id (default: None)
+  --depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]
+                        sysid list of dependent systems associated to change
+                        event (default: None)
+  --authority-report-id AUTHORITY_REPORT_ID
+                        authority report id (default: None)
+  --reason-class REASON_CLASS
+                        reason class (default: 9) (default: 9)
+  --reason-content REASON_CONTENT
+                        reason content (default: None)
+  --print-json          print json format to stdout (default: {
+                        &quot;modifications&quot;:[ { &quot;starts&quot;:[ { &quot;startSysId&quot;:&quot;&quot;,
+                        &quot;subTargetReproTypes&quot;:[ { &quot;elementConfigSwId&quot;:0,
+                        &quot;reproType&quot;:&quot;full&quot; } ] } ], &quot;resultSysId&quot;:&quot;&quot; } ] })
+  --json JSON           json file path or stdin (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="submit-change-event">
+<h4><span class="section-number">4.3.1.2.20.4. </span>submit change event<a class="headerlink" href="#submit-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest submit-chevent -h
+usage: tus pdp sdpv3 rest submit-chevent [-h] id
+
+positional arguments:
+  id          change event id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="approve-change-event">
+<h4><span class="section-number">4.3.1.2.20.5. </span>approve change event<a class="headerlink" href="#approve-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest approve-chevent -h
+usage: tus pdp sdpv3 rest approve-chevent [-h] id
+
+positional arguments:
+  id          change event id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-change-event">
+<h4><span class="section-number">4.3.1.2.20.6. </span>delete change event<a class="headerlink" href="#delete-change-event" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-chevent -h
+usage: tus pdp sdpv3 rest delete-chevent [-h] id
+
+positional arguments:
+  id          change event id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-subsystem-differential-json">
+<h4><span class="section-number">4.3.1.2.20.7. </span>create subsystem differential json<a class="headerlink" href="#create-subsystem-differential-json" title="Permalink to this headline">¶</a></h4>
+<p>This creates subsystem differential json.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-subsysdiff -h
+usage: tus pdp sdpv3 rest create-subsysdiff [-h]
+                                            [--depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]]
+                                            [--out PATH] [--print-json]
+                                            [--json JSON]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --depend-sysids [DEPEND_SYSIDS [DEPEND_SYSIDS ...]]
+                        sysid list of dependent systems associated to change
+                        event (default: None)
+  --out PATH            output file path (default: None)
+  --print-json          print json format to stdout (default: { &quot;systems&quot;: [ {
+                        &quot;starts&quot;:[ { &quot;startSysId&quot;:&quot;&quot;, &quot;subTargetReproTypes&quot;:[
+                        { &quot;elementConfigSwId&quot;:0, &quot;reproType&quot;:&quot;full&quot; } ] } ],
+                        &quot;resultSysId&quot;:&quot;&quot; } ] })
+  --json JSON           json file path or stdin (default: None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-change-event-package">
+<h3><span class="section-number">4.3.1.2.21. </span>create change event package<a class="headerlink" href="#create-change-event-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-cheventpkg -h
+usage: tus pdp sdpv3 rest create-cheventpkg [-h] [--diffname DIFFNAME]
+                                            name diffjson
+
+create change event package. Before creating change event package, change
+event shall be created. If there are no change events which has same sysId
+difference, this fails to create change event package. For uploading TUP
+itself, please call &#39;tus pdp sdpv3 ul-pkg&#39; after creating change event
+package.
+
+positional arguments:
+  name                 change event package name ( 255 limit )
+  diffjson             input diff json file path. diff json could be get by
+                       create-subsysdiff subcommand
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --diffname DIFFNAME  diff json file name ( 255 limit ) (default: diff.json)
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-change-event-package">
+<h3><span class="section-number">4.3.1.2.22. </span>get change event package<a class="headerlink" href="#get-change-event-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-cheventpkg -h
+usage: tus pdp sdpv3 rest get-cheventpkg [-h] [--print-json] id
+
+positional arguments:
+  id            change event package id
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-change-event-package">
+<h3><span class="section-number">4.3.1.2.23. </span>update change event package<a class="headerlink" href="#update-change-event-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest update-cheventpkg -h
+usage: tus pdp sdpv3 rest update-cheventpkg [-h] [--name NAME]
+                                            [--diffjson DIFFJSON]
+                                            [--diffname DIFFNAME]
+                                            id {DRAFT,SAVED,PENDING}
+
+positional arguments:
+  id                    server generated change event package id
+  {DRAFT,SAVED,PENDING}
+                        change event package status
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --name NAME           change event package name ( 255 limit ) (default:
+                        None)
+  --diffjson DIFFJSON   diffjson file path (default: None)
+  --diffname DIFFNAME   diff json file name ( 255 limit ) (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="approve-change-event-package">
+<h3><span class="section-number">4.3.1.2.24. </span>approve change event package<a class="headerlink" href="#approve-change-event-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest approve-cheventpkg -h
+usage: tus pdp sdpv3 rest approve-cheventpkg [-h] id
+
+positional arguments:
+  id          change event pacakge id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-change-event-package">
+<h3><span class="section-number">4.3.1.2.25. </span>delete change event package<a class="headerlink" href="#delete-change-event-package" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-cheventpkg -h
+usage: tus pdp sdpv3 rest delete-cheventpkg [-h] id
+
+positional arguments:
+  id          change event package id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-campaign">
+<h3><span class="section-number">4.3.1.2.26. </span>create campaign<a class="headerlink" href="#create-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest create-campaign -h
+usage: tus pdp sdpv3 rest create-campaign [-h] [--description DESCRIPTION]
+                                          [--type {INFORMATIONAL,OTA}]
+                                          name
+
+positional arguments:
+  name                  campaign name ( 128 limit )
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --description DESCRIPTION
+                        description ( 1024 limit ) (default: None)
+  --type {INFORMATIONAL,OTA}
+                        campaign type (default: OTA)
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-campaign">
+<h3><span class="section-number">4.3.1.2.27. </span>get campaign<a class="headerlink" href="#get-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-campaign -h
+usage: tus pdp sdpv3 rest get-campaign [-h] [--print-json] id
+
+positional arguments:
+  id            campaign id
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-campaign">
+<h3><span class="section-number">4.3.1.2.28. </span>update campaign<a class="headerlink" href="#update-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest update-campaign -h
+usage: tus pdp sdpv3 rest update-campaign [-h]
+                                          (--chevents CHEVENTS [CHEVENTS ...] | --vins VINS [VINS ...] | --vtypes VTYPES [VTYPES ...] | --message-file PATH)
+                                          id
+
+positional arguments:
+  id                    campaign id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --chevents CHEVENTS [CHEVENTS ...]
+                        change event id and their priority pairs, e.g.)
+                        --chevents chevent_id_1 0 chevent_id_2 0 ... (default:
+                        None)
+  --vins VINS [VINS ...]
+                        vin lists (default: None)
+  --vtypes VTYPES [VTYPES ...]
+                        vehicle type ids (default: None)
+  --message-file PATH   csv format file containing localized messages. each
+                        line should contain the language ISO code with locale
+                        ID, key and the message. all keys should be repeated
+                        for all provided languages in the file. (default:
+                        None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="submit-campaign">
+<h3><span class="section-number">4.3.1.2.29. </span>submit campaign<a class="headerlink" href="#submit-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest submit-campaign -h
+usage: tus pdp sdpv3 rest submit-campaign [-h] [--release-date RELEASE_DATE]
+                                          id
+
+positional arguments:
+  id                    campaign id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --release-date RELEASE_DATE
+                        release date ( ISO8601 format), if not set release
+                        date is set to in 30 seconds (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="approve-campaign">
+<h3><span class="section-number">4.3.1.2.30. </span>approve campaign<a class="headerlink" href="#approve-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest approve-campaign -h
+usage: tus pdp sdpv3 rest approve-campaign [-h] [--release-date RELEASE_DATE]
+                                           id
+
+positional arguments:
+  id                    campaign id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --release-date RELEASE_DATE
+                        release date ( ISO8601 format), if not set release
+                        date is set to in 30 seconds (default: None)
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-campaign">
+<h3><span class="section-number">4.3.1.2.31. </span>delete campaign<a class="headerlink" href="#delete-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest delete-campaign -h
+usage: tus pdp sdpv3 rest delete-campaign [-h] id
+
+positional arguments:
+  id          campaign id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="cancel-campaign">
+<h3><span class="section-number">4.3.1.2.32. </span>cancel campaign<a class="headerlink" href="#cancel-campaign" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest cancel-campaign -h
+usage: tus pdp sdpv3 rest cancel-campaign [-h] id
+
+positional arguments:
+  id          campaign id
+
+optional arguments:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-system-event">
+<h3><span class="section-number">4.3.1.2.33. </span>get vehicle system event<a class="headerlink" href="#get-vehicle-system-event" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-vin-sysevent -h
+usage: tus pdp sdpv3 rest get-vin-sysevent [-h] [--print-json] id
+
+positional arguments:
+  id            Vehicle Identification Number
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-current-reported-configuration">
+<h3><span class="section-number">4.3.1.2.34. </span>get vehicle current reported configuration<a class="headerlink" href="#get-vehicle-current-reported-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-vin-currconf -h
+usage: tus pdp sdpv3 rest get-vin-currconf [-h] [--print-json] id
+
+positional arguments:
+  id            Vehicle Identification Number
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-update-history">
+<h3><span class="section-number">4.3.1.2.35. </span>get vehicle update history<a class="headerlink" href="#get-vehicle-update-history" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-vin-histupdate -h
+usage: tus pdp sdpv3 rest get-vin-histupdate [-h] [--print-json] id
+
+positional arguments:
+  id            Vehicle Identification Number
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-vehicle-configuration-history">
+<h3><span class="section-number">4.3.1.2.36. </span>get vehicle configuration history<a class="headerlink" href="#get-vehicle-configuration-history" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus pdp sdpv3 rest get-vin-histconf -h
+usage: tus pdp sdpv3 rest get-vin-histconf [-h] [--print-json] id
+
+positional arguments:
+  id            Vehicle Identification Number
+
+optional arguments:
+  -h, --help    show this help message and exit
+  --print-json  print json format to stdout
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../dtool.html" class="btn btn-neutral float-right" title="4.4. Deployment Tool subcommand" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../pdp.html" class="btn btn-neutral float-left" title="4.3. PDP Subcommand" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

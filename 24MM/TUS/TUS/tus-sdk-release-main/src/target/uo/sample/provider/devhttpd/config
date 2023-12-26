@@ -1,0 +1,19 @@
+# configuration file for uo.providers
+
+# texts after '#' are assumed to be comments, spaces / empty lines are ignored
+
+# type of this update provider, may be 'devhttpd', 'localfs' or 'sdpv3'
+type=devhttpd
+
+# type-dependent configuration parameters
+# for 'devhttpd'
+
+# a TUP shall be available at
+#  http://${httpd_server}:${httpd_port}/${httpd_url_base}/${version}/${package_name}
+# (ex. http://localhost:80/tus/package/0/reqscript.tup)
+httpd_server=localhost
+httpd_port=80
+httpd_url_base=/tus/package/
+package_name=reqscript.tup
+# 'version' shall be an integer
+version = 0

@@ -1,0 +1,3 @@
+#!/usr/bin/python3
+from protoc_gen_grpc_lua import main
+main()

@@ -1,0 +1,26 @@
+type=sdpv3
+
+# SDPv3 server
+cdn_url=https://t-poc-r3-ap-northeast-1-cdn-unsigned.t-poc-r3.com
+cdn_port=443
+sdp_url=https://t-poc-r3-ap-northeast-1-gw-mob.t-poc-r3.com
+sdp_port=443
+
+# use ./root.ca as a ROOT CA
+#rootca=./rootca.pem
+
+
+vin = a80c2ff0-2fe6-47e
+
+# dcm_info
+dcm_serial_num = e2fc677f-5b1b-4988
+
+# read rxswin_infos from './rxswin'
+rxswin=./rxswin
+
+# SDPv3 ECU states
+ecu/01000=./ecu/01000
+
+# last applied campaign_id
+campaign_id = unknown
+last_completed_uid = 0

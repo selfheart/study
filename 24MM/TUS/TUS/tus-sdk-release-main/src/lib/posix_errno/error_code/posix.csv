@@ -1,0 +1,89 @@
+# TMC CONFIDENTIAL
+# $TUSLibId$
+# Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+# All Rights Reserved.
+# TMC CONFIDENTIAL
+# $JITDFLibId$
+# Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+# All Rights Reserved.
+#name, error code, description
+E2BIG, 0x0001, Argument list too long
+EACCESS, 0x0002, Permission denied
+EADDRINUSE, 0x0003, Address in use
+EADDRNOTAVAIL, 0x0004, Address family not supported
+EAGAIN, 0x0005, Resource unavailable try again
+EWOULDBLOCK, 0x0005, Operation would block
+EALREADY, 0x0006, Connection already in progress
+EBADF, 0x0007, Bad file descriptor
+EBADMSG, 0x0008, Bad message
+EBUSY, 0x0009, Device or resource busy
+ECANCELED, 0x000A, Operation canceled
+ECHILD, 0x000B, No child processes
+ECONNABORTED, 0x000C, Connection aborted
+ECONNREFUSED, 0x000D, Connection refused
+ECONNRESET, 0x000E, Connection reset
+EDEADLK, 0x000F, Resource deadlock would occur
+EDESTADDRREQ, 0x0010, Destination address required
+EDOM, 0x0011, Mathematics argument out of domain of function
+EDQUOT, 0x0012, Reserved
+EEXIST, 0x0013, File exists
+EFAULT, 0x0014, Bad address
+EFBIG, 0x0015, File too large
+EHOSTUNREACH, 0x0016, Host is unreachable
+EIDRM, 0x0017, Identifier removed
+EILSEQ, 0x0018, Illegal byte sequence
+EINPROGRESS, 0x0019, Operation in progress
+EINTR, 0x001A, Interrupted function
+EINVAL, 0x001B, Invalid argument
+EIO, 0x001C, I/O error
+EISCONN , 0x001D, Socket is connected
+EISDIR, 0x001E, Is a directory
+ELOOP, 0x001F, Too many levels of symbolic links
+EMFILE, 0x0020, File descriptor value too large
+EMLINK, 0x0021, Too many links
+EMSGSIZE, 0x0022, Message too large
+EMULTIHOP, 0x0023, Reserved
+ENAMETOOLONG, 0x0024, Filename too long
+ENETDOWN, 0x0025, Network is down
+ENETRESET, 0x0026, Connection aborted by network
+ENETUNREACH, 0x0027, Network unreachable
+ENFILE, 0x0028, Too many files open in system
+ENOBUFS, 0x0029, No buffer space available
+ENODATA, 0x002A, No message is available on the STREAM head read queue
+ENODEV, 0x002B, No such device
+ENOENT, 0x002C, No such file or directory
+ENOEXEC, 0x002D, Executable file format error
+ENOLCK, 0x002E, No locks available
+ENOLINK, 0x002F, Reserved
+ENOMEM, 0x0030, Not enough space
+ENOMSG, 0x0031, No message of the desired type
+ENOPROTOOPT, 0x0032, Protocol not available
+ENOSPC, 0x0033, No space left on device
+ENOSR, 0x0034, No STREAM resources
+ENOSTR, 0x0035, Not a STREAM
+ENOSYS, 0x0036, Functionality not supported
+ENOTCONN, 0x0037, The socket is not connected
+ENOTDIR, 0x0038, Not a directory or a symbolic link to a directory
+ENOTEMPTY, 0x0039, Directory not empty
+ENOTRECOVERABLE, 0x003A, State not recoverable
+ENOTSOCK, 0x003B, Not a socket
+ENOTSUP, 0x003C, Not supported
+EOPNOTSUPP, 0x003C, Operation not supported on socket
+ENOTTY, 0x003D, Inappropriate I/O control operation
+ENXIO, 0x003E, No such device or address
+EOVERFLOW, 0x003F, Value too large to be stored in data type
+EOWNERDEAD, 0x0040, Previous owner died
+EPERM, 0x0041, Operation not permitted
+EPIPE, 0x0042, Broken pipe
+EPROTO, 0x0043, Protocol error
+EPROTONOSUPPORT, 0x0044, Protocol not supported
+EPROTOTYPE, 0x0045, Protocol wrong type of socket
+ERANGE, 0x0046, Result too large
+EROFS, 0x0047, Read-only file system
+ESPIPE, 0x0048, Invalid seek
+ESRCH, 0x0049, No such process
+ESTALE, 0x004A, Reserved
+ETIME, 0x004B, Stream ioctl() timeout
+ETIMEOUT, 0x004C, Connection timed out
+ETXTBSY, 0x004D, Text file buy
+EXDEV, 0x004E, Cross-device link

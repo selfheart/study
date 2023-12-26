@@ -1,0 +1,567 @@
+<mxfile host="Electron" modified="2023-07-25T02:23:32.985Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="iMcImKvZiQv7p02l9auz" version="21.6.1" type="device">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="2736" dy="1978" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-3" value="ota_from_target_files.py" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="170" y="80" width="140" height="1930" as="geometry" />
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-16" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};labelBackgroundColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-3" vertex="1">
+          <mxGeometry x="65" y="100" width="10" height="1830" as="geometry" />
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-17" value="main(argv)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;labelBackgroundColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-3" target="Q_9tQK5roC4Zqg3zXPiI-21" edge="1">
+          <mxGeometry x="0.1765" y="10" relative="1" as="geometry">
+            <mxPoint x="75" y="140" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="120" y="140" />
+              <mxPoint x="120" y="170" />
+            </Array>
+            <mxPoint x="100" y="170" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};labelBackgroundColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-3" vertex="1">
+          <mxGeometry x="75" y="160" width="10" height="1680" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};labelBackgroundColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-3" vertex="1">
+          <mxGeometry x="85" y="220" width="10" height="1580" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-4" value="GenerateAbOtaPackage(...)" style="align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;labelBackgroundColor=default;fontColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-3" target="Ahu6rFx76oCpXtnxhSyU-3" edge="1">
+          <mxGeometry x="0.0039" relative="1" as="geometry">
+            <mxPoint x="90" y="200" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="120" y="200" />
+              <mxPoint x="120" y="230" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-18" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Q_9tQK5roC4Zqg3zXPiI-3" vertex="1">
+          <mxGeometry x="95" y="370" width="10" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-19" value="payload.generate(...)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="Q_9tQK5roC4Zqg3zXPiI-3" target="Ahu6rFx76oCpXtnxhSyU-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="95" y="350" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="125" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Q_9tQK5roC4Zqg3zXPiI-3" vertex="1">
+          <mxGeometry x="95" y="780" width="10" height="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-22" value="" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="Q_9tQK5roC4Zqg3zXPiI-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="95" y="770" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="95" y="770" />
+              <mxPoint x="125" y="770" />
+              <mxPoint x="125" y="800" />
+            </Array>
+            <mxPoint x="105" y="800.0344827586209" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-23" value="payyload.sign(payloadSinger)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-22" vertex="1" connectable="0">
+          <mxGeometry x="-0.1561" y="1" relative="1" as="geometry">
+            <mxPoint x="74" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-6" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="170" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" parent="1" source="Q_9tQK5roC4Zqg3zXPiI-6" target="Q_9tQK5roC4Zqg3zXPiI-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="140" y="185" />
+              <mxPoint x="140" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q_9tQK5roC4Zqg3zXPiI-18" value="GeerateAbOtaPackage" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;" parent="Q_9tQK5roC4Zqg3zXPiI-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.1268" y="2" relative="1" as="geometry">
+            <mxPoint x="6" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-6" value="def GenerateAbOtaPackage(target_file, output_file, source_file=None):&lt;br&gt;&amp;nbsp; &quot;&quot;&quot;Generates an Android OTA package that has A/B update payload.&quot;&quot;&quot;&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;1.判断&lt;br&gt;1）if not OPTIONS.no_signing:是否配置了需要签名（是否有-k）&lt;br&gt;2）META/ab_partitions.txt文件是否存在&lt;br&gt;3）等&lt;br&gt;2·获取Metadata&lt;br&gt;GetPackageMetadata(target_info, source_info)&lt;br&gt;3.Generate payload.生成payload&lt;br&gt;&amp;nbsp;&amp;nbsp;payload.Generate(...)&lt;br&gt;4.&amp;nbsp;Sign the payload.&lt;br&gt;payload.Sign(payload_signer)&lt;br&gt;5.Write the payload into output zip.&lt;br&gt;payload.WriteToZip(output_zip)" style="shape=note;whiteSpace=wrap;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-409" y="60" width="350" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-7" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;exitX=0;exitY=0;exitDx=350;exitDy=180;exitPerimeter=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="440" as="sourcePoint" />
+            <mxPoint x="330" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-10" value="ota_utils.py" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="500" y="80" width="100" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-12" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-10" vertex="1">
+          <mxGeometry x="45" y="260" width="10" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-11" value="GetPackageMetadata(...):" style="endArrow=classic;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.1257" y="10" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="350" as="sourcePoint" />
+            <mxPoint x="544.5" y="350.0000000000001" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-14" value=" &quot;&quot;&quot;Generates and returns the metadata proto.    &#xa;  It generates a ota_metadata protobuf that contains the info to be written&#xa;  into an OTA package (META-INF/com/android/metadata.pb). It also handles the&#xa;  detection of downgrade / data wipe based on the global options.&#xa;&#xa;  Args:&#xa;    target_info: The BuildInfo instance that holds the target build info.&#xa;    source_info: The BuildInfo instance that holds the source build info, or&#xa;        None if generating full OTA.&#xa;  Returns:&#xa;    A protobuf to be written into package metadata entry.&#xa;  &quot;&quot;&quot;" style="shape=note;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;labelBackgroundColor=none;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="380" y="-220" width="270" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-15" value="" style="endArrow=classic;html=1;rounded=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="380" as="sourcePoint" />
+            <mxPoint x="270" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="380" />
+              <mxPoint x="270" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-16" value="metadata_proto" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-15" vertex="1" connectable="0">
+          <mxGeometry x="-0.0263" y="1" relative="1" as="geometry">
+            <mxPoint x="-18" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-17" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=-0.004;entryY=0.681;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="Ahu6rFx76oCpXtnxhSyU-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="330" as="sourcePoint" />
+            <mxPoint x="650" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-20" value="class Payload(object):&lt;br&gt;&amp;nbsp; &quot;&quot;&quot;Manages the creation and the signing of an A/B OTA Payload.&quot;&quot;&quot;&lt;br&gt;生成payload&lt;br&gt;def Generate(self, target_file, source_file=None, additional_args=None):&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;&quot;&quot;Generates a payload from the given target-files zip(s).&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Args:&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; target_file: The filename of the target build target-files zip.&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; source_file: The filename of the source build target-files zip; or None if&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; generating a full OTA.&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; additional_args: A list of additional args that should be passed to&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; brillo_update_payload script; or None.&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;&quot;&quot;&lt;br&gt;签名payload&lt;br&gt;def Sign(self, payload_signer):&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;&quot;&quot;Generates and signs the hashes of the payload and metadata.&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Args:&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; payload_signer: A PayloadSigner() instance that serves the signing work.&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Raises:&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; AssertionError: On any failure when calling brillo_update_payload script.&lt;br&gt;&amp;nbsp; &amp;nbsp; &quot;&quot;&quot;&lt;br&gt;# 1. Generate hashes of the payload and metadata files.&lt;br&gt;# 2. Sign the hashes.&lt;br&gt;# 3. Insert the signatures back into the payload file.&lt;br&gt;# 4. Dump the signed payload properties." style="shape=note;backgroundOutline=1;darkOpacity=0.05;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;horizontal=1;verticalAlign=top;fontColor=#000000;shadow=0;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-454" y="385" width="440" height="515" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-24" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-10" y="540" as="sourcePoint" />
+            <mxPoint x="330" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-25" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="670" as="sourcePoint" />
+            <mxPoint x="350" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-26" value="brillo_update_payload&#xa;(shell)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="680" y="80" width="130" height="2180" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-28" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-26" vertex="1">
+          <mxGeometry x="60" y="390" width="10" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-83" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-26" vertex="1">
+          <mxGeometry x="61" y="820" width="10" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-119" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-26" vertex="1">
+          <mxGeometry x="60" y="1360" width="10" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-138" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-26" vertex="1">
+          <mxGeometry x="60" y="1710" width="10" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-27" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-18" target="Ahu6rFx76oCpXtnxhSyU-26" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="510" as="sourcePoint" />
+            <mxPoint x="550" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-29" value="cmd_generate()" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-27" vertex="1" connectable="0">
+          <mxGeometry x="-0.1137" y="-1" relative="1" as="geometry">
+            <mxPoint x="10" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-30" value="cmd = [&quot;brillo_update_payload&quot;, &quot;generate&quot;,&#xa;           &quot;--payload&quot;, payload_file,&#xa;           &quot;--target_image&quot;, target_file]" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-27" vertex="1" connectable="0">
+          <mxGeometry x="-0.0875" y="-1" relative="1" as="geometry">
+            <mxPoint x="-7" y="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-31" value=" Generate command arguments:&#xa;#  --payload                  generated unsigned payload output file&#xa;#  --source_image             if defined, generate a delta payload from the&#xa;#                             specified image to the target_image&#xa;#  --target_image             the target image that should be sent to clients&#xa;#  --metadata_size_file       if defined, generate a file containing the size&#xa;#                             of the ayload metadata in bytes to the specified&#xa;#                             file&#xa;#  --disable_fec_computation  Disable the on device fec data computation for&#xa;#                             incremental update. This feature is enabled by&#xa;#                             default" style="shape=note;backgroundOutline=1;darkOpacity=0.05;align=left;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="-300" y="980" width="410" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-32" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=#fff2cc;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;align=left;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="480" y="460" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-35" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.753;exitY=0.008;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-31" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="990" as="sourcePoint" />
+            <mxPoint x="425.48" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-36" value="delta_generator" style="swimlane;html=1;" parent="1" vertex="1">
+          <mxGeometry x="861.05" y="30" width="1578.95" height="2560" as="geometry">
+            <mxRectangle x="850" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-47" value="delta_diff_generator.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="290" y="60" width="140" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-48" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-47" vertex="1">
+          <mxGeometry x="65" y="450" width="10" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-52" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="129.81034482758696" y="530" as="sourcePoint" />
+            <mxPoint x="359.49999999999955" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-53" value="GenerateUpdatePayloadFile" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-52" vertex="1" connectable="0">
+          <mxGeometry x="0.061" y="-1" relative="1" as="geometry">
+            <mxPoint y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-67" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" source="Ahu6rFx76oCpXtnxhSyU-56" target="Ahu6rFx76oCpXtnxhSyU-65" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="580" />
+              <mxPoint x="670" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-56" value="full_update_generator.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="510" y="60" width="140" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-57" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-56" vertex="1">
+          <mxGeometry x="65" y="480" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-61" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" target="Ahu6rFx76oCpXtnxhSyU-56" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="560" as="sourcePoint" />
+            <mxPoint x="420" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-62" value="FullUpdateGenerator" style="text;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="370" y="530" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-64" value="分区生成" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="430" y="560" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-65" value="PayloadFile.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="730" y="60" width="140" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-66" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-65" vertex="1">
+          <mxGeometry x="65" y="502" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-78" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-65" vertex="1">
+          <mxGeometry x="65" y="612" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-70" value="diff_utils.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="940" y="62" width="100" height="1058" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-74" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-70" vertex="1">
+          <mxGeometry x="45" y="528" width="10" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-72" value="AddPartition" style="text;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="620" y="550" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-73" value="分区生成" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="650" y="582" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-63" value="分区生成" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="185" y="527" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-75" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" source="Ahu6rFx76oCpXtnxhSyU-65" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="890.0003448275861" y="612" as="sourcePoint" />
+            <mxPoint x="990.19" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-76" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-75" vertex="1" connectable="0">
+          <mxGeometry x="-0.0207" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-77" value="InitializePartitionInfo" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-75" vertex="1" connectable="0">
+          <mxGeometry x="0.0156" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-79" value="" style="endArrow=classic;rounded=0;fontColor=none;noLabel=1;labelBackgroundColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" source="Ahu6rFx76oCpXtnxhSyU-47" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710.0003448275861" y="692" as="sourcePoint" />
+            <mxPoint x="800.19" y="692" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-81" value="WritePayload" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-79" vertex="1" connectable="0">
+          <mxGeometry x="-0.2196" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-82" value="写入payload" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="480" y="700" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-42" value="generate_delta_main.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};whiteSpace=wrap;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="61" y="72" width="145" height="2168" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-43" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-42" vertex="1">
+          <mxGeometry x="65" y="425" width="10" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-90" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-42" vertex="1">
+          <mxGeometry x="65" y="860" width="10" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-130" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-42" vertex="1">
+          <mxGeometry x="68" y="1480" width="10" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Ahu6rFx76oCpXtnxhSyU-42">
+          <mxGeometry x="79" y="1508" width="10" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-6" value="SignPayload" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="Ahu6rFx76oCpXtnxhSyU-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="79" y="1488" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="118" y="1518" />
+            </Array>
+            <mxPoint x="87" y="1518" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Ahu6rFx76oCpXtnxhSyU-42">
+          <mxGeometry x="65" y="1750" width="10" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-15" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Ahu6rFx76oCpXtnxhSyU-42">
+          <mxGeometry x="74.95" y="1818" width="10" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-16" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 18px; line-height: 24px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" target="KIzalPDv3YGR_-MZ9nZI-15" parent="Ahu6rFx76oCpXtnxhSyU-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="79.95000000000005" y="1798" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="109.95000000000005" y="1828" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-18" value="ExtractProperties" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KIzalPDv3YGR_-MZ9nZI-16">
+          <mxGeometry x="0.0996" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-91" value="" style="endArrow=classic;html=1;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="Ahu6rFx76oCpXtnxhSyU-36" target="Ahu6rFx76oCpXtnxhSyU-42" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-100.00333333333303" y="952" as="sourcePoint" />
+            <mxPoint x="85.33" y="952" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-97" value="CalculateHashForSigning" style="align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="962" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="160" y="992" />
+            </Array>
+            <mxPoint x="135" y="992" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-44" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-100" y="520" as="sourcePoint" />
+            <mxPoint x="125" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-45" value="int Main(int argc, char** argv)" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-44" vertex="1" connectable="0">
+          <mxGeometry x="-0.173" relative="1" as="geometry">
+            <mxPoint x="24" y="455" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-104" value="PayloadSigner" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="1130" y="62" width="100" height="1748" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-109" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-104" vertex="1">
+          <mxGeometry x="45" y="968" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-111" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-104" vertex="1">
+          <mxGeometry x="45" y="1138" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-127" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="Ahu6rFx76oCpXtnxhSyU-104" vertex="1">
+          <mxGeometry x="45" y="1508" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-105" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" target="Ahu6rFx76oCpXtnxhSyU-104" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="132.16666666666697" y="1040" as="sourcePoint" />
+            <mxPoint x="1150" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-108" value="&amp;nbsp;HashPayloadForSigning" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-105" vertex="1" connectable="0">
+          <mxGeometry x="-0.0961" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-129" value="不是进行签名，&lt;br&gt;只是把签名写入payload" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="Ahu6rFx76oCpXtnxhSyU-36" vertex="1">
+          <mxGeometry x="255" y="1550" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-136" value="" style="endArrow=classic;html=1;rounded=0;" parent="Ahu6rFx76oCpXtnxhSyU-36" source="KIzalPDv3YGR_-MZ9nZI-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140.9473684210525" y="1624.6599999999999" as="sourcePoint" />
+            <mxPoint x="1180.69" y="1624.66" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-137" value="AddSignatureToPayload" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-136" vertex="1" connectable="0">
+          <mxGeometry x="-0.2655" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-10" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="Ahu6rFx76oCpXtnxhSyU-36" source="Ahu6rFx76oCpXtnxhSyU-138">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90.00263157894751" y="1840" as="sourcePoint" />
+            <mxPoint x="125.55" y="1840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-12" value="int Main(int argc, char** argv)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KIzalPDv3YGR_-MZ9nZI-10">
+          <mxGeometry x="-0.299" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-19" value="utils.cc" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Ahu6rFx76oCpXtnxhSyU-36">
+          <mxGeometry x="1311.95" y="60" width="100" height="2460" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-21" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="KIzalPDv3YGR_-MZ9nZI-19">
+          <mxGeometry x="45" y="1902" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-20" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="Ahu6rFx76oCpXtnxhSyU-36" target="KIzalPDv3YGR_-MZ9nZI-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="138.9504347826088" y="2000" as="sourcePoint" />
+            <mxPoint x="1279.8195652173913" y="1990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-22" value="WriteFile" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KIzalPDv3YGR_-MZ9nZI-20">
+          <mxGeometry x="-0.1529" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-38" value="delta_generator：&#xa;由system/updateEngine/payload_generator编译成模块&#xa;payload_generator后放到make/host/linux-x86/bin&#xa;供脚本调用" style="shape=note;backgroundOutline=1;darkOpacity=0.05;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1135" y="-130" width="315" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-39" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="Ahu6rFx76oCpXtnxhSyU-38" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="40" as="sourcePoint" />
+            <mxPoint x="1080" y="-10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-40" value="system/update_engine/sripts/brillo_update_payload编译成模块brillo_update_payload后放到make/host/linux-x86/bin下供脚本调用" style="shape=note;whiteSpace=wrap;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="720" y="-160" width="379" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-41" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="Ahu6rFx76oCpXtnxhSyU-40" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740.0003448275861" y="80" as="sourcePoint" />
+            <mxPoint x="785.19" y="-100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-85" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" target="Ahu6rFx76oCpXtnxhSyU-26" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="910" as="sourcePoint" />
+            <mxPoint x="560" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-89" value="cmd_hash" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-85" vertex="1" connectable="0">
+          <mxGeometry x="-0.0972" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-92" value="int Main(int argc, char** argv)" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="867.3333333333335" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-87" value="# 1. Generate hashes of the payload and metadata files.&lt;br&gt;cmd = [&quot;brillo_update_payload&quot;, &quot;hash&quot;,&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&quot;--unsigned_payload&quot;, self.payload_file,&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&quot;--signature_size&quot;, str(payload_signer.maximum_signature_size),&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&quot;--metadata_hash_file&quot;, metadata_sig_file,&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&quot;--payload_hash_file&quot;, payload_sig_file]" style="text;align=left;verticalAlign=top;resizable=1;points=[];autosize=1;strokeColor=none;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="920" width="410" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-93" value="# &amp;nbsp;Hash command arguments:&lt;br&gt;# &amp;nbsp;--unsigned_payload &amp;nbsp; &amp;nbsp;the input unsigned payload to generate the hash from&lt;br&gt;# &amp;nbsp;--signature_size &amp;nbsp; &amp;nbsp; &amp;nbsp;signature sizes in bytes in the following format:&lt;br&gt;# &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&quot;size1:size2[:...]&quot;&lt;br&gt;# &amp;nbsp;--payload_hash_file &amp;nbsp; if defined, generate a payload hash and output to the&lt;br&gt;# &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;specified file&lt;br&gt;# &amp;nbsp;--metadata_hash_file &amp;nbsp;if defined, generate a metadata hash and output to the&lt;br&gt;# &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;specified file" style="shape=note;whiteSpace=wrap;backgroundOutline=1;darkOpacity=0.05;align=left;horizontal=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-370" y="1370" width="450" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-94" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.158;entryY=0.983;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-93" target="Ahu6rFx76oCpXtnxhSyU-87" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="1510" as="sourcePoint" />
+            <mxPoint x="130" y="1450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="100" y="1470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-107" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-106" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1270" y="1150" as="sourcePoint" />
+            <mxPoint x="1440" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-106" value="// Given an unsigned payload in |payload_path|,&#xa;  // this method does two things:&#xa;  // 1. It loads the payload into memory, and inserts placeholder signature&#xa;  //    operations and placeholder metadata signature to make the header and&#xa;  //    the manifest match what the final signed payload will look like based&#xa;  //    on |signatures_sizes|, if needed.&#xa;  // 2. It calculates the raw SHA256 hash of the payload and the metadata in&#xa;  //    |payload_path| (except signatures) and returns the result in&#xa;  //    |out_hash_data| and |out_metadata_hash| respectively.&#xa;  //" style="shape=note;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-454" y="1650" width="540" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-115" value="PayloadSigner:sign(payloadHash)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="1160" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="300" y="1190" />
+            </Array>
+            <mxPoint x="275" y="1190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-113" value=" # 2. Sign the hashes.------payload_sig_file&#xa;payload计算完hash后，对得到的hash进行sign" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="290" y="1185" width="270" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-117" value="PayloadSigner:sign(metadataHash)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="1280" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="300" y="1310" />
+            </Array>
+            <mxPoint x="275" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-118" value=" # 2. Sign the hashes.------metadata_sig_file&#xa;metadata计算完hash后，对得到的hash进行sign" style="text;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="285" y="1320" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-120" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" target="Ahu6rFx76oCpXtnxhSyU-26" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280.0033333333333" y="1460" as="sourcePoint" />
+            <mxPoint x="530.17" y="1460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-121" value="cmd_sign" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-120" vertex="1" connectable="0">
+          <mxGeometry x="-0.1317" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-123" value="# 3. Insert the signatures back into the payload file.&#xa;&#xa;cmd = [&quot;brillo_update_payload&quot;, &quot;sign&quot;,&#xa;           &quot;--unsigned_payload&quot;, self.payload_file,&#xa;           &quot;--payload&quot;, signed_payload_file,&#xa;           &quot;--signature_size&quot;, str(payload_signer.maximum_signature_size),&#xa;           &quot;--metadata_signature_file&quot;, signed_metadata_sig_file,&#xa;           &quot;--payload_signature_file&quot;, signed_payload_sig_file]" style="text;align=left;verticalAlign=top;resizable=1;points=[];autosize=1;strokeColor=none;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
+          <mxGeometry x="310" y="1480" width="410" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-124" value="#  Sign command arguments:&#xa;#  --unsigned_payload        the input unsigned payload to insert the signatures&#xa;#  --payload                 the output signed payload&#xa;#  --signature_size          signature sizes in bytes in the following format:&#xa;#                            &quot;size1:size2[:...]&quot;&#xa;#  --payload_signature_file  the payload signature files in the following&#xa;#                            format:&#xa;#                            &quot;payload_signature1:payload_signature2[:...]&quot;&#xa;#  --metadata_signature_file the metadata signature files in the following&#xa;#                            format:&#xa;#                            &quot;metadata_signature1:metadata_signature2[:...]&quot;&#xa;#  --metadata_size_file      if defined, generate a file containing the size of&#xa;#                            the signed payload metadata in bytes to the&#xa;#                            specified file&#xa;#  Note that the number of signature sizes and payload signatures have to match." style="shape=note;whiteSpace=wrap;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-515" y="1860" width="595" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-125" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0;exitY=0;exitDx=595;exitDy=135;exitPerimeter=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-124" target="Ahu6rFx76oCpXtnxhSyU-123" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="1990" as="sourcePoint" />
+            <mxPoint x="160" y="1940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-126" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" source="Ahu6rFx76oCpXtnxhSyU-26" target="Ahu6rFx76oCpXtnxhSyU-130" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="840.0035294117649" y="1610" as="sourcePoint" />
+            <mxPoint x="1140" y="1630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-11" value="int Main(int argc, char** argv)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ahu6rFx76oCpXtnxhSyU-126">
+          <mxGeometry x="0.1971" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-139" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="273.5" y="1820" as="sourcePoint" />
+            <mxPoint x="740" y="1820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-140" value="cmd_properties" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ahu6rFx76oCpXtnxhSyU-139" vertex="1" connectable="0">
+          <mxGeometry x="-0.0537" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-141" value=" # 4. Dump the signed payload properties.&#xa;&#xa;cmd = [&quot;brillo_update_payload&quot;, &quot;properties&quot;,&#xa;           &quot;--payload&quot;, signed_payload_file,&#xa;           &quot;--properties_file&quot;, properties_file]" style="text;align=left;verticalAlign=top;resizable=1;points=[];autosize=1;strokeColor=none;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="1830" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="Ahu6rFx76oCpXtnxhSyU-142" value="#  Properties command arguments:&#xa;#  --payload                 the input signed or unsigned payload&#xa;#  --properties_file         the output path where to write the properties, or&#xa;#                            &#39;-&#39; for stdout." style="shape=note;whiteSpace=wrap;backgroundOutline=1;darkOpacity=0.05;align=left;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-474" y="2250" width="504" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KIzalPDv3YGR_-MZ9nZI-23" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0.17;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Ahu6rFx76oCpXtnxhSyU-142" target="Ahu6rFx76oCpXtnxhSyU-141">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="2120" as="sourcePoint" />
+            <mxPoint x="160" y="2070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

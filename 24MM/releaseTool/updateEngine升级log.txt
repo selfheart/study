@@ -1,0 +1,875 @@
+Microsoft Windows [版本 10.0.19045.3208]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\jiangzhuangzhuang\study\study\24MM\releaseTool>adb shell
+lexus:/ $ setenforce 0
+setenforce: Couldn't set enforcing status to '0': Permission denied
+1|lexus:/ $ su
+lexus:/ # setenforce 0
+lexus:/ # su
+op persist.log.tag.update_engine V
+setprop persist.log.tag S
+setprop persist.iauto.log.switch 31
+logcat -G 256m && logcatlexus:/ # echo 0 > /proc/sys/kernel/printk
+lexus:/ # setprop persist.log.tag.update_engine V
+ -g
+logcat -s update_engine &lexus:/ # setprop persist.log.tag S
+lexus:/ # setprop persist.iauto.log.switch 31
+lexus:/ # logcat -G 256m && logcat -g
+main: ring buffer is 256 MiB (77 KiB consumed, 95 KiB readable), max entry is 5120 B, max payload is 4068 B
+system: ring buffer is 256 MiB (64 KiB consumed, 6 KiB readable), max entry is 5120 B, max payload is 4068 B
+crash: ring buffer is 256 MiB (0 B consumed, 0 B readable), max entry is 5120 B, max payload is 4068 B
+kernel: ring buffer is 256 MiB (85 KiB consumed, 118 KiB readable), max entry is 5120 B, max payload is 4068 B
+lexus:/ # logcat -s update_engine &
+[1] 11934
+lexus:/ #
+lexus:/ # --------- beginning of main
+01-01 00:00:29.740  1230  1230 I update_engine: [INFO:main.cc(55)] A/B Update Engine starting
+01-01 00:00:29.811  1230  1230 I update_engine: [INFO:boot_control_android.cc(68)] Loaded boot control hidl hal.
+01-01 00:00:29.887  1230  1230 I update_engine: [INFO:daemon_state_android.cc(44)] Booted in dev mode.
+01-01 00:00:29.956  1230  1230 I update_engine: [INFO:update_attempter_android.cc(1167)] Scheduling CleanupPreviousUpdateAction.
+01-01 00:00:29.990  1230  1230 I update_engine: [INFO:action_processor.cc(51)] ActionProcessor: starting CleanupPreviousUpdateAction
+01-01 00:00:30.072  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(149)] Starting/resuming CleanupPreviousUpdateAction
+01-01 00:00:30.109  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 1 for WaitBootCompleted
+01-01 00:00:32.111  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 1
+01-01 00:00:32.182  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 3 for WaitBootCompleted
+07-13 18:57:25.813  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 3
+07-13 18:57:25.860  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 4 for WaitBootCompleted
+07-13 18:57:27.860  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 4
+07-13 18:57:27.893  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 5 for WaitBootCompleted
+07-13 18:57:29.895  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 5
+07-13 18:57:29.927  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 6 for WaitBootCompleted
+07-13 18:57:31.929  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 6
+07-13 18:57:31.985  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 7 for WaitBootCompleted
+07-13 18:57:33.987  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 7
+07-13 18:57:34.017  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 8 for WaitBootCompleted
+07-13 18:57:36.022  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 8
+07-13 18:57:36.050  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 9 for WaitBootCompleted
+07-13 18:57:38.053  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 9
+07-13 18:57:38.088  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 10 for WaitBootCompleted
+07-13 18:57:40.091  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 10
+07-13 18:57:40.120  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 11 for WaitBootCompleted
+07-13 18:57:42.123  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 11
+07-13 18:57:42.157  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 12 for WaitBootCompleted
+07-13 18:57:44.160  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 12
+07-13 18:57:44.189  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 13 for WaitBootCompleted
+07-13 18:57:46.191  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 13
+07-13 18:57:46.221  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 14 for WaitBootCompleted
+07-13 18:57:48.225  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 14
+07-13 18:57:48.259  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 15 for WaitBootCompleted
+07-13 18:57:50.261  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 15
+07-13 18:57:50.288  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 16 for WaitBootCompleted
+07-13 18:57:52.289  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 16
+07-13 18:57:52.314  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 17 for WaitBootCompleted
+07-13 18:57:54.316  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 17
+07-13 18:57:54.348  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 18 for WaitBootCompleted
+07-13 18:57:56.351  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 18
+07-13 18:57:56.381  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 19 for WaitBootCompleted
+07-13 18:57:58.383  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 19
+07-13 18:57:58.412  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 20 for WaitBootCompleted
+07-13 18:58:00.416  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 20
+07-13 18:58:00.442  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(124)] CleanupPreviousUpdateAction scheduled task ID 21 for WaitBootCompleted
+07-13 18:58:02.444  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(112)] Executing task 21
+07-13 18:58:02.710  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(189)] Boot completed, waiting on markBootSuccessful()
+07-13 18:58:02.832  1230  1230 I update_engine: EnsureMetadataMounted does nothing in Android mode.
+07-13 18:58:02.934  1230  1230 I update_engine: Read merge statistics file failed: No such file or directory
+07-13 18:58:03.040  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(261)] Waiting for any previous merge request to complete. This can take up to several minutes.
+07-13 18:58:03.172  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 18:58:03.268  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 18:58:03.444  1230  1230 I update_engine: CheckMergeState for snapshots returned: 0
+07-13 18:58:03.528  1230  1230 I update_engine: ProcessUpdateState handling state: 0
+07-13 18:58:03.627  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(287)] Can't find any snapshot to merge.
+07-13 18:58:03.701  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 18:58:03.834  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 18:58:03.987  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+07-13 18:58:04.126  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(469)] Not reporting merge stats because state is None
+07-13 18:58:04.339  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+07-13 18:58:04.429  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished last action CleanupPreviousUpdateAction with code ErrorCode::kSuccess
+07-13 18:58:04.720  1230  1230 I update_engine: [INFO:update_attempter_android.cc(594)] Processing Done.
+07-13 18:58:04.960  1230  1230 I update_engine: [INFO:update_attempter_android.cc(758)] Terminating cleanup previous update.
+
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ # 07-13 19:28:28.805  1230  1230 I update_engine: [INFO:update_attempter_android.cc(412)] Attempting to reset state from UPDATE_STATUS_IDLE to UpdateStatus::IDLE
+07-13 19:28:28.860  1230  1230 I update_engine: [INFO:update_attempter_android.cc(416)] Cleaning up reserved space for compressed APEX (if any)
+07-13 19:28:28.904  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1284)] ResetUpdate resetting update state and deleting snapshots.
+07-13 19:28:28.977  1230  1230 I update_engine: [INFO:delta_performer.cc(2212)] Resetting recorded hash for prepared partitions.
+07-13 19:28:29.038  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:29.100  1230  1230 I update_engine: [INFO:update_attempter_android.cc(181)] Start ApplyPayload:file:///data/FULL_UPDATE.BIN
+07-13 19:28:29.155  1230  1230 I update_engine: [INFO:update_attempter_android.cc(330)] Using this install plan:
+07-13 19:28:29.206  1230  1230 I update_engine: [INFO:install_plan.cc(91)] InstallPlan:
+07-13 19:28:29.206  1230  1230 I update_engine: type: new_update
+07-13 19:28:29.206  1230  1230 I update_engine: version:
+07-13 19:28:29.206  1230  1230 I update_engine: source_slot: A
+07-13 19:28:29.206  1230  1230 I update_engine: target_slot: B
+07-13 19:28:29.206  1230  1230 I update_engine: initial url: file:///data/FULL_UPDATE.BIN
+07-13 19:28:29.206  1230  1230 I update_engine: hash_checks_mandatory: true
+07-13 19:28:29.206  1230  1230 I update_engine: powerwash_required: false
+07-13 19:28:29.206  1230  1230 I update_engine: switch_slot_on_reboot: true
+07-13 19:28:29.206  1230  1230 I update_engine: run_post_install: true
+07-13 19:28:29.206  1230  1230 I update_engine: is_rollback: false
+07-13 19:28:29.206  1230  1230 I update_engine: rollback_data_save_requested: false
+07-13 19:28:29.206  1230  1230 I update_engine: write_verity: true
+07-13 19:28:29.206  1230  1230 I update_engine: Payload: 0
+07-13 19:28:29.206  1230  1230 I update_engine:   urls: ()
+07-13 19:28:29.206  1230  1230 I update_engine:   size: 979009758
+07-13 19:28:29.206  1230  1230 I update_engine:   metadata_size: 79848
+07-13 19:28:29.206  1230  1230 I update_engine:   metadata_signature:
+07-13 19:28:29.206  1230  1230 I update_engine:   hash: EC358FC92FA7677F7D7BA163C2DC2D84AFD8B660E610BBE4D80D5A66E57D2B3A
+07-13 19:28:29.206  1230  1230 I update_engine:   type: unknown
+07-13 19:28:29.206  1230  1230 I update_engine:   fingerprint:
+07-13 19:28:29.206  1230  1230 I update_engine:   app_id:
+07-13 19:28:29.206  1230  1230 I update_engine:   already_applied: false
+07-13 19:28:29.252  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(75)] postinstall mount point: /postinstall
+07-13 19:28:29.307  1230  1230 I update_engine: [INFO:metrics_utils.cc(334)] Number of Reboots during current update attempt = 0
+07-13 19:28:29.395  1230  1230 I update_engine: [INFO:metrics_utils.cc(342)] Payload Attempt Number = 1
+07-13 19:28:29.455  1230  1230 I update_engine: [INFO:metrics_utils.cc(359)] Update Monotonic Timestamp Start = 1/1/1970 0:31:28 GMT
+07-13 19:28:29.517  1230  1230 I update_engine: [INFO:metrics_utils.cc(368)] Update Boot Timestamp Start = 1/1/1970 0:31:28 GMT
+07-13 19:28:29.569  1230  1230 I update_engine: [INFO:update_attempter_android.cc(744)] Scheduling an action processor start.
+07-13 19:28:29.614  1230  1230 I update_engine: [INFO:action_processor.cc(51)] ActionProcessor: starting UpdateBootFlagsAction
+07-13 19:28:29.661  1230  1230 I update_engine: [INFO:update_boot_flags_action.cc(45)] Marking booted slot as good.
+07-13 19:28:29.933  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:28:29.972  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished UpdateBootFlagsAction with code ErrorCode::kSuccess
+07-13 19:28:30.015  1230  1230 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting CleanupPreviousUpdateAction
+07-13 19:28:30.052  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(149)] Starting/resuming CleanupPreviousUpdateAction
+07-13 19:28:30.093  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(189)] Boot completed, waiting on markBootSuccessful()
+07-13 19:28:30.143  1230  1230 I update_engine: EnsureMetadataMounted does nothing in Android mode.
+07-13 19:28:30.190  1230  1230 I update_engine: Read merge statistics file failed: No such file or directory
+07-13 19:28:30.239  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(261)] Waiting for any previous merge request to complete. This can take up to several minutes.
+07-13 19:28:30.281  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:30.320  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:30.371  1230  1230 I update_engine: CheckMergeState for snapshots returned: 0
+07-13 19:28:30.424  1230  1230 I update_engine: ProcessUpdateState handling state: 0
+07-13 19:28:30.473  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(287)] Can't find any snapshot to merge.
+07-13 19:28:30.519  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:30.555  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:28:30.600  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+07-13 19:28:30.645  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(469)] Not reporting merge stats because state is None
+07-13 19:28:30.687  1230  1230 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+07-13 19:28:30.723  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished CleanupPreviousUpdateAction with code ErrorCode::kSuccess
+07-13 19:28:30.767  1230  1230 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting InstallPlanAction
+07-13 19:28:30.808  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:28:30.865  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished InstallPlanAction with code ErrorCode::kSuccess
+07-13 19:28:30.907  1230  1230 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting DownloadAction
+07-13 19:28:30.954  1230  1230 I update_engine: [INFO:install_plan.cc(91)] InstallPlan:
+07-13 19:28:30.954  1230  1230 I update_engine: type: new_update
+07-13 19:28:30.954  1230  1230 I update_engine: version:
+07-13 19:28:30.954  1230  1230 I update_engine: source_slot: A
+07-13 19:28:30.954  1230  1230 I update_engine: target_slot: B
+07-13 19:28:30.954  1230  1230 I update_engine: initial url: file:///data/FULL_UPDATE.BIN
+07-13 19:28:30.954  1230  1230 I update_engine: hash_checks_mandatory: true
+07-13 19:28:30.954  1230  1230 I update_engine: powerwash_required: false
+07-13 19:28:30.954  1230  1230 I update_engine: switch_slot_on_reboot: true
+07-13 19:28:30.954  1230  1230 I update_engine: run_post_install: true
+07-13 19:28:30.954  1230  1230 I update_engine: is_rollback: false
+07-13 19:28:30.954  1230  1230 I update_engine: rollback_data_save_requested: false
+07-13 19:28:30.954  1230  1230 I update_engine: write_verity: true
+07-13 19:28:30.954  1230  1230 I update_engine: Payload: 0
+07-13 19:28:30.954  1230  1230 I update_engine:   urls: ()
+07-13 19:28:30.954  1230  1230 I update_engine:   size: 979009758
+07-13 19:28:30.954  1230  1230 I update_engine:   metadata_size: 79848
+07-13 19:28:30.954  1230  1230 I update_engine:   metadata_signature:
+07-13 19:28:30.954  1230  1230 I update_engine:   hash: EC358FC92FA7677F7D7BA163C2DC2D84AFD8B660E610BBE4D80D5A66E57D2B3A
+07-13 19:28:30.954  1230  1230 I update_engine:   type: unknown
+07-13 19:28:30.954  1230  1230 I update_engine:   fingerprint:
+07-13 19:28:30.954  1230  1230 I update_engine:   app_id:
+07-13 19:28:30.954  1230  1230 I update_engine:   already_applied: false
+07-13 19:28:31.002  1230  1230 I update_engine: [INFO:download_action.cc(84)] Marking new slot as unbootable
+07-13 19:28:31.263  1230  1230 I update_engine: [INFO:download_action.cc(102)] not update soc, not need unbootable
+07-13 19:28:31.309  1230  1230 I update_engine: [INFO:download_action.cc(146)] StartDownloading begin
+07-13 19:28:31.366  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(45)] starting first transfer
+07-13 19:28:31.404  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(74)] starting transfer of range 1050802+979009758
+07-13 19:28:31.451  1230  1230 I update_engine: type=1400 audit(0.0:485): avc: denied { read } for name="FULL_UPDATE.BIN" dev="dm-6" ino=36 scontext=u:r:update_engine:s0 tcontext=u:object_r:system_data_file:s0 tclass=file permissive=1
+07-13 19:28:31.451  1230  1230 I update_engine: type=1400 audit(0.0:486): avc: denied { open } for path="/data/FULL_UPDATE.BIN" dev="dm-6" ino=36 scontext=u:r:update_engine:s0 tcontext=u:object_r:system_data_file:s0 tclass=file permissive=1
+07-13 19:28:31.451  1230  1230 I update_engine: type=1400 audit(0.0:487): avc: denied { getattr } for path="/data/FULL_UPDATE.BIN" dev="dm-6" ino=36 scontext=u:r:update_engine:s0 tcontext=u:object_r:system_data_file:s0 tclass=file permissive=1
+07-13 19:28:31.469  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 0/? operations, 16384/979009758 bytes downloaded (0%), overall progress 0%
+07-13 19:28:31.506  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:31.548  1230  1230 I update_engine: [INFO:delta_performer.cc(642)] The size of the metadata_size(79848) + metadata signature(267) should = the size of the payload(979009758)
+07-13 19:28:31.586  1230  1230 I update_engine: [INFO:delta_performer.cc(793)] ParsePayloadMetadata result = kInsufficientData
+07-13 19:28:31.631  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:31.677  1230  1230 I update_engine: [INFO:delta_performer.cc(793)] ParsePayloadMetadata result = kInsufficientData
+07-13 19:28:31.715  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:31.755  1230  1230 I update_engine: [INFO:delta_performer.cc(793)] ParsePayloadMetadata result = kInsufficientData
+07-13 19:28:31.800  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:31.856  1230  1230 I update_engine: [INFO:delta_performer.cc(793)] ParsePayloadMetadata result = kInsufficientData
+07-13 19:28:31.904  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:31.952  1230  1230 I update_engine: [INFO:delta_performer.cc(793)] ParsePayloadMetadata result = kInsufficientData
+07-13 19:28:31.997  1230  1230 I update_engine: [INFO:delta_performer.cc(629)] ParsePayloadMetadata begin
+07-13 19:28:32.046  1230  1230 I update_engine: [INFO:delta_performer.cc(687)] Manifest size in payload matches expected value from Omaha
+07-13 19:28:32.091  1230  1230 I update_engine: [INFO:delta_performer.cc(1819)] Verifying using certificates: /system/etc/security/otacerts.zip
+07-13 19:28:32.135  1230  1230 I update_engine: [INFO:payload_verifier.cc(102)] signature blob size = 267
+07-13 19:28:32.172  1230  1230 I update_engine: [INFO:payload_verifier.cc(118)] Truncating the signature to its unpadded size: 256.
+07-13 19:28:32.208  1230  1230 I update_engine: [INFO:payload_verifier.cc(129)] Verified correct signature 1 out of 1 signatures.
+07-13 19:28:32.270  1230  1230 I update_engine: [INFO:payload_metadata.cc(227)] Metadata hash signature matches value in Omaha response.
+07-13 19:28:32.321  1230  1230 I update_engine: [INFO:delta_performer.cc(732)] ParsePayloadMetadata success
+07-13 19:28:32.362  1230  1230 I update_engine: [INFO:delta_performer.cc(1856)] Detected a 'full' payload.
+07-13 19:28:32.409  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] vbmeta does't have version, skipping downgrade check.
+07-13 19:28:32.453  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] vbmeta_system does't have version, skipping downgrade check.
+07-13 19:28:32.495  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] vendor_boot does't have version, skipping downgrade check.
+07-13 19:28:32.539  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] abl does't have version, skipping downgrade check.
+07-13 19:28:32.586  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] aop does't have version, skipping downgrade check.
+07-13 19:28:32.630  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] bluetooth does't have version, skipping downgrade check.
+07-13 19:28:32.667  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] cmnlib does't have version, skipping downgrade check.
+07-13 19:28:32.701  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] cmnlib64 does't have version, skipping downgrade check.
+07-13 19:28:32.743  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] devcfg does't have version, skipping downgrade check.
+07-13 19:28:32.788  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] dsp does't have version, skipping downgrade check.
+07-13 19:28:32.839  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] dtbo does't have version, skipping downgrade check.
+07-13 19:28:32.892  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] hyp does't have version, skipping downgrade check.
+07-13 19:28:32.937  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] keymaster does't have version, skipping downgrade check.
+07-13 19:28:32.984  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] modem does't have version, skipping downgrade check.
+07-13 19:28:33.027  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] qupfw does't have version, skipping downgrade check.
+07-13 19:28:33.078  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] secs2d does't have version, skipping downgrade check.
+07-13 19:28:33.125  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] tz does't have version, skipping downgrade check.
+07-13 19:28:33.165  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] uefisecapp does't have version, skipping downgrade check.
+07-13 19:28:33.208  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] xbl does't have version, skipping downgrade check.
+07-13 19:28:33.254  1230  1230 I update_engine: [INFO:delta_performer.cc(1927)] xbl_config does't have version, skipping downgrade check.
+07-13 19:28:33.315  1230  1230 I update_engine: [INFO:delta_performer.cc(1359)] Preparing partitions for new update. last hash = , new hash = 7DWPyS+nZ399e6FjwtwthK/YtmDmELvk2A1aZuV9Kzo=KFtlwbHiA/kqhd5IFeRhMnEb3QjmoHZeidNPtvEY7tQ=
+07-13 19:28:33.382  1230  1230 I update_engine: [INFO:delta_performer.cc(2212)] Resetting recorded hash for prepared partitions.
+07-13 19:28:33.450  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:33.515  1230  1230 I update_engine: type=1400 audit(0.0:488): avc: denied { search } for name="/" dev="sde5" ino=1 scontext=u:r:update_engine:s0 tcontext=u:object_r:bt_firmware_file:s0 tclass=dir permissive=1
+07-13 19:28:33.527  1230  1230 I update_engine: EnsureMetadataMounted does nothing in Android mode.
+07-13 19:28:33.581  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(762)] Erasing AVB footer of system_other partition before update.
+07-13 19:28:33.625  1230  1230 E update_engine: [libfs_mgr]ReadFstabFromFile(): cannot open file: '/system/etc/fstab.postinstall': No such file or directory
+07-13 19:28:33.666  1230  1230 W update_engine: [WARNING:dynamic_partition_control_android.cc(636)] Cannot read fstab from /system/etc/fstab.postinstall: No such file or directory (2)
+07-13 19:28:33.700  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(663)] AVB is not enabled on system_other. Skip erasing.
+07-13 19:28:33.758  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:33.817  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:33.872  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:34.922  1230  1230 E update_engine: Read state file failed: No such file or directory
+07-13 19:28:35.173  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:35.247  1230  1230 I update_engine: type=1400 audit(0.0:489): avc: denied { search } for name="/" dev="sde5" ino=1 scontext=u:r:update_engine:s0 tcontext=u:object_r:bt_firmware_file:s0 tclass=dir permissive=1
+07-13 19:28:35.263  1230  1230 I update_engine:  dap_metadata.cow_version(): 0 writer.GetCowVersion(): 2
+07-13 19:28:35.310  1230  1230 I update_engine: Remaining free space for COW: 10506891264 bytes
+07-13 19:28:35.473  1230  1230 I update_engine: For partition system_b, device size = 1718984704, snapshot size = 1718984704, cow partition size = 1725706240, cow file size = 0
+07-13 19:28:35.535  1230  1230 I update_engine: [liblp]Partition system_b-cow will resize from 0 bytes to 1725706240 bytes
+07-13 19:28:35.580  1230  1230 I update_engine: Successfully created snapshot partition for system_b
+07-13 19:28:35.616  1230  1230 I update_engine: Remaining free space for COW: 8781185024 bytes
+07-13 19:28:35.717  1230  1230 I update_engine: For partition vendor_b, device size = 554659840, snapshot size = 554659840, cow partition size = 556830720, cow file size = 0
+07-13 19:28:35.765  1230  1230 I update_engine: [liblp]Partition vendor_b-cow will resize from 0 bytes to 556830720 bytes
+07-13 19:28:35.803  1230  1230 I update_engine: Successfully created snapshot partition for vendor_b
+07-13 19:28:35.843  1230  1230 I update_engine: Remaining free space for COW: 8224354304 bytes
+07-13 19:28:35.891  1230  1230 I update_engine: For partition system_ext_b, device size = 103317504, snapshot size = 103317504, cow partition size = 103727104, cow file size = 0
+07-13 19:28:35.940  1230  1230 I update_engine: [liblp]Partition system_ext_b-cow will resize from 0 bytes to 103727104 bytes
+07-13 19:28:35.982  1230  1230 I update_engine: Successfully created snapshot partition for system_ext_b
+07-13 19:28:36.023  1230  1230 I update_engine: Allocating CoW images.
+07-13 19:28:36.067  1230  1230 I update_engine: Successfully created snapshot for system_b
+07-13 19:28:36.117  1230  1230 I update_engine: Successfully created snapshot for system_ext_b
+07-13 19:28:36.156  1230  1230 I update_engine: Successfully created snapshot for vendor_b
+07-13 19:28:36.192  1230  1230 I update_engine: Successfully unmapped snapshot system_b
+07-13 19:28:36.283  1230  1230 I update_engine: Mapped COW device for system_b at /dev/block/dm-7
+07-13 19:28:36.332  1230  1230 I update_engine: Zero-filling COW device: /dev/block/dm-7
+07-13 19:28:36.444  1230  1230 I update_engine: Successfully unmapped snapshot vendor_b
+07-13 19:28:36.540  1230  1230 I update_engine: Mapped COW device for vendor_b at /dev/block/dm-7
+07-13 19:28:36.592  1230  1230 I update_engine: Zero-filling COW device: /dev/block/dm-7
+07-13 19:28:36.675  1230  1230 I update_engine: Successfully unmapped snapshot system_ext_b
+07-13 19:28:36.767  1230  1230 I update_engine: Mapped COW device for system_ext_b at /dev/block/dm-7
+07-13 19:28:36.830  1230  1230 I update_engine: Zero-filling COW device: /dev/block/dm-7
+07-13 19:28:36.938  1230  1230 I update_engine: [liblp]Updated logical partition table at slot 1 on device super
+07-13 19:28:37.179  1230  1230 I update_engine: Successfully created all snapshots for target slot _b
+07-13 19:28:37.241  1230  1230 I update_engine: [INFO:delta_performer.cc(1377)] PreparePartitionsForUpdate done.
+07-13 19:28:37.297  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:37.345  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:37.393  1230  1230 I update_engine: Successfully unmapped snapshot system_b
+07-13 19:28:37.482  1230  1230 I update_engine: [libfs_mgr]Created logical partition system_b-base on device /dev/block/dm-7
+07-13 19:28:37.561  1230  1230 I update_engine: Mapped COW device for system_b at /dev/block/dm-8
+07-13 19:28:37.638  1230  1230 I update_engine: Mapped system_b as snapshot device at /dev/block/dm-9
+07-13 19:28:37.680  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(205)] Succesfully mapped system_b to device mapper (force_writable = 1); device path at /dev/block/dm-9
+07-13 19:28:37.719  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:37.769  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:37.813  1230  1230 I update_engine: Successfully unmapped snapshot vendor_b
+07-13 19:28:37.915  1230  1230 I update_engine: [libfs_mgr]Created logical partition vendor_b-base on device /dev/block/dm-10
+07-13 19:28:38.008  1230  1230 I update_engine: Mapped COW device for vendor_b at /dev/block/dm-11
+07-13 19:28:38.085  1230  1230 I update_engine: Mapped vendor_b as snapshot device at /dev/block/dm-12
+07-13 19:28:38.131  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(205)] Succesfully mapped vendor_b to device mapper (force_writable = 1); device path at /dev/block/dm-12
+07-13 19:28:38.176  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:38.225  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:38.267  1230  1230 I update_engine: Successfully unmapped snapshot system_ext_b
+07-13 19:28:38.347  1230  1230 I update_engine: [libfs_mgr]Created logical partition system_ext_b-base on device /dev/block/dm-13
+07-13 19:28:38.436  1230  1230 I update_engine: Mapped COW device for system_ext_b at /dev/block/dm-14
+07-13 19:28:38.524  1230  1230 I update_engine: Mapped system_ext_b as snapshot device at /dev/block/dm-15
+07-13 19:28:38.563  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(205)] Succesfully mapped system_ext_b to device mapper (force_writable = 1); device path at /dev/block/dm-15
+07-13 19:28:38.601  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:38.654  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:38.695  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] boot_b is not in super partition metadata.
+07-13 19:28:38.738  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:38.776  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:38.818  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:38.867  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] vbmeta_b is not in super partition metadata.
+07-13 19:28:38.912  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:38.967  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.013  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.051  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] vbmeta_system_b is not in super partition metadata.
+07-13 19:28:39.095  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.146  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.197  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.240  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] vendor_boot_b is not in super partition metadata.
+07-13 19:28:39.287  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.334  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.385  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.440  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] abl_b is not in super partition metadata.
+07-13 19:28:39.482  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.523  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.572  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.620  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] aop_b is not in super partition metadata.
+07-13 19:28:39.665  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.705  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.749  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.805  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] bluetooth_b is not in super partition metadata.
+07-13 19:28:39.857  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.908  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:39.952  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:39.997  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] cmnlib_b is not in super partition metadata.
+07-13 19:28:40.051  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.098  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:40.143  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.181  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] cmnlib64_b is not in super partition metadata.
+07-13 19:28:40.224  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.274  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:40.328  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.377  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] devcfg_b is not in super partition metadata.
+07-13 19:28:40.417  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.462  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:40.524  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.560  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] dsp_b is not in super partition metadata.
+07-13 19:28:40.608  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.651  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:40.693  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.745  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] dtbo_b is not in super partition metadata.
+07-13 19:28:40.786  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.829  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:40.887  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:40.929  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] hyp_b is not in super partition metadata.
+07-13 19:28:40.984  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.029  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:41.079  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.119  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] keymaster_b is not in super partition metadata.
+07-13 19:28:41.160  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.199  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:41.255  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.304  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] modem_b is not in super partition metadata.
+07-13 19:28:41.348  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.396  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:41.438  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.495  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] qupfw_b is not in super partition metadata.
+07-13 19:28:41.546  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.587  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:41.646  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.683  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] secs2d_b is not in super partition metadata.
+07-13 19:28:41.734  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.779  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:41.827  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.888  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] tz_b is not in super partition metadata.
+07-13 19:28:41.934  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:41.989  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:42.033  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.080  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] uefisecapp_b is not in super partition metadata.
+07-13 19:28:42.128  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.172  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:42.217  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.269  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] xbl_b is not in super partition metadata.
+07-13 19:28:42.313  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.358  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:42.404  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.445  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1190)] xbl_config_b is not in super partition metadata.
+07-13 19:28:42.490  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot A in /dev/block/bootdevice/by-name/super
+07-13 19:28:42.531  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new system sha256: rE8YjYUd9buCiI/IS3+hNNivYeao+LBDzhYTjPB245s= size: 1718984704
+07-13 19:28:42.576  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new vendor sha256: 7RVcjb/RXIfD3X2xfOstck3HxvZ5hTaUP9VSIXBJnFE= size: 554659840
+07-13 19:28:42.620  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new system_ext sha256: fIqjqdYMgBn1JGBvSmcAKOKXK2CsIcPXXCTul7TNWAI= size: 103317504
+07-13 19:28:42.664  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new boot sha256: 8TvbEivlzfMIn2jYjVYS0P/07lwzXZpWU8Zr7DTxfK8= size: 100663296
+07-13 19:28:42.700  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new vbmeta sha256: Zuj7nmH9pltFXIvpIhC9PIE6Fb9YSlOIJmYbaWZ0bqc= size: 8192
+07-13 19:28:42.744  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new vbmeta_system sha256: KTbjSxpHf7oYI3jJR2Mu9HFPrZSRzqstYRmLA6cN2YY= size: 4096
+07-13 19:28:42.791  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new vendor_boot sha256: b7qMVi13QmDq4ZiNxJuccMGaC39YhfssDA2pvDr2OQA= size: 100663296
+07-13 19:28:42.845  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new abl sha256: xII2Sr4jjEo/OgcBs8y3fccP4/AcjhgdM84QeU7DNiE= size: 167936
+07-13 19:28:42.896  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new aop sha256: u8wNxolrnt3rVKD+sqfw0iWxDJvpo+QERWXBtmaKByg= size: 192512
+07-13 19:28:42.940  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new bluetooth sha256: BwJV3iBhoa20qQeRQzEUPTc6iSnxx+wtb0y+VHyLaac= size: 225280
+07-13 19:28:42.988  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new cmnlib sha256: DRJA5sI9LqH9Fwev2qkHyhBoADfHrBu3ICpdU/YCJ0E= size: 401408
+07-13 19:28:43.026  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new cmnlib64 sha256: pJA95cHNvPSkFnP1k9m7Q3rsN8NfT+IY6ZaIRvpyMvc= size: 520192
+07-13 19:28:43.066  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new devcfg sha256: L4Cb9dacdDdD1h9IIJtUwaMRRIl5XmbxfQojtoA5qu8= size: 65536
+07-13 19:28:43.109  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new dsp sha256: N8JndxdQU3F3FDfY2HFj7lViIBPtCe9mrO7PQmQ73uw= size: 67108864
+07-13 19:28:43.143  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new dtbo sha256: PQDQOzrG0Ovv/FdTyUr/EP7TJmvDsdUESNZpC4qBRXI= size: 8388608
+07-13 19:28:43.184  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new hyp sha256: ovPRRPhQ6u6Pq4r4QC5j21rlwnQLoJVuRtFdCtiAzn4= size: 483328
+07-13 19:28:43.233  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new keymaster sha256: lYekC8sfCsCzhLUYOOlfwcRBi1BdcurhwSqmR/wLnqQ= size: 442368
+07-13 19:28:43.303  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new modem sha256: 2g5yfooyMJnnxnfHCwmtEGv9Y8+hTdh/BT/7bMH0I1c= size: 31150080
+07-13 19:28:43.356  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new qupfw sha256: 9sgZXPWNfsoDPD1fP3QRgIW0wu4CmgrOh4kX1+21pKw= size: 73728
+07-13 19:28:43.404  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new secs2d sha256: GplHZ6SfPOb8WECdcyBWWjErtpQCpddIajpjvbqzklo= size: 45056
+07-13 19:28:43.450  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new tz sha256: ilv69NqaL/iIvgT4Xr8d+nZUCSOcwCj5AcsWYHxgNvA= size: 3170304
+07-13 19:28:43.505  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new uefisecapp sha256: wxhZTAptYJmAtfuqQYlbokvu9rOixLJMy717B2jENVE= size: 114688
+07-13 19:28:43.559  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new xbl sha256: CMhrP7l824k9lheYgJY2fMSl5DkfIuVwtpqIp7kTmUU= size: 2781184
+07-13 19:28:43.597  1230  1230 I update_engine: [INFO:delta_performer.cc(587)] PartitionInfo new xbl_config sha256: uHlC1znX/q21khFaGxw4Kqvg41TNb2oDsXdyrfHyFwo= size: 45056
+07-13 19:28:43.632  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:system
+07-13 19:28:43.683  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:43.728  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:43.778  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:vendor
+07-13 19:28:43.826  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:43.880  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:43.921  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:system_ext
+07-13 19:28:43.971  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.009  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.055  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:boot
+07-13 19:28:44.090  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.137  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.181  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:vbmeta
+07-13 19:28:44.224  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.268  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.302  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:vbmeta_system
+07-13 19:28:44.338  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.385  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.428  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:vendor_boot
+07-13 19:28:44.479  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.519  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.555  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:abl
+07-13 19:28:44.594  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.646  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.689  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:aop
+07-13 19:28:44.727  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.768  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.806  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:bluetooth
+07-13 19:28:44.851  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:44.903  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:44.946  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:cmnlib
+07-13 19:28:44.992  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.029  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.063  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:cmnlib64
+07-13 19:28:45.104  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.143  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.180  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:devcfg
+07-13 19:28:45.228  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.265  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.312  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:dsp
+07-13 19:28:45.361  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.418  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.469  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:dtbo
+07-13 19:28:45.514  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.558  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.602  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:hyp
+07-13 19:28:45.650  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.690  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.726  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:keymaster
+07-13 19:28:45.777  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.826  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:45.893  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:modem
+07-13 19:28:45.938  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:45.989  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.036  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:qupfw
+07-13 19:28:46.076  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.119  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.171  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:secs2d
+07-13 19:28:46.208  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.258  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.305  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:tz
+07-13 19:28:46.349  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.410  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.447  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:uefisecapp
+07-13 19:28:46.499  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.544  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.589  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:xbl
+07-13 19:28:46.631  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.667  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.711  1230  1230 I update_engine: [INFO:delta_performer.cc(750)] objects name:xbl_config
+07-13 19:28:46.754  1230  1230 I update_engine: [INFO:delta_performer.cc(756)] objects name is changed to:SOC
+07-13 19:28:46.792  1230  1230 I update_engine: [INFO:delta_performer.cc(761)] objects value:1
+07-13 19:28:46.830  1230  1230 I update_engine: [libfs_mgr]dt_fstab: Skip disabled entry for partition vendor
+07-13 19:28:46.878  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(331)] Loaded metadata from slot B in /dev/block/bootdevice/by-name/super
+07-13 19:28:46.927  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `system`
+07-13 19:28:46.979  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/dm-9 partition with O_DSYNC
+07-13 19:28:47.027  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:28:47.064  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 820 operations to partition "system"
+07-13 19:28:47.101  1230  1230 I update_engine: [INFO:delta_performer.cc(890)] Starting to apply update payload operations
+07-13 19:29:01.653  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 43/1300 operations (3%), 27967488/979009758 bytes downloaded (2%), overall progress 2%
+07-13 19:29:31.758  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 130/1300 operations (10%), 88342528/979009758 bytes downloaded (9%), overall progress 9%
+07-13 19:29:34.762  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 135/1300 operations (10%), 97910784/979009758 bytes downloaded (10%), overall progress 10%
+07-13 19:30:04.965  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 206/1300 operations (15%), 173391872/979009758 bytes downloaded (17%), overall progress 15%
+07-13 19:30:23.040  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 260/1300 operations (20%), 208977920/979009758 bytes downloaded (21%), overall progress 20%
+07-13 19:30:53.299  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 356/1300 operations (27%), 264978432/979009758 bytes downloaded (27%), overall progress 26%
+07-13 19:31:07.992  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 399/1300 operations (30%), 293715968/979009758 bytes downloaded (30%), overall progress 30%
+07-13 19:31:37.993  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 486/1300 operations (37%), 355631104/979009758 bytes downloaded (36%), overall progress 36%
+07-13 19:31:51.711  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 520/1300 operations (40%), 399605760/979009758 bytes downloaded (40%), overall progress 40%
+07-13 19:32:21.777  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 598/1300 operations (46%), 489947136/979009758 bytes downloaded (50%), overall progress 48%
+07-13 19:32:36.484  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 621/1300 operations (47%), 528678912/979009758 bytes downloaded (54%), overall progress 50%
+07-13 19:33:06.606  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 699/1300 operations (53%), 605503488/979009758 bytes downloaded (61%), overall progress 56%
+07-13 19:33:17.082  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 728/1300 operations (56%), 630980608/979009758 bytes downloaded (64%), overall progress 60%
+07-13 19:33:47.759  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 799/1300 operations (61%), 696860672/979009758 bytes downloaded (71%), overall progress 65%
+07-13 19:34:01.328  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:0 firmware:0 partition:0
+07-13 19:34:01.385  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `vendor`
+07-13 19:34:01.425  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/dm-12 partition with O_DSYNC
+07-13 19:34:01.477  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:34:01.514  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 265 operations to partition "vendor"
+07-13 19:34:07.832  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 835/1300 operations (64%), 744062976/979009758 bytes downloaded (76%), overall progress 70%
+07-13 19:34:38.048  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 924/1300 operations (71%), 803373056/979009758 bytes downloaded (82%), overall progress 76%
+07-13 19:34:55.212  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 988/1300 operations (76%), 828588032/979009758 bytes downloaded (84%), overall progress 80%
+07-13 19:35:25.213  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 1084/1300 operations (83%), 887373824/979009758 bytes downloaded (90%), overall progress 86%
+07-13 19:35:27.249  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:1 firmware:0 partition:1
+07-13 19:35:27.302  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `system_ext`
+07-13 19:35:27.358  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/dm-15 partition with O_DSYNC
+07-13 19:35:27.399  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:35:27.437  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 50 operations to partition "system_ext"
+07-13 19:35:43.132  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:2 firmware:0 partition:2
+07-13 19:35:43.180  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `boot`
+07-13 19:35:43.228  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/boot_b partition with O_DSYNC
+07-13 19:35:43.274  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:35:43.314  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 48 operations to partition "boot"
+07-13 19:35:43.996  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 1137/1300 operations (87%), 920272896/979009758 bytes downloaded (94%), overall progress 90%
+07-13 19:35:53.344  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:3 firmware:0 partition:3
+07-13 19:35:53.389  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `vbmeta`
+07-13 19:35:53.433  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/vbmeta_b partition with O_DSYNC
+07-13 19:35:53.483  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:35:53.540  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "vbmeta"
+07-13 19:35:53.596  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:4 firmware:0 partition:4
+07-13 19:35:53.641  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `vbmeta_system`
+07-13 19:35:53.687  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/vbmeta_system_b partition with O_DSYNC
+07-13 19:35:53.743  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:35:53.786  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "vbmeta_system"
+07-13 19:35:53.838  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:5 firmware:0 partition:5
+07-13 19:35:53.874  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `vendor_boot`
+07-13 19:35:53.917  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/vendor_boot_b partition with O_DSYNC
+07-13 19:35:53.976  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:35:54.022  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 48 operations to partition "vendor_boot"
+07-13 19:36:01.080  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:6 firmware:0 partition:6
+07-13 19:36:01.134  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `abl`
+07-13 19:36:01.180  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/abl_b partition with O_DSYNC
+07-13 19:36:01.221  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:01.256  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "abl"
+07-13 19:36:01.348  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:7 firmware:0 partition:7
+07-13 19:36:01.397  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `aop`
+07-13 19:36:01.442  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/aop_b partition with O_DSYNC
+07-13 19:36:01.490  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:01.535  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "aop"
+07-13 19:36:01.634  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:8 firmware:0 partition:8
+07-13 19:36:01.676  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `bluetooth`
+07-13 19:36:01.718  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/bluetooth_b partition with O_DSYNC
+07-13 19:36:01.760  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:01.798  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "bluetooth"
+07-13 19:36:01.892  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:9 firmware:0 partition:9
+07-13 19:36:01.935  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `cmnlib`
+07-13 19:36:01.984  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/cmnlib_b partition with O_DSYNC
+07-13 19:36:02.025  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:02.076  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "cmnlib"
+07-13 19:36:02.210  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:10 firmware:0 partition:10
+07-13 19:36:02.247  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `cmnlib64`
+07-13 19:36:02.289  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/cmnlib64_b partition with O_DSYNC
+07-13 19:36:02.337  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:02.387  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "cmnlib64"
+07-13 19:36:02.519  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:11 firmware:0 partition:11
+07-13 19:36:02.572  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `devcfg`
+07-13 19:36:02.619  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/devcfg_b partition with O_DSYNC
+07-13 19:36:02.669  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:02.723  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "devcfg"
+07-13 19:36:02.777  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:12 firmware:0 partition:12
+07-13 19:36:02.825  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `dsp`
+07-13 19:36:02.872  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/dsp_b partition with O_DSYNC
+07-13 19:36:02.921  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:02.968  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 32 operations to partition "dsp"
+07-13 19:36:06.717  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:13 firmware:0 partition:13
+07-13 19:36:06.773  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `dtbo`
+07-13 19:36:06.815  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/dtbo_b partition with O_DSYNC
+07-13 19:36:06.864  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:06.906  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 4 operations to partition "dtbo"
+07-13 19:36:07.324  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:14 firmware:0 partition:14
+07-13 19:36:07.367  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `hyp`
+07-13 19:36:07.404  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/hyp_b partition with O_DSYNC
+07-13 19:36:07.449  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:07.494  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "hyp"
+07-13 19:36:07.610  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:15 firmware:0 partition:15
+07-13 19:36:07.650  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `keymaster`
+07-13 19:36:07.685  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/keymaster_b partition with O_DSYNC
+07-13 19:36:07.729  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:07.781  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "keymaster"
+07-13 19:36:07.904  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:16 firmware:0 partition:16
+07-13 19:36:07.947  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `modem`
+07-13 19:36:07.998  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/modem_b partition with O_DSYNC
+07-13 19:36:08.052  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:08.099  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 15 operations to partition "modem"
+07-13 19:36:11.942  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:17 firmware:0 partition:17
+07-13 19:36:11.998  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `qupfw`
+07-13 19:36:12.038  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/qupfw_b partition with O_DSYNC
+07-13 19:36:12.093  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:12.130  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "qupfw"
+07-13 19:36:12.195  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:18 firmware:0 partition:18
+07-13 19:36:12.236  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `secs2d`
+07-13 19:36:12.283  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/secs2d_b partition with O_DSYNC
+07-13 19:36:12.319  1230  1230 I update_engine: type=1400 audit(0.0:504): avc: denied { read } for name="sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:36:12.319  1230  1230 I update_engine: type=1400 audit(0.0:505): avc: denied { open } for path="/dev/block/sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:36:12.319  1230  1230 I update_engine: type=1400 audit(0.0:506): avc: denied { ioctl } for path="/dev/block/sde32" dev="tmpfs" ino=31822 ioctlcmd=0x125e scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:36:12.330  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:12.367  1230  1230 I update_engine: type=1400 audit(0.0:507): avc: denied { write } for name="sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:36:12.375  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "secs2d"
+07-13 19:36:12.411  1230  1230 I update_engine: type=1400 audit(0.0:508): avc: denied { getattr } for path="/dev/block/sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:36:12.433  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:19 firmware:0 partition:19
+07-13 19:36:12.478  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `tz`
+07-13 19:36:12.539  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/tz_b partition with O_DSYNC
+07-13 19:36:12.592  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:12.630  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 2 operations to partition "tz"
+07-13 19:36:13.076  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:20 firmware:0 partition:20
+07-13 19:36:13.136  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `uefisecapp`
+07-13 19:36:13.182  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/uefisecapp_b partition with O_DSYNC
+07-13 19:36:13.229  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:13.274  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "uefisecapp"
+07-13 19:36:13.356  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:21 firmware:0 partition:21
+07-13 19:36:13.398  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `xbl`
+07-13 19:36:13.434  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/xbl_b partition with O_DSYNC
+07-13 19:36:13.493  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:13.532  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 2 operations to partition "xbl"
+07-13 19:36:14.025  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 1299/1300 operations (99%), 979009536/979009758 bytes downloaded (99%), overall progress 98%
+07-13 19:36:14.115  1230  1230 I update_engine: [INFO:delta_performer.cc(420)] update object:22 firmware:0 partition:22
+07-13 19:36:14.165  1230  1230 I update_engine: [INFO:partition_writer_factory_android.cc(44)] Virtual AB Compression disabled, using Partition Writer for `xbl_config`
+07-13 19:36:14.207  1230  1230 I update_engine: [INFO:partition_writer.cc(295)] Opening /dev/block/bootdevice/by-name/xbl_config_b partition with O_DSYNC
+07-13 19:36:14.248  1230  1230 I update_engine: [INFO:partition_writer.cc(100)] Caching writes.
+07-13 19:36:14.289  1230  1230 I update_engine: [INFO:partition_writer.cc(307)] Applying 1 operations to partition "xbl_config"
+07-13 19:36:14.355  1230  1230 I update_engine: [INFO:delta_performer.cc(218)] Completed 1300/1300 operations (100%), 979009758/979009758 bytes downloaded (100%), overall progress 100%
+07-13 19:36:14.403  1230  1230 I update_engine: [INFO:delta_performer.cc(1791)] Extracted signature data of size 267 at 978929376
+07-13 19:36:14.442  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(115)] Terminating transfer.
+07-13 19:36:14.489  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(177)] Received transfer terminated.
+07-13 19:36:14.535  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(129)] TransferEnded w/ code 200
+07-13 19:36:14.588  1230  1230 I update_engine: [INFO:multi_range_http_fetcher.cc(163)] Done w/ all transfers
+07-13 19:36:14.631  1230  1230 I update_engine: [INFO:delta_performer.cc(1819)] Verifying using certificates: /system/etc/security/otacerts.zip
+07-13 19:36:14.678  1230  1230 I update_engine: [INFO:payload_verifier.cc(102)] signature blob size = 267
+07-13 19:36:14.718  1230  1230 I update_engine: [INFO:payload_verifier.cc(118)] Truncating the signature to its unpadded size: 256.
+07-13 19:36:14.753  1230  1230 I update_engine: [INFO:payload_verifier.cc(129)] Verified correct signature 1 out of 1 signatures.
+07-13 19:36:14.790  1230  1230 I update_engine: [INFO:delta_performer.cc(2129)] Payload hash matches value in payload.
+07-13 19:36:14.840  1230  1230 I update_engine: [INFO:download_action.cc(282)] Collections of histograms for UpdateEngine.DownloadAction.
+07-13 19:36:14.883  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:36:14.941  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished DownloadAction with code ErrorCode::kSuccess
+07-13 19:36:14.996  1230  1230 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting FilesystemVerifierAction
+07-13 19:36:15.032  1230  1230 I update_engine: [INFO:install_plan.cc(91)] InstallPlan:
+07-13 19:36:15.032  1230  1230 I update_engine: type: new_update
+07-13 19:36:15.032  1230  1230 I update_engine: version:
+07-13 19:36:15.032  1230  1230 I update_engine: source_slot: A
+07-13 19:36:15.032  1230  1230 I update_engine: target_slot: B
+07-13 19:36:15.032  1230  1230 I update_engine: initial url: file:///data/FULL_UPDATE.BIN
+07-13 19:36:15.032  1230  1230 I update_engine: hash_checks_mandatory: true
+07-13 19:36:15.032  1230  1230 I update_engine: powerwash_required: false
+07-13 19:36:15.032  1230  1230 I update_engine: switch_slot_on_reboot: true
+07-13 19:36:15.032  1230  1230 I update_engine: run_post_install: true
+07-13 19:36:15.032  1230  1230 I update_engine: is_rollback: false
+07-13 19:36:15.032  1230  1230 I update_engine: rollback_data_save_requested: false
+07-13 19:36:15.032  1230  1230 I update_engine: write_verity: true
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: system
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 1718984704
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/dm-9
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: AC4F188D851DF5BB82888FC84B7FA134D8AF61E6A8F8B043CE16138CF076E39B
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/dm-9
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: vendor
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 554659840
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/dm-12
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: ED155C8DBFD15C87C3DD7DB17CEB2D724DC7C6F6798536943FD5522170499C51
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/dm-12
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: system_ext
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 103317504
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/dm-15
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 7C8AA3A9D60C8019F524606F4A670028E2972B60AC21C3D75C24EE97B4CD5802
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/dm-15
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: boot
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 100663296
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/boot_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: F13BDB122BE5CDF3089F68D88D5612D0FFF4EE5C335D9A5653C66BEC34F17CAF
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/boot_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: vbmeta
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 8192
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/vbmeta_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 66E8FB9E61FDA65B455C8BE92210BD3C813A15BF584A538826661B6966746EA7
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/vbmeta_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: vbmeta_system
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 4096
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/vbmeta_system_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 2936E34B1A477FBA182378C947632EF4714FAD9491CEAB2D61198B03A70DD986
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/vbmeta_system_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: vendor_boot
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 100663296
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/vendor_boot_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 6FBA8C562D774260EAE1988DC49B9C70C19A0B7F5885FB2C0C0DA9BC3AF63900
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/vendor_boot_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: abl
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 167936
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/abl_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: C482364ABE238C4A3F3A0701B3CCB77DC70FE3F01C8E181D33CE10794EC33621
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/abl_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: aop
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 192512
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/aop_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: BBCC0DC6896B9EDDEB54A0FEB2A7F0D225B10C9BE9A3E4044565C1B6668A0728
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/aop_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: bluetooth
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 225280
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/bluetooth_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 070255DE2061A1ADB4A907914331143D373A8929F1C7EC2D6F4CBE547C8B69A7
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootdevice/by-name/bluetooth_b
+07-13 19:36:15.032  1230  1230 I update_engine:   filesystem_type:
+07-13 19:36:15.032  1230  1230 I update_engine: Partition: cmnlib
+07-13 19:36:15.032  1230  1230 I update_engine:   source_size: 0
+07-13 19:36:15.032  1230  1230 I update_engine:   source_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   source_hash:
+07-13 19:36:15.032  1230  1230 I update_engine:   target_size: 401408
+07-13 19:36:15.032  1230  1230 I update_engine:   target_path: /dev/block/bootdevice/by-name/cmnlib_b
+07-13 19:36:15.032  1230  1230 I update_engine:   target_hash: 0D1240E6C23D2EA1FD1707AFDAA907CA10680037C7AC1BB7202A5D53F6022741
+07-13 19:36:15.032  1230  1230 I update_engine:   run_postinstall: false
+07-13 19:36:15.032  1230  1230 I update_engine:   postinstall_path:
+07-13 19:36:15.032  1230  1230 I update_engine:   readonly_target_path: /dev/block/bootde
+07-13 19:36:15.085  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 0 (system) on device /dev/block/dm-9
+07-13 19:36:15.123  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition system
+07-13 19:36:43.354  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of system: rE8YjYUd9buCiI/IS3+hNNivYeao+LBDzhYTjPB245s=
+07-13 19:36:45.571  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 1 (vendor) on device /dev/block/dm-12
+07-13 19:36:45.631  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition vendor
+07-13 19:36:54.781  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of vendor: 7RVcjb/RXIfD3X2xfOstck3HxvZ5hTaUP9VSIXBJnFE=
+07-13 19:36:55.583  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 2 (system_ext) on device /dev/block/dm-15
+07-13 19:36:55.629  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition system_ext
+07-13 19:36:57.409  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of system_ext: fIqjqdYMgBn1JGBvSmcAKOKXK2CsIcPXXCTul7TNWAI=
+07-13 19:36:57.582  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 3 (boot) on device /dev/block/bootdevice/by-name/boot_b
+07-13 19:36:57.636  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition boot
+07-13 19:36:58.230  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of boot: 8TvbEivlzfMIn2jYjVYS0P/07lwzXZpWU8Zr7DTxfK8=
+07-13 19:36:58.393  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 4 (vbmeta) on device /dev/block/bootdevice/by-name/vbmeta_b
+07-13 19:36:58.440  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition vbmeta
+07-13 19:36:58.485  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of vbmeta: Zuj7nmH9pltFXIvpIhC9PIE6Fb9YSlOIJmYbaWZ0bqc=
+07-13 19:36:58.523  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 5 (vbmeta_system) on device /dev/block/bootdevice/by-name/vbmeta_system_b
+07-13 19:36:58.571  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition vbmeta_system
+07-13 19:36:58.615  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of vbmeta_system: KTbjSxpHf7oYI3jJR2Mu9HFPrZSRzqstYRmLA6cN2YY=
+07-13 19:36:58.661  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 6 (vendor_boot) on device /dev/block/bootdevice/by-name/vendor_boot_b
+07-13 19:36:58.710  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition vendor_boot
+07-13 19:36:59.312  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of vendor_boot: b7qMVi13QmDq4ZiNxJuccMGaC39YhfssDA2pvDr2OQA=
+07-13 19:36:59.484  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 7 (abl) on device /dev/block/bootdevice/by-name/abl_b
+07-13 19:36:59.533  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition abl
+07-13 19:36:59.582  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of abl: xII2Sr4jjEo/OgcBs8y3fccP4/AcjhgdM84QeU7DNiE=
+07-13 19:36:59.631  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 8 (aop) on device /dev/block/bootdevice/by-name/aop_b
+07-13 19:36:59.669  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition aop
+07-13 19:36:59.719  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of aop: u8wNxolrnt3rVKD+sqfw0iWxDJvpo+QERWXBtmaKByg=
+07-13 19:36:59.759  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 9 (bluetooth) on device /dev/block/bootdevice/by-name/bluetooth_b
+07-13 19:36:59.801  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition bluetooth
+07-13 19:36:59.849  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of bluetooth: BwJV3iBhoa20qQeRQzEUPTc6iSnxx+wtb0y+VHyLaac=
+07-13 19:36:59.891  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 10 (cmnlib) on device /dev/block/bootdevice/by-name/cmnlib_b
+07-13 19:36:59.945  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition cmnlib
+07-13 19:37:00.003  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of cmnlib: DRJA5sI9LqH9Fwev2qkHyhBoADfHrBu3ICpdU/YCJ0E=
+07-13 19:37:00.065  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 11 (cmnlib64) on device /dev/block/bootdevice/by-name/cmnlib64_b
+07-13 19:37:00.116  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition cmnlib64
+07-13 19:37:00.164  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of cmnlib64: pJA95cHNvPSkFnP1k9m7Q3rsN8NfT+IY6ZaIRvpyMvc=
+07-13 19:37:00.220  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 12 (devcfg) on device /dev/block/bootdevice/by-name/devcfg_b
+07-13 19:37:00.267  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition devcfg
+07-13 19:37:00.314  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of devcfg: L4Cb9dacdDdD1h9IIJtUwaMRRIl5XmbxfQojtoA5qu8=
+07-13 19:37:00.353  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 13 (dsp) on device /dev/block/bootdevice/by-name/dsp_b
+07-13 19:37:00.387  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition dsp
+07-13 19:37:00.791  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of dsp: N8JndxdQU3F3FDfY2HFj7lViIBPtCe9mrO7PQmQ73uw=
+07-13 19:37:00.927  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 14 (dtbo) on device /dev/block/bootdevice/by-name/dtbo_b
+07-13 19:37:00.973  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition dtbo
+07-13 19:37:01.063  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of dtbo: PQDQOzrG0Ovv/FdTyUr/EP7TJmvDsdUESNZpC4qBRXI=
+07-13 19:37:01.122  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 15 (hyp) on device /dev/block/bootdevice/by-name/hyp_b
+07-13 19:37:01.169  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition hyp
+07-13 19:37:01.229  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of hyp: ovPRRPhQ6u6Pq4r4QC5j21rlwnQLoJVuRtFdCtiAzn4=
+07-13 19:37:01.284  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 16 (keymaster) on device /dev/block/bootdevice/by-name/keymaster_b
+07-13 19:37:01.320  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition keymaster
+07-13 19:37:01.373  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of keymaster: lYekC8sfCsCzhLUYOOlfwcRBi1BdcurhwSqmR/wLnqQ=
+07-13 19:37:01.412  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 17 (modem) on device /dev/block/bootdevice/by-name/modem_b
+07-13 19:37:01.454  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition modem
+07-13 19:37:01.675  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of modem: 2g5yfooyMJnnxnfHCwmtEGv9Y8+hTdh/BT/7bMH0I1c=
+07-13 19:37:01.757  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 18 (qupfw) on device /dev/block/bootdevice/by-name/qupfw_b
+07-13 19:37:01.810  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition qupfw
+07-13 19:37:01.847  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of qupfw: 9sgZXPWNfsoDPD1fP3QRgIW0wu4CmgrOh4kX1+21pKw=
+07-13 19:37:01.886  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 19 (secs2d) on device /dev/block/bootdevice/by-name/secs2d_b
+07-13 19:37:01.923  1230  1230 I update_engine: type=1400 audit(0.0:509): avc: denied { read } for name="sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:37:01.923  1230  1230 I update_engine: type=1400 audit(0.0:510): avc: denied { open } for path="/dev/block/sde32" dev="tmpfs" ino=31822 scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:37:01.923  1230  1230 I update_engine: type=1400 audit(0.0:511): avc: denied { ioctl } for path="/dev/block/sde32" dev="tmpfs" ino=31822 ioctlcmd=0x125e scontext=u:r:update_engine:s0 tcontext=u:object_r:block_device:s0 tclass=blk_file permissive=1
+07-13 19:37:01.932  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition secs2d
+07-13 19:37:01.972  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of secs2d: GplHZ6SfPOb8WECdcyBWWjErtpQCpddIajpjvbqzklo=
+07-13 19:37:02.008  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 20 (tz) on device /dev/block/bootdevice/by-name/tz_b
+07-13 19:37:02.055  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition tz
+07-13 19:37:02.131  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of tz: ilv69NqaL/iIvgT4Xr8d+nZUCSOcwCj5AcsWYHxgNvA=
+07-13 19:37:02.174  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 21 (uefisecapp) on device /dev/block/bootdevice/by-name/uefisecapp_b
+07-13 19:37:02.221  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition uefisecapp
+07-13 19:37:02.268  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of uefisecapp: wxhZTAptYJmAtfuqQYlbokvu9rOixLJMy717B2jENVE=
+07-13 19:37:02.314  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 22 (xbl) on device /dev/block/bootdevice/by-name/xbl_b
+07-13 19:37:02.365  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition xbl
+07-13 19:37:02.435  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of xbl: CMhrP7l824k9lheYgJY2fMSl5DkfIuVwtpqIp7kTmUU=
+07-13 19:37:02.488  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(346)] Hashing partition 23 (xbl_config) on device /dev/block/bootdevice/by-name/xbl_config_b
+07-13 19:37:02.539  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(396)] Verity writes disabled on partition xbl_config
+07-13 19:37:02.593  1230  1230 I update_engine: [INFO:filesystem_verifier_action.cc(597)] Hash of xbl_config: uHlC1znX/q21khFaGxw4Kqvg41TNb2oDsXdyrfHyFwo=
+07-13 19:37:02.644  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:37:02.685  1230  1230 I update_engine: [INFO:update_attempter_android.cc(679)] Download Action: set download progress = 0
+07-13 19:37:02.746  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished FilesystemVerifierAction with code ErrorCode::kSuccess
+07-13 19:37:02.796  1230  1230 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting PostinstallRunnerAction
+07-13 19:37:02.842  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(479)] Switch OS Update Objects:1
+07-13 19:37:02.885  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(485)] Not include firmware file
+07-13 19:37:02.919  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(486)] target_slot1
+07-13 19:37:02.955  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(1053)] Snapshot writes are done.
+07-13 19:37:03.001  1230  1230 I update_engine: Wipe is not scheduled. Deleting forward merge indicator.
+07-13 19:37:03.275  1230  1230 I update_engine: Successfully unmapped snapshot vendor_b
+07-13 19:37:03.488  1230  1230 I update_engine: Successfully unmapped snapshot system_ext_b
+07-13 19:37:03.784  1230  1230 I update_engine: Successfully unmapped snapshot system_b
+07-13 19:37:03.831  1230  1230 I update_engine: [INFO:dynamic_partition_control_android.cc(296)] Destroying [system_b, system_ext_b, vendor_b] from device mapper
+07-13 19:37:03.862  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(402)] Unmapped all partitions.
+07-13 19:37:03.902  1230  1230 I update_engine: [INFO:postinstall_runner_action.cc(424)] All post-install commands succeeded
+07-13 19:37:03.943  1230  1230 I update_engine: [INFO:update_attempter_android.cc(658)] Download Action: set download progress = 0
+07-13 19:37:03.998  1230  1230 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished last action PostinstallRunnerAction with code ErrorCode::kSuccess
+07-13 19:37:04.043  1230  1230 I update_engine: [INFO:update_attempter_android.cc(594)] Processing Done.
+07-13 19:37:04.087  1230  1230 I update_engine: [INFO:update_attempter_android.cc(607)] Update successfully applied, waiting to reboot.
+07-13 19:37:04.146  1230  1230 I update_engine: Successfully unmapped snapshot vendor_b
+07-13 19:37:04.189  1230  1230 I update_engine: Successfully unmapped snapshot system_ext_b
+07-13 19:37:04.240  1230  1230 I update_engine: Successfully unmapped snapshot system_b
+07-13 19:37:04.289  1230  1230 I update_engine: [INFO:update_attempter_android.cc(776)] Object is not only CONFIGFILE, change to [REBOOT]
+07-13 19:37:04.344  1230  1230 I update_engine: [INFO:metrics_reporter_android.cc(159)] Current update attempt downloads 933 bytes data
+07-13 19:37:04.410  1230  1230 I update_engine: [INFO:metrics_utils.cc(351)] Updated Marker = 1/1/1970 0:40:03 GMT
+07-13 19:37:04.458  1230  1230 I update_engine: [INFO:update_attempter_android.cc(634)] End Update:file:///data/FULL_UPDATE.BIN
+
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ #

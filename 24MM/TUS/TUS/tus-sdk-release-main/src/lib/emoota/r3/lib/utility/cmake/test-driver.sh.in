@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# TODO: Summary Documentation.
+set -e
+
+#TODO Could add environment check and set -x to provide sort of debug
+#flag here.
+
+#Export test name and test description if defind && set.
+if [[ -z ${EMOOTA_TEST_NAME+x} && -n ${EMOOTA_TEST_NAME} ]]; then
+    echo "EMOOTA_TEST_NAME is unset";
+else
+    export EMOOTA_TEST_NAME;
+fi
+if [[ -z ${EMOOTA_TEST_DESCRIPTION+x} && -n ${EMOOTA_TEST_DESCRIPTION} ]]; then
+    echo "EMOOTA_TEST_DESC is unset";
+else
+    export EMOOTA_TEST_DESCRIPTION;
+fi
+
+# This could be parameterized and injected from cmake configuration.
+data_file_suffix="gcda"
+
+find @CMAKE_BINARY_DIR@ -type f -name "*.${data_file_suffix}" -delete
+
+#exec'ing in subshell supressed stdout/stderr.  Lazily toggled fail
+#(e) flag as workaround.
+set +e;
+@test_cmd@
+TEST_EXIT_CODE=$?
+set -e;
+
+#conditionally collect code coverage.
+if [[ 0 -ne @_EMOOTA_COLLECT_CODE_COVERAGE@ ]]; then
+
+    {
+        @CMAKE_COMMAND@ -DEMOOTA_COVERAGE_ARCHIVE:FILEPATH=@test_archive@    \
+         -DEMOOTA_COVERAGE_SOURCE_DIR:PATH=@CMAKE_SOURCE_DIR@ \
+         -DEMOOTA_COVERAGE_BUILD_DIR:PATH=@CMAKE_BINARY_DIR@  \
+         -P @_emoota_test_coverage_script@
+
+        find @CMAKE_CURRENT_BINARY_DIR@ -type f -name "*.${data_file_suffix}" -delete
+    } 2>/dev/null
+fi
+
+exit ${TEST_EXIT_CODE}

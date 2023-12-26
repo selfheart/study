@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Tutorial &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.1.1. Uninstall SDK 03X" href="uninstall.html" />
+    <link rel="prev" title="2. Release Note" href="releasenote.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#uninstall-old-sdk">3.1. Uninstall old SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="uninstall.html">3.1.1. Uninstall SDK 03X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uninstall.html#uninstall-sdk-02x">3.1.2. Uninstall SDK 02X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uninstall.html#uninstall-sdk-010">3.1.3. Uninstall SDK 010</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">3.2. Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#host-tools-environment">3.2.1. Host Tools environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#emoota-sdp-user-account">3.2.2. EMOOTA SDP user account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#target-device-runtime-environment">3.2.3. Target Device runtime environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-host-tools">3.3. How to install Host Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-source-code-distributed-user-in-addition-to-host-tools-binaries">3.3.1. (For source code distributed user in addition to Host Tools binaries)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-build-target-device-components">3.4. How to build Target Device components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux-arm64">3.4.1. Linux arm64</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-the-yocto-sdk">3.4.1.1. Build the Yocto SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-the-yocto-sdk-on-docker">3.4.1.2. Install the Yocto SDK on Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-with-the-yocto-sdk-on-docker">3.4.1.3. Build with the Yocto SDK on Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#qnx-7-1-arm64">3.4.2. QNX 7.1 arm64</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cockpit-ivi-ic-sdk">3.4.3. Cockpit IVI/IC SDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">3.4.3.1. Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-esdk">3.4.3.2. Enable eSDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-tus">3.4.3.3. Build TUS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tutorials">3.5. Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tup-for-the-tutorials-1-and-2">3.5.1. TUP for the tutorials #1 and #2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tup-for-the-tutorial-3">3.5.2. TUP for the tutorial #3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial-1-deploy-a-tup-directly-to-target-device">3.5.3. Tutorial 1 (deploy a TUP directly to Target Device)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/tutorial_local.html">3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial-2-using-devhttpd-provider">3.5.4. Tutorial 2 (using DevHTTPd provider)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/tutorial_devhttpd.html">3.5.4.1. Tutorial 2 (using DevHTTPd provider)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial-3-using-emoota-sdp-v3-0">3.5.5. Tutorial 3 (using EMOOTA SDP v3.0)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html">3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-further-information">3.6. For further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli_reference.html">4. TUS CLI Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="tutorial">
+<h1><span class="section-number">3. </span>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This page shows you step-by-step instruction on how to get started with the TUS SDK. In this tutorial, you can learn how to :</p>
+<ul class="simple">
+<li><p>generate TUP with Ubuntu/Debian package and text data as Update Targets.</p></li>
+<li><p>use some providers for update</p>
+<ul>
+<li><p>localfs provider</p></li>
+<li><p>DevHTTPd provider</p></li>
+<li><p>( only EMOOTA SDP licensed user ) EMOOTA SDP v3.0 provider</p></li>
+</ul>
+</li>
+<li><p>run Update Orchestrator, Domain Controller (including Updater) so that the TUP is used for updating the Update Targets.</p></li>
+</ul>
+<div class="section" id="uninstall-old-sdk">
+<h2><span class="section-number">3.1. </span>Uninstall old SDK<a class="headerlink" href="#uninstall-old-sdk" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to the following links.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html">3.1.1. Uninstall SDK 03X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html#uninstall-sdk-02x">3.1.2. Uninstall SDK 02X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html#uninstall-sdk-010">3.1.3. Uninstall SDK 010</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2><span class="section-number">3.2. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>For <a class="reference external" href="#tutorials">tutorials #1, #2</a>, the following architecture of devices are assumed.</p>
+<ol class="simple">
+<li><p>Host Tools environment</p>
+<ul class="simple">
+<li><p>httpd server shall be installed in the case of Tutorial 2</p></li>
+</ul>
+</li>
+<li><p>Target Device #1 (RaspberryPi4 #1)</p>
+<ul class="simple">
+<li><p>Update Orchestrator and Domain Controller are installed</p></li>
+</ul>
+</li>
+<li><p>Target Device #2 (RaspberryPi4 #2)</p>
+<ul class="simple">
+<li><p>Domain Controller is installed</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Assumed Device Architecture" src="../_images/tutorial_architecture.drawio.svg" /></p>
+<p>For <a class="reference external" href="#tutorials">tutorial #3</a>, four Target Devices and EMOOTA SDP v3.0 license required.
+Details are written in the tutorial page.</p>
+<p>Detail prerequisites are the following.</p>
+<div class="section" id="host-tools-environment">
+<h3><span class="section-number">3.2.1. </span>Host Tools environment<a class="headerlink" href="#host-tools-environment" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu 20.04</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">bash</span></code> (4.4 or later), <code class="docutils literal notranslate"><span class="pre">docker</span></code> (20.10 or later), <code class="docutils literal notranslate"><span class="pre">jq</span></code> (1.5-1 or later) and <code class="docutils literal notranslate"><span class="pre">uuidgen</span></code> (2.31.1 or later) are at least required.</p>
+</div>
+</div>
+<div class="section" id="emoota-sdp-user-account">
+<h3><span class="section-number">3.2.2. </span>EMOOTA SDP user account<a class="headerlink" href="#emoota-sdp-user-account" title="Permalink to this headline">¶</a></h3>
+<p>For tutorial #3 which use EMOOTA SDP, EMOOTA SDP user account is needed.
+If you do not have EMOOTA SDP account, tutorials which not use EMOOTA SDP can be executed.</p>
+</div>
+<div class="section" id="target-device-runtime-environment">
+<h3><span class="section-number">3.2.3. </span>Target Device runtime environment<a class="headerlink" href="#target-device-runtime-environment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>gRPC runtime</p></li>
+<li><p>basic POSIX commands</p>
+<ul>
+<li><p>expected to have <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code> and <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-install-host-tools">
+<h2><span class="section-number">3.3. </span>How to install Host Tools<a class="headerlink" href="#how-to-install-host-tools" title="Permalink to this headline">¶</a></h2>
+<p>First of all, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xzcat ./etc/docker/tus_sdk.tar.xz <span class="p">|</span> docker load
+</pre></div>
+</div>
+<p>After loading or building the image, please define environment variables below or <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">bin/activate.sh</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export TUS_SDK=&quot;&lt;path to the root directory of the TUS SDK&gt;&quot;
+$ export PATH=$PATH:$TUS_SDK/bin/
+</pre></div>
+</div>
+<p>You can check the availability of <code class="docutils literal notranslate"><span class="pre">tus</span></code> command by displaying help message.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus -h
+
+Usage: tus [COMMAND] [OPTIONS]
+
+Description:
+  TUS-SDK command
+
+Options:
+  -h    print help message
+  -v    print TUS SDK version
+
+Commands:
+  tup           execute tup operations with subcommand.
+  pdp           execute pdp operations with subcommand.
+  dtool         execute deploymentool operations with subcommand.
+  delta         execute delta update operations with subcommand.
+</pre></div>
+</div>
+<div class="section" id="for-source-code-distributed-user-in-addition-to-host-tools-binaries">
+<h3><span class="section-number">3.3.1. </span>(For source code distributed user in addition to Host Tools binaries)<a class="headerlink" href="#for-source-code-distributed-user-in-addition-to-host-tools-binaries" title="Permalink to this headline">¶</a></h3>
+<p>If necessary, you can modify the source code and then build them by the following instructions.</p>
+<p>On the directory which the package is extracted, please build and run a docker container to build Host-Tools.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker build -t tus-tool-build:<span class="k">$(</span>cat TUS_SDK_VERSION<span class="k">)</span> -f ./etc/docker/sdk_tool/Dockerfile.build .
+docker run -it --rm -u <span class="sb">`</span>id -u<span class="sb">`</span>:<span class="sb">`</span>id -g<span class="sb">`</span> -e <span class="nv">CARGO_HOME</span><span class="o">=</span>.cargo -v <span class="nv">$PWD</span>:/tus tus-tool-build:<span class="k">$(</span>cat TUS_SDK_VERSION<span class="k">)</span> /bin/bash
+</pre></div>
+</div>
+<p>And then build Host Tools and copy SDK root directory,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">./</span><span class="n">tus</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">G</span> <span class="n">Ninja</span> <span class="o">-</span><span class="n">B</span> <span class="o">/</span><span class="n">tus</span><span class="o">/</span><span class="n">build_tool</span> <span class="o">-</span><span class="n">DONLY_HOST_TOOLS</span><span class="o">=</span><span class="n">TRUE</span> <span class="o">/</span><span class="n">tus</span>
+<span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">/</span><span class="n">tus</span><span class="o">/</span><span class="n">build_tool</span> <span class="o">--</span><span class="n">target</span> <span class="n">install</span>
+<span class="n">exit</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">a</span> <span class="o">./</span><span class="n">build_tool</span><span class="o">/</span><span class="nb">bin</span> <span class="o">./</span>
+</pre></div>
+</div>
+<p>Finally please build a docker image to run Host Tools.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker build -t tus-docker-registry/sdk:$(cat TUS_SDK_VERSION) -f ./etc/docker/sdk_tool/Dockerfile .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-build-target-device-components">
+<h2><span class="section-number">3.4. </span>How to build Target Device components<a class="headerlink" href="#how-to-build-target-device-components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux-arm64">
+<h3><span class="section-number">3.4.1. </span>Linux arm64<a class="headerlink" href="#linux-arm64" title="Permalink to this headline">¶</a></h3>
+<p>This subsection shows how to cross-build Target Device components with the Yocto SDK for Ubuntu 22.04 arm64 architecture.</p>
+<p>Extracted package has directory organization as below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── CMakeLists.txt
+├── README.md
+├── TUS_SDK_VERSION
+├── bin/
+├── docs/
+├── error_code/
+├── etc/
+├── include/
+└── src/
+</pre></div>
+</div>
+<p>Hereafter, <code class="docutils literal notranslate"><span class="pre">TUS_SDK</span></code> directory exported by <code class="docutils literal notranslate"><span class="pre">bin/activate.sh</span></code> is used for working directory in this subsection.</p>
+<div class="section" id="build-the-yocto-sdk">
+<h4><span class="section-number">3.4.1.1. </span>Build the Yocto SDK<a class="headerlink" href="#build-the-yocto-sdk" title="Permalink to this headline">¶</a></h4>
+<p>You need to prepare the Yocto SDK first. This SDK is possible to build from some resources provided by <a class="reference external" href="https://www.yoctoproject.org/software-overview/">Yocto Project</a> and related other project.</p>
+<p>Here is a quick instruction for building the Yocto SDK using docker images. Please build a docker image from <code class="docutils literal notranslate"><span class="pre">etc/docker/cross_build/Dockerfile</span></code> (this step is needed to be done only once).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir build_dir
+$ docker build -t tus-cross-yocto40:latest -f etc/docker/cross_build/Dockerfile .
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">build_dir</span></code> is a working directory on the local storage where you have an access control for reading and writing.</p>
+</div>
+<p>And start this Docker Container mounting the <code class="docutils literal notranslate"><span class="pre">build_dir</span></code> to store the Yocto SDK,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it --rm -u `id -u`:`id -g` -v $TUS_SDK/build_dir:/build_dir --network host tus-cross-yocto40:latest /bin/bash
+</pre></div>
+</div>
+<p>Next is to execute the following instructions in Container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd /build_dir
+
+# configure to build
+$ source /poky/oe-init-build-env rpi-build
+$ cp /cross_build/local.conf conf/local.conf
+
+$ bitbake-layers add-layer /meta-raspberrypi
+$ bitbake-layers add-layer /meta-openembedded/meta-oe
+
+# building yocto image
+$ bitbake core-image-minimal -k
+
+# populating yocto sdk
+$ bitbake core-image-minimal -c populate_sdk
+$ ls -lR ./tmp/deploy/sdk/*.sh
+poky-glibc-x86_64-core-image-minimal-cortexa72-raspberrypi4-64-toolchain-4.0.1.sh
+
+# exit from Container
+$ exit
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please be aware that approximately 60GiB free space will be needed when executing the above <code class="docutils literal notranslate"><span class="pre">bitbake</span></code> and it might take a few hours depending on your environment.</p>
+</div>
+<p>So you can get the Yocto SDK here if build is completed successfully like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ build_dir/rpi-build/tmp/deploy/sdk/poky-glibc-x86_64-core-image-minimal-cortexa72-raspberrypi4-64-toolchain-4.0.1.sh
+</pre></div>
+</div>
+<p>Also, please refer to the links bellow for the detail instructions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.yoctoproject.org/dev/brief-yoctoprojectqs/index.html">Yocto Project Quick Build</a></p></li>
+<li><p><a class="reference external" href="https://github.com/agherzan/meta-raspberrypi">meta-raspberrypi</a></p></li>
+</ul>
+</div>
+<div class="section" id="install-the-yocto-sdk-on-docker">
+<h4><span class="section-number">3.4.1.2. </span>Install the Yocto SDK on Docker<a class="headerlink" href="#install-the-yocto-sdk-on-docker" title="Permalink to this headline">¶</a></h4>
+<p>To build Target Device components, you can use a Docker Container which is based on Ubuntu 20.04 we recommended here. And install the Yocto SDK in container, build Target Device components with it.</p>
+<p>Build a Docker container image from <code class="docutils literal notranslate"><span class="pre">etc/docker/cross_build/Dockerfile.ubuntu2004</span></code> (this step is needed to be done only once).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker build -t tus-cross-build:latest -f etc/docker/cross_build/Dockerfile.ubuntu2004 etc/docker/cross_build
+</pre></div>
+</div>
+<p>And start this Docker container mounting and log in. This container mounts 2 directories: <code class="docutils literal notranslate"><span class="pre">build_dir</span></code> is the directory where we have built the Yocto SDK above, and another is the current working directory (should be same as the <code class="docutils literal notranslate"><span class="pre">TUS_SDK</span></code> directory).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it --rm -u `id -u`:`id -g` -v $TUS_SDK/build_dir:/build_dir -v $TUS_SDK:/tus --network host tus-cross-build:latest /bin/bash
+</pre></div>
+</div>
+<p>Then install the Yocto SDK to the <code class="docutils literal notranslate"><span class="pre">yocto_sdk</span></code> directory for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash /build_dir/rpi-build/tmp/deploy/sdk/poky-glibc-x86_64-core-image-minimal-cortexa72-raspberrypi4-64-toolchain-4.0.1.sh -y -d /build_dir/yocto_sdk
+Poky (Yocto Project Reference Distro) SDK installer version 4.0.1
+=================================================================
+You are about to install the SDK to &quot;/build_dir/yocto_sdk&quot;. Proceed [Y/n]? Y
+Extracting SDK........................................................................done
+Setting it up...done
+SDK has been successfully set up and is ready to be used.
+Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
+ $ . /build_dir/yocto_sdk/environment-setup-cortexa72-poky-linux
+
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installing Yocto SDK requires about 1.8GB free space.</p>
+</div>
+</div>
+<div class="section" id="build-with-the-yocto-sdk-on-docker">
+<h4><span class="section-number">3.4.1.3. </span>Build with the Yocto SDK on Docker<a class="headerlink" href="#build-with-the-yocto-sdk-on-docker" title="Permalink to this headline">¶</a></h4>
+<p>When you use the Yocto SDK, you need to source the environment setup script like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ .  /build_dir/yocto_sdk/environment-setup-cortexa72-poky-linux
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do above on each time you wish to use the SDK in a new shell session.</p>
+</div>
+<p>So you are ready to build Target Device components with the Yocto SDK. Executes following command lines in the container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake -G Ninja -B /tus/build /tus
+$ cmake --build /tus/build --target=install
+</pre></div>
+</div>
+<p>After compilation, Target Device binary and Target Device config file are produced in <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/build/deploy/target/{uo,dc}</span></code>.</p>
+<p>In order to proceed to the <a class="reference external" href="#tutorials">tutorials</a>, please send <code class="docutils literal notranslate"><span class="pre">build/deploy/target/uo</span></code> to Target Device which will operate as Update Orchestrator,
+and <code class="docutils literal notranslate"><span class="pre">build/deploy/target/dc</span></code> to Target Devices which will operate as Domain Controller.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the <a class="reference external" href="#tutorials">tutorials</a>, directory structure under <code class="docutils literal notranslate"><span class="pre">build/deploy</span></code> is assumed to be retained after sending it to Target Device. For example, <code class="docutils literal notranslate"><span class="pre">build/deploy/target/uo</span></code> is assumed to be sent to Target Device as <code class="docutils literal notranslate"><span class="pre">&lt;target</span> <span class="pre">work</span> <span class="pre">dir&gt;/deploy/target/uo</span></code>
+and <code class="docutils literal notranslate"><span class="pre">build/deploy/target/dc</span></code> is assumed to be sent to Target Device as <code class="docutils literal notranslate"><span class="pre">&lt;target</span> <span class="pre">work</span> <span class="pre">dir&gt;/deploy/target/dc</span></code>.</p>
+</div>
+<p>And you also need to send runtime libraries which are provided by the Yocto SDK. The Target Device binaries are depended on those libraries at runtime. Those are located in <code class="docutils literal notranslate"><span class="pre">build_dir/yocto_sdk/sysroots/cortexa72-poky-linux/usr/lib/</span></code>.</p>
+<p>And set <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> to the path on target like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export LD_LIBRARY_PATH=&lt;Runtime Path&gt;/cortexa72-poky-linux/usr/lib
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="qnx-7-1-arm64">
+<h3><span class="section-number">3.4.2. </span>QNX 7.1 arm64<a class="headerlink" href="#qnx-7-1-arm64" title="Permalink to this headline">¶</a></h3>
+<p>To cross-compile for QNX, the host system shall have</p>
+<ul class="simple">
+<li><p>CMake &gt;= 3.13</p></li>
+<li><p>ninja</p></li>
+<li><p>protobuf &amp; gRPC compiler that are compatible with gRPC 1.30.2</p></li>
+<li><p>Python-grpcio</p></li>
+<li><p>QNX SDP (and its license)</p></li>
+</ul>
+<p>The QNX SDP’s top directory (like <code class="docutils literal notranslate"><span class="pre">~/qnx710</span></code>) will be referenced as <code class="docutils literal notranslate"><span class="pre">${QNX_SDP}</span></code> in this section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Ubuntu 22.04, install following packages will suffice the build dependencies (except QNX SDP):</p>
+<ul class="simple">
+<li><p>cmake</p></li>
+<li><p>ninja-build</p></li>
+<li><p>protobuf-compiler-grpc</p></li>
+<li><p>python3-grpcio</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>activate QNX SDP</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source ${QNX_SDP}/qnxsdp-env.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>extract the TUS SDK (its top directory will be referenced as <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code> below)</p></li>
+<li><p>run CMake with a tool-chain file (etc/cmake/toolchain/qnx710.cmake) at <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(TUS_SDK)$ cmake -B build -DCMAKE_TOOLCHAIN_FILE=./etc/cmake/toolchain/qnx710.cmake . -G Ninja
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>build using CMake in <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code>/build</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(TUS_SDK)/build$ cmake --build . --target=install
+</pre></div>
+</div>
+<p>A gRPC library for QNX will be built as <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/build/src/lib/grpc/libgrpc.so.10.0.0</span></code>. The file shall be copied to one of its library directory (like <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code>) as <code class="docutils literal notranslate"><span class="pre">libgrpc.so.10</span></code>, unless a matching gRPC library is already available on the target.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TUS depends on following libraries provided by QNX SDP</p>
+<ul class="simple">
+<li><p>libcares</p></li>
+<li><p>libssl</p></li>
+<li><p>libz</p></li>
+</ul>
+<p>if a target does not have some of the libraries, they can be copied from QNX SDP to a target’s library directory.
+For example, <code class="docutils literal notranslate"><span class="pre">libcares</span></code> shall be available as <code class="docutils literal notranslate"><span class="pre">${QNX_SDP}/target/qnx7/aarch64le/usr/lib/libcares.so.6</span></code>.</p>
+</div>
+<p>Other build products generated under <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code>/build can be used as Linux arm64.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If EMOOTA SDP v3.0 was going to be used as an update provider, QNX’s default maximum size of stack may not be large enough to complete update successfully. The limit can be changed by running <code class="docutils literal notranslate"><span class="pre">elfnote</span> <span class="pre">-S</span> <span class="pre">[size]</span></code> against the executable <code class="docutils literal notranslate"><span class="pre">uo</span></code>. Recommended value of <code class="docutils literal notranslate"><span class="pre">[size]</span></code> is <code class="docutils literal notranslate"><span class="pre">8192k</span></code> for now.</p>
+<p>For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ elfnote -S 8192k src/target/uo/uo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cockpit-ivi-ic-sdk">
+<h3><span class="section-number">3.4.3. </span>Cockpit IVI/IC SDK<a class="headerlink" href="#cockpit-ivi-ic-sdk" title="Permalink to this headline">¶</a></h3>
+<p>We support cross-compiling with Cockpit IVI/IC SDK version 5.3.0.</p>
+<div class="section" id="id1">
+<h4><span class="section-number">3.4.3.1. </span>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Before proceeding, please make sure that Cockpit IVI/IC SDK are downloaded and Yocto eSDK is installed.
+Also, please set up the runtime on Qualcomm SA6155P.</p>
+<p>For further information, please refer to the development guide of Cockpit IVI/IC SDK.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Install directory of cockpit SDK are referenced as <code class="docutils literal notranslate"><span class="pre">${COCKPIT_SDK_INSTALL_DIR}</span></code> in steps below.</p>
+</div>
+</div>
+<div class="section" id="enable-esdk">
+<h4><span class="section-number">3.4.3.2. </span>Enable eSDK<a class="headerlink" href="#enable-esdk" title="Permalink to this headline">¶</a></h4>
+<p>Please enable the eSDK based on your pick of the SDK, which would be IVI or IC.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>. ${COCKPIT_SDK_INSTALL_DIR}/environment-setup-aarch64-arene-linux
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-tus">
+<h4><span class="section-number">3.4.3.3. </span>Build TUS<a class="headerlink" href="#build-tus" title="Permalink to this headline">¶</a></h4>
+<p>Build TUS using CMake at its top directory where would be referenced as <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}</span></code>.
+By running commands below, build products for Qualcomm SA6155P will be generated under <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/build</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ${TUS_SDK}
+(TUS_SDK)$ cmake -DTUS_LIBGRPC=module -DTUS_LIBLZ4=module -B build -DTUS_LIBWEBSOCKETS=module -G Ninja .
+(TUS_SDK)$ cmake --build build --target install
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to run TUS components on Cockpit IVI/IC runtime, <code class="docutils literal notranslate"><span class="pre">${TUS_SDK}/build/src/lib/grpc/libgrpc.so.10</span></code> is required to be sent to target’s library directory such as <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h2><span class="section-number">3.5. </span>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<p>There are three tutorials available in this SDK, depending on the different ways of deploying TUP to Target Device.</p>
+<ul class="simple">
+<li><p>Tutorial 1</p>
+<ul>
+<li><p>Deploy a TUP file to the Target Device directly and Update Orchestrator will get it to update/install it.</p></li>
+</ul>
+</li>
+<li><p>Tutorial 2</p>
+<ul>
+<li><p>Deploy a TUP file to the httpd server. Update Orchestrator will fetch TUP from httpd to update/install it.</p></li>
+</ul>
+</li>
+<li><p>Tutorial 3</p>
+<ul>
+<li><p>Upload a TUP file to EMOOTA SDP v3.0. Update Orchestrator will download TUP from EMOOTA SDP v3.0 to update/install it.</p></li>
+<li><p>This tutorial requires four Target Devices.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="tup-for-the-tutorials-1-and-2">
+<h3><span class="section-number">3.5.1. </span>TUP for the tutorials #1 and #2<a class="headerlink" href="#tup-for-the-tutorials-1-and-2" title="Permalink to this headline">¶</a></h3>
+<p>In order to proceed the following tutorials, you need to generate TUP file containing two Inner Packages. The first Inner Package has Ubuntu/Debian package and the second has text file as Update Targets respectively. The both Inner Package are also in TUP format and text data in the second Inner Package would be compressed.</p>
+<ul class="simple">
+<li><p>TUP file</p>
+<ul>
+<li><p>signature added</p></li>
+<li><p>Inner Package #1</p>
+<ul>
+<li><p>[<strong>need to prepare</strong>] .deb file as Update Target</p>
+<ul>
+<li><p>will not be compressed (it is because the file is already compressed as a package.)</p></li>
+</ul>
+</li>
+<li><p>assumed to be installed/updated on RaspberryPi4 #1 which has Update Orchestrator and Domain Controller</p></li>
+</ul>
+</li>
+<li><p>Inner Package #2</p>
+<ul>
+<li><p>[<strong>need to prepare</strong>] .txt file as Update Target</p>
+<ul>
+<li><p>will be compressed</p></li>
+</ul>
+</li>
+<li><p>assumed to be installed/updated on RaspberryPi4 #2 which has Domain Controller</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="TUP for tutorial" src="../_images/010tutorial_tup.drawio.svg" /></p>
+</div>
+<div class="section" id="tup-for-the-tutorial-3">
+<h3><span class="section-number">3.5.2. </span>TUP for the tutorial #3<a class="headerlink" href="#tup-for-the-tutorial-3" title="Permalink to this headline">¶</a></h3>
+<p>Tutorial #3 requires 4 Target Devices so that outer TUP has 4 Inner Packages.
+Two out of four Inner Packages include compressed .txt file and the others include .deb file.
+For the details, please refer to the tutorial page.</p>
+</div>
+<div class="section" id="tutorial-1-deploy-a-tup-directly-to-target-device">
+<h3><span class="section-number">3.5.3. </span>Tutorial 1 (deploy a TUP directly to Target Device)<a class="headerlink" href="#tutorial-1-deploy-a-tup-directly-to-target-device" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial_local.html">3.5.3.1. Tutorial 1 (deploy a TUP directly to Target Device)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_local.html#tup-generation">3.5.3.1.1. TUP Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_local.html#deploy-a-tup-and-configuration-to-target-device">3.5.3.1.2. Deploy a TUP and configuration to Target Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_local.html#run-domain-controller-and-update-orchestrator">3.5.3.1.3. Run Domain Controller and Update Orchestrator</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tutorial-2-using-devhttpd-provider">
+<h3><span class="section-number">3.5.4. </span>Tutorial 2 (using DevHTTPd provider)<a class="headerlink" href="#tutorial-2-using-devhttpd-provider" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial_devhttpd.html">3.5.4.1. Tutorial 2 (using DevHTTPd provider)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_devhttpd.html#tup-generation">3.5.4.1.1. TUP Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_devhttpd.html#configure-httpd-on-your-host-pc-and-place-tup">3.5.4.1.2. Configure httpd on your host PC and place TUP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_devhttpd.html#deploy-configurations-to-target-device">3.5.4.1.3. Deploy Configurations to Target Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_devhttpd.html#run-domain-controller-and-update-orchestrator">3.5.4.1.4. Run Domain Controller and Update Orchestrator</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tutorial-3-using-emoota-sdp-v3-0">
+<h3><span class="section-number">3.5.5. </span>Tutorial 3 (using EMOOTA SDP v3.0)<a class="headerlink" href="#tutorial-3-using-emoota-sdp-v3-0" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html">3.5.5.1. Tutorial 3 (using EMOOTA SDP v3.0)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#target-devices">3.5.5.1.1. Target Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#create-vehicle-resources">3.5.5.1.2. Create vehicle resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#deploy-source-codes-and-configurations-to-target-device-which-update-orchestrator-runs">3.5.5.1.3. Deploy source codes and configurations to Target Device which Update Orchestrator runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#create-update-resources">3.5.5.1.4. Create update resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#create-tup">3.5.5.1.5. Create TUP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#create-campaigns">3.5.5.1.6. Create campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tutorial_using_emoota_sdpv3.html#run-in-vehicle-components">3.5.5.1.7. Run In-Vehicle Components</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="for-further-information">
+<h2><span class="section-number">3.6. </span>For further information<a class="headerlink" href="#for-further-information" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to <a class="reference internal" href="cli_reference.html"><span class="doc std std-doc">CLI Reference</span></a> for the details of the Host Tools commands.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="uninstall.html" class="btn btn-neutral float-right" title="3.1.1. Uninstall SDK 03X" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="releasenote.html" class="btn btn-neutral float-left" title="2. Release Note" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

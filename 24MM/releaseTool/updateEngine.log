@@ -1,0 +1,71 @@
+lexus:/ # logcat -s update_engine &
+[1] 9607
+lexus:/ #
+lexus:/ #
+lexus:/ #
+lexus:/ # --------- beginning of main
+08-17 22:53:19.809  1596  1596 I update_engine: [INFO:update_attempter_android.cc(364)] Attempting to reset state from UPDATE_STATUS_IDLE to UpdateStatus::IDLE
+08-17 22:53:19.922  1596  1596 I update_engine: [INFO:update_attempter_android.cc(368)] Cleaning up reserved space for compressed APEX (if any)
+08-17 22:53:20.075  1596  1596 I update_engine: [INFO:dynamic_partition_control_android.cc(1284)] ResetUpdate resetting update state and deleting snapshots.
+08-17 22:53:20.302  1596  1596 I update_engine: [INFO:delta_performer.cc(1389)] Resetting recorded hash for prepared partitions.
+08-17 22:53:20.388  1596  1596 E update_engine: Read state file failed: No such file or directory
+08-17 22:53:20.467  1596  1596 I update_engine: [INFO:update_attempter_android.cc(282)] Using this install plan:
+08-17 22:53:20.528  1596  1596 I update_engine: [INFO:install_plan.cc(79)] InstallPlan:
+08-17 22:53:20.528  1596  1596 I update_engine: type: new_update
+08-17 22:53:20.528  1596  1596 I update_engine: version:
+08-17 22:53:20.528  1596  1596 I update_engine: source_slot: A
+08-17 22:53:20.528  1596  1596 I update_engine: target_slot: B
+08-17 22:53:20.528  1596  1596 I update_engine: initial url: file:///data/full_update.zip
+08-17 22:53:20.528  1596  1596 I update_engine: hash_checks_mandatory: true
+08-17 22:53:20.528  1596  1596 I update_engine: powerwash_required: false
+08-17 22:53:20.528  1596  1596 I update_engine: switch_slot_on_reboot: true
+08-17 22:53:20.528  1596  1596 I update_engine: run_post_install: true
+08-17 22:53:20.528  1596  1596 I update_engine: is_rollback: false
+08-17 22:53:20.528  1596  1596 I update_engine: rollback_data_save_requested: false
+08-17 22:53:20.528  1596  1596 I update_engine: write_verity: true
+08-17 22:53:20.528  1596  1596 I update_engine: Payload: 0
+08-17 22:53:20.528  1596  1596 I update_engine:   urls: ()
+08-17 22:53:20.528  1596  1596 I update_engine:   size: 1074688176
+08-17 22:53:20.528  1596  1596 I update_engine:   metadata_size: 87290
+08-17 22:53:20.528  1596  1596 I update_engine:   metadata_signature:
+08-17 22:53:20.528  1596  1596 I update_engine:   hash: 8F2EC1392F2E507A78074C992A4E4D7931BF842F721FBEF91C353F46E20855ED
+08-17 22:53:20.528  1596  1596 I update_engine:   type: unknown
+08-17 22:53:20.528  1596  1596 I update_engine:   fingerprint:
+08-17 22:53:20.528  1596  1596 I update_engine:   app_id:
+08-17 22:53:20.528  1596  1596 I update_engine:   already_applied: false
+08-17 22:53:20.565  1596  1596 I update_engine: [INFO:postinstall_runner_action.cc(67)] postinstall mount point: /postinstall
+08-17 22:53:20.601  1596  1596 I update_engine: [INFO:metrics_utils.cc(318)] Number of Reboots during current update attempt = 0
+08-17 22:53:20.667  1596  1596 I update_engine: [INFO:metrics_utils.cc(326)] Payload Attempt Number = 1
+08-17 22:53:20.709  1596  1596 I update_engine: [INFO:metrics_utils.cc(343)] Update Monotonic Timestamp Start = 1/1/1970 0:05:49 GMT
+08-17 22:53:20.755  1596  1596 I update_engine: [INFO:metrics_utils.cc(352)] Update Boot Timestamp Start = 1/1/1970 0:05:49 GMT
+08-17 22:53:20.797  1596  1596 I update_engine: [INFO:update_attempter_android.cc(680)] Scheduling an action processor start.
+08-17 22:53:20.844  1596  1596 I update_engine: [INFO:action_processor.cc(51)] ActionProcessor: starting UpdateBootFlagsAction
+08-17 22:53:20.889  1596  1596 I update_engine: [INFO:update_boot_flags_action.cc(45)] Marking booted slot as good.
+08-17 22:53:21.394  1596  1596 E update_engine: [ERROR:boot_control_android.cc(153)] Unable to call MarkBootSuccessful: Status(EX_TRANSACTION_FAILED): 'DEAD_OBJECT: '
+08-17 22:53:21.455  1596  1596 E update_engine: [ERROR:update_boot_flags_action.cc(65)] Updating boot flags failed, but ignoring its failure.
+08-17 22:53:21.521  1596  1596 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished UpdateBootFlagsAction with code ErrorCode::kSuccess
+08-17 22:53:21.601  1596  1596 I update_engine: [INFO:action_processor.cc(143)] ActionProcessor: starting CleanupPreviousUpdateAction
+08-17 22:53:21.650  1596  1596 I update_engine: [INFO:cleanup_previous_update_action.cc(149)] Starting/resuming CleanupPreviousUpdateAction
+08-17 22:53:21.697  1596  1596 I update_engine: [INFO:cleanup_previous_update_action.cc(189)] Boot completed, waiting on markBootSuccessful()
+08-17 22:53:22.289 25363 25363 I update_engine: [INFO:main.cc(55)] A/B Update Engine starting
+08-17 22:53:22.349 25363 25363 I update_engine: [INFO:boot_control_android.cc(68)] Loaded boot control hidl hal.
+08-17 22:53:22.396 25363 25363 I update_engine: [INFO:daemon_state_android.cc(44)] Booted in dev mode.
+08-17 22:53:22.451 25363 25363 I update_engine: [INFO:update_attempter_android.cc(1070)] Scheduling CleanupPreviousUpdateAction.
+08-17 22:53:22.541 25363 25363 I update_engine: [INFO:action_processor.cc(51)] ActionProcessor: starting CleanupPreviousUpdateAction
+08-17 22:53:22.612 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(149)] Starting/resuming CleanupPreviousUpdateAction
+08-17 22:53:22.658 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(189)] Boot completed, waiting on markBootSuccessful()
+08-17 22:53:22.700 25363 25363 I update_engine: EnsureMetadataMounted does nothing in Android mode.
+08-17 22:53:22.747 25363 25363 I update_engine: Read merge statistics file failed: No such file or directory
+08-17 22:53:22.797 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(261)] Waiting for any previous merge request to complete. This can take up to several minutes.
+08-17 22:53:22.842 25363 25363 E update_engine: Read state file failed: No such file or directory
+08-17 22:53:22.883 25363 25363 E update_engine: Read state file failed: No such file or directory
+08-17 22:53:22.924 25363 25363 I update_engine: CheckMergeState for snapshots returned: 0
+08-17 22:53:22.965 25363 25363 I update_engine: ProcessUpdateState handling state: 0
+08-17 22:53:23.030 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(287)] Can't find any snapshot to merge.
+08-17 22:53:23.105 25363 25363 E update_engine: Read state file failed: No such file or directory
+08-17 22:53:23.147 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+08-17 22:53:23.184 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(469)] Not reporting merge stats because state is None
+08-17 22:53:23.278 25363 25363 I update_engine: [INFO:cleanup_previous_update_action.cc(130)] Stopping/suspending/completing CleanupPreviousUpdateAction
+08-17 22:53:23.319 25363 25363 I update_engine: [INFO:action_processor.cc(116)] ActionProcessor: finished last action CleanupPreviousUpdateAction with code ErrorCode::kSuccess
+08-17 22:53:23.359 25363 25363 I update_engine: [INFO:update_attempter_android.cc(546)] Processing Done.
+08-17 22:53:23.405 25363 25363 I update_engine: [INFO:update_attempter_android.cc(694)] Terminating cleanup previous update.

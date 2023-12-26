@@ -1,0 +1,9 @@
+# keys are used for documentation only
+# as values are passed as
+#    rxswin_infos = {
+#        {
+#            rxswin = "RX AAAAA",
+#        },
+#        ...
+#    },
+data0=RX AAAAA

@@ -1,0 +1,13 @@
+{
+    "signatures": [
+        null
+    ],
+    "signed": {
+        "body": {
+            "vin":"12345678901234567",
+            "commandId":4,
+            "command":"StartCampaign", 
+            "campaignId":0
+        }
+    }
+}

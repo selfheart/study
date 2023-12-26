@@ -1,0 +1,4 @@
+En-US,light_check,"This is sample message with key light_check aimed for US customers."
+En-US,defect_check,"This is sample message with key defect_check aimed for US customers."
+Ja-JP,light_check,"light_checkをキーに持つ、日本の顧客に向けたサンプルメッセージです。"
+Ja-JP,defect_check,"defect_checkをキーに持つ、日本の顧客に向けたサンプルメッセージです。"

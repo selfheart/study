@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4.5. Delta Subcommand &mdash; Trusted Update System 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/rtd_extension.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. API Reference" href="../api_reference.html" />
+    <link rel="prev" title="4.4. Deployment Tool subcommand" href="dtool.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Trusted Update System
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../document_architecture.html">1. Document Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasenote.html">2. Release Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cli_reference.html">4. TUS CLI Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tus.html">4.1. TUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tup.html">4.2. TUP Subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdp.html">4.3. PDP Subcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dtool.html">4.4. Deployment Tool subcommand</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.5. Delta Subcommand</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-differential-data">4.5.1. Create differential data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apply-patch">4.5.2. Apply patch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">5. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_overview.html">6. Trusted Update System Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tup.html">7. Trusted Update Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tus_sdk_roadmap.html">8. TUS SDK Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">9. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Trusted Update System</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../cli_reference.html"><span class="section-number">4. </span>TUS CLI Reference</a> &raquo;</li>
+        
+      <li><span class="section-number">4.5. </span>Delta Subcommand</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!--
+TMC CONFIDENTIAL
+$TUSLibId$
+Copyright (C) 2022 TOYOTA MOTOR CORPORATION
+All Rights Reserved.
+-->
+<div class="section" id="delta-subcommand">
+<h1><span class="section-number">4.5. </span>Delta Subcommand<a class="headerlink" href="#delta-subcommand" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus delta -h
+Usage: tus delta [OPTIONS] [COMMAND]
+
+Description:
+  TUS-SDK delta update command
+
+Options:
+  -h         print help message
+
+Commands:
+    diff       create differential data
+    patch      apply patch
+</pre></div>
+</div>
+<div class="section" id="create-differential-data">
+<h2><span class="section-number">4.5.1. </span>Create differential data<a class="headerlink" href="#create-differential-data" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">delta</span> <span class="pre">diff</span></code> command creates a delta file from a source file and a destination file.</p>
+<p>Detail usage is following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus delta diff -h
+Usage: tus delta diff [OPTIONS] SRC_FILE DST_FILE DELTA_FILE
+
+Description:
+  Create DELTA_FILE from SRC_FILE and DST_FILE.
+
+Options:
+  -h                      print help message
+  --algorithm ALGORITHM   specify delta algorithm (default:bsdiff)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> specifies the delta algorithm.
+<code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> is optional.  If not specified, the delta algorithm will be bsdiff.
+Currently only bsdiff is supported as <code class="docutils literal notranslate"><span class="pre">--algorithm</span></code>.</p>
+</div>
+<div class="section" id="apply-patch">
+<h2><span class="section-number">4.5.2. </span>Apply patch<a class="headerlink" href="#apply-patch" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tus</span> <span class="pre">delta</span> <span class="pre">patch</span></code> command applies a delta file to a source file, to create a patched file.</p>
+<p>Detail usage is following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tus delta patch -h
+Usage: tus delta patch [OPTIONS] SRC_FILE PATCHED_FILE DELTA_FILE
+
+Description:
+  Apply DELTA_FILE to SRC_FILE, to create PATCHED_FILE.
+
+Options:
+  -h                      print help message
+  --algorithm ALGORITHM   specify delta algorithm (default:bsdiff)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> specifies the delta algorithm.
+<code class="docutils literal notranslate"><span class="pre">--algorithm</span></code> is optional.  If not specified, the delta algorithm will be bsdiff.
+Currently only bsdiff is supported as <code class="docutils literal notranslate"><span class="pre">--algorithm</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../api_reference.html" class="btn btn-neutral float-right" title="5. API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dtool.html" class="btn btn-neutral float-left" title="4.4. Deployment Tool subcommand" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022 TOYOTA MOTOR CORPORATION CONFIDENTIAL, All Rights Reserved..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

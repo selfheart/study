@@ -1,0 +1,590 @@
+<!--
+    Input:
+        manifest.xml
+        manifest.xml
+        manifest.xml
+-->
+<manifest version="4.0" type="device" target-level="6">
+    <hal format="hidl">
+        <name>android.hardware.audio</name>
+        <transport>hwbinder</transport>
+        <version>6.0</version>
+        <interface>
+            <name>IDevicesFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@6.0::IDevicesFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.audio.effect</name>
+        <transport>hwbinder</transport>
+        <version>6.0</version>
+        <interface>
+            <name>IEffectsFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@6.0::IEffectsFactory/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>android.hardware.automotive.audiocontrol</name>
+        <interface>
+            <name>IAudioControl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>IAudioControl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.automotive.vehicle</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IVehicle</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IVehicle/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IBluetoothHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IBluetoothAudioProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IBluetoothAudioProvidersFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <version>2.4</version>
+        <interface>
+            <name>ICameraProvider</name>
+            <instance>legacy/0</instance>
+        </interface>
+        <fqname>@2.4::ICameraProvider/legacy/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>ICryptoFactory</name>
+            <instance>playready</instance>
+        </interface>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>playready</instance>
+        </interface>
+        <fqname>@1.3::ICryptoFactory/playready</fqname>
+        <fqname>@1.3::IDrmFactory/playready</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gatekeeper</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IGatekeeper/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IGnss/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IHealth</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IHealth/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.keymaster</name>
+        <transport>hwbinder</transport>
+        <version>4.1</version>
+        <interface>
+            <name>IKeymasterDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@4.1::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ILight</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ILight/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>android.hardware.memtrack</name>
+        <interface>
+            <name>IMemtrack</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>IMemtrack/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.renderscript</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISensors</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISensors/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.soundtrigger</name>
+        <transport>hwbinder</transport>
+        <version>2.3</version>
+        <interface>
+            <name>ISoundTriggerHw</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.3::ISoundTriggerHw/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>ara.com.src.transportmanager</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ITransportManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ITransportManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.cardatamanager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICarDataManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICarDataManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.carnetservice</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ICarnetProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::ICarnetProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.diag</name>
+        <transport>hwbinder</transport>
+        <version>3.0</version>
+        <interface>
+            <name>IDiagProxy</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IMMDiagCtrlProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@3.0::IDiagProxy/default</fqname>
+        <fqname>@3.0::IMMDiagCtrlProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.dtlog.cardata</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDTCarData</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDTCarData/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.dtlog.diag</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDTDiag</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDTDiag/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.dtlog.server</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDTLogServer</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDTLogServer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.rvcservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IRvcProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IRvcProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.sysctrlpower</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISysCtrlPower</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISysCtrlPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>iauto.service.tsconnectservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITSConnectProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ITSConnectProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.display.color</name>
+        <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>IDisplayColor</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.3::IDisplayColor/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.display.postproc</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayPostproc</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayPostproc/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.audioctrl</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAudioCtrl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAudioCtrl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.cameractrl</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICameraCtrl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICameraCtrl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.devmanager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDevManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDevManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.diag</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDiag</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDiag/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.gnssdr</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGnssdrd</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IGnssdrd/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.iapservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIap2Proxy</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IIapUsbProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IIap2Proxy/default</fqname>
+        <fqname>@1.0::IIapUsbProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.iapservice.ea</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIapEAProxy</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IIapEAProxy/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.iautoprivate.diagd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDiagd</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDiagd/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.iautoprivate.ucom</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICom</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICom/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.input</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IInput</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IInput/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.internal.inicnet.ls3ctl</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IInicnetLs3Ctl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IInicnetLs3Ctl/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.internal.inicnet.ls3sys</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IInicnetLs3Sys</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IInicnetLs3Sys/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.internal.rawinfo</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IRawInfo</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IRawInfo/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.internal.securitychip</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IHsmManagerExtend</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IHsmManagerExtend/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILight</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ILight/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.localradio</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILocalRadio</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ILocalRadio/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.securitychip</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IHsmManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IHsmManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.usb</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUsbController</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IUsbController/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.iauto.hardware.vehicleconfig</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVehicleConfig</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IVehicleConfig/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.cacert</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.capabilityconfigstore</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICapabilityConfigStore</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICapabilityConfigStore/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qseecom</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQSEECom</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IQSEECom/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qteeconnector</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAppConnector</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IGPAppConnector</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAppConnector/default</fqname>
+        <fqname>@1.0::IGPAppConnector/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.tui_comm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITuiComm</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ITuiComm/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.uac.sfm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISfm</name>
+            <instance>SecurusHAL</instance>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISfm/SecurusHAL</fqname>
+        <fqname>@1.0::ISfm/default</fqname>
+    </hal>
+	 <hal format="hidl">
+        <name>vendor.iauto.hardware.installerhal.ecu</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IEcuInstallerHal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IEcuInstallerHal/default</fqname>
+    </hal>
+	 <hal format="hidl">
+        <name>vendor.iauto.hardware.installerhal.mcu</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMcuInstallerHal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IMcuInstallerHal/default</fqname>
+    </hal>
+    <sepolicy>
+        <version>32.0</version>
+    </sepolicy>
+    <kernel target-level="6"/>
+</manifest>
