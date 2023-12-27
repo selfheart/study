@@ -175,9 +175,7 @@ VF区域包含在ICV树的范围内，可以是专用的，也可以与其他人
 
 ## 5、FF
 
-
-
-
+ ![image-20231226204945141](C:\Users\jiangzhuangzhuang\study\study\24MM\TUS\TUP 包解析.assets\image-20231226204945141.png)
 
 
 
@@ -282,7 +280,7 @@ offset指明了被检测数据的位置，前16位是保留位，后48位是值�
 
 
 
-4、FF中校验Root ICV
+#### 4、FF中校验Root ICV
 
 ![image-20231222171343707](C:\Users\jiangzhuangzhuang\study\study\24MM\TUS\TUP 包解析.assets\image-20231222171343707.png)
 
