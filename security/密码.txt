@@ -1,5 +1,6 @@
 iauto域密码
 Jzz123456
+开发机windows密码
 Jzz777888
 jiangzhuangzhuang@iauto.com 密码
 jzz0226...
@@ -9,4 +10,4 @@ jzz0226...
 Jiang456
 
 storm\jiangzhuanzhuang
-密码：Jzz123456
+密码：Jzz456789
