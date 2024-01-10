@@ -8,7 +8,7 @@
 
 ![image-20231201162611302](C:\Users\jiangzhuangzhuang\study\study\24MM\TUS\TUP 包解析.assets\image-20231201162611302.png)
 
-### 1.1 数据类型
+## 1.1 数据类型
 
 ![image-20231204180738696](C:\Users\jiangzhuangzhuang\study\study\24MM\TUS\TUP 包解析.assets\image-20231204180738696.png)
 
@@ -20,7 +20,7 @@
 
 字节字符串通常用于处理二进制数据，例如文件读写、网络通信、加密解密等。由于字节字符串直接表示二进制数据，因此可以更灵活地处理各种格式的数据，而不仅限于文本数据。
 
-### 1.2　TLV格式
+## 1.2　TLV格式
 
 TLV（Type-Length-Value）是一种常用的数据编码格式，用于在计算机系统中表示和传输结构化数据。它由三个字段组成：
 
@@ -223,7 +223,7 @@ ICV树和ICV数组都提供了保护数据完整性并便于处理需要随机�
 
 #### 1、VF中读到的Type details为ICV-BLOCK
 
-TODO：
+<font color='red'>TODO：</font>
 1）表中的数据类型未定义
 
 2）表中IC V算法逻辑没定义范围（会用到哪些算法）
